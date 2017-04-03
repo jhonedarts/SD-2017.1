@@ -1,0 +1,13 @@
+﻿Data: 03/04/2017
+Equipe: Jhone, Kelvin e Leandro
+Tutor: Anfranserai
+
+Relatório Lab0 2017.1   
+
+Os arquivos Mux2_1.v, FA.v e Adder.v foram modificados.
+Implementamos o arquivo Mux2_1.v utilizando 4 portas logicas, sendo 2 and’s, 1 or e 1 not. Estas modificações encontram-se nas linhas 20 a 25 do aquivo Mux2_1.v e comentamos o trecho de codigo da linha 31.
+No arquivo FA.v, da linha 16 a 21, implementamos um somador completo utilizando 2 portas xor’s, 2 portas and’s e 1 or. Essa foi baseada na tabela verdade encontrada na seção 5.4 do documento lab0.pdf.
+No arquivo Adder.v, da linha 29 a 40, foi implementado um “generate” que instancia o modulo FA o numero de vezes que é passado pelo parametro “Width”. Gerando um somador de 8bits, pois Width = 8.
+
+No arquivo ml505top.v foram feitas as seguintes modificações: linha 27 trecho de codigo foi comentado, linha 53 a 59 instaciamento do modulo FA.v, linha 63 trecho de codigo comentado.
+
