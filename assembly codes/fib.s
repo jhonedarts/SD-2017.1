@@ -1,7 +1,7 @@
 .text
 	.global main
 	main:
-		movi r17, 5 					#QUANTIDADE DE NUMEROS NA SEQUENCIA DE FIB
+		movi r17, 2 					#QUANTIDADE DE NUMEROS NA SEQUENCIA DE FIB
 		#mov r10, $gp				#Endereco de armazenamento
 		movi r18, 1
 		
@@ -28,5 +28,7 @@
 	        ldw  r31, 8(r27)         #
 	        addi r27, r27, 12       # decrease the stack size
 	        jmp r31
+		
+		
 			
 .data

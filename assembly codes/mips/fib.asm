@@ -1,33 +1,65 @@
-.module fibonacci
-	.text
-		li $s1, 15 					#QUANTIDADE DE NUMEROS NA SEQUENCIA DE FIB
-		move $t2, $gp				#Endereco de armazenamento
-		
-		fib:
-			subi $sp,$sp,12         # save registers on stack
-	        sw $s1, 0($sp)          # save $s1 = n
-	        sw $s0, 4($sp)          # save $s0
-	        sw $ra, 8($sp)          # save return address $ra
-	        bgt $s1,1, gen          # if n>1 then goto generic case
-	        move $v0,$s1            # output = input if n=0 or n=1
-	        j rreg                  # goto restore registers
-		
-		gen:
-			subi $s1,$s1,1           # param = n-1
-	        jal fib                 # compute fib(n-1)
-	        move $s0,$v0            # save fib(n-1)
-	        sub $s1,$s1,1           # set param to n-2
-	        jal fib                 # and make recursive call
-	        add $v0, $v0, $s0       # $v0 = fib(n-2)+fib(n-1)
-		
-		rreg:
-			lw  $s1, 0($sp)         # restore registers from stack
-	        lw  $s0, 4($sp)         #
-	        lw  $ra, 8($sp)         #
-	        addi $sp, $sp, 12       # decrease the stack size
-	        jr $ra
+.data
+msg:	.asciiz "Insira um numero: "
+msg2:	.asciiz " "
+	
+	.text 
+	.globl main
+	
+main:
+	li $s0,0
+	li $v0,4
+	la $a0,msg
+	syscall
+	li $v0,5
+	syscall
+	bge $v0,20,end		#if n<=20
+	li $s1,1		#c=1
+	move $s2,$v0		#n
+loop:	
+	move $a0,$s0		#move i -> int i
+	bgt $s1,$s2,end		#if c<=n
+	jal fib
+	move $a0,$v0		#move return -> $a0 to print
+	li $v0,1
+	syscall
+	la $a0,msg2
+	li $v0,4
+	syscall
+	addi $s1,$s1,1		#c=c+1
+	addi $s0,$s0,1		#i=i+1
+	j loop
 
+end:
+	li $v0,10
+	syscall
 
+##################################
 
-			
-.end
+ fib:
+	addi $sp, $sp, -12
+	sw $ra, 8($sp)
+	sw $s0, 4($sp)
+	addi $v0, $zero, 1
+	beq $a0, 0, fin2
+	addi $t0, $zero, 1
+	beq $a0, $t0, fin
+	addi $a0, $a0, -1
+	sw $a0, 0($sp)
+	jal fib
+	add $s0, $v0, $zero
+	lw $a0, 0($sp)
+	addi $a0, $a0, -1
+	jal fib
+	add $v0, $v0, $s0
+fin:
+	lw $s0, 4($sp)
+	lw $ra, 8($sp)
+	addi $sp, $sp, 12
+	jr $ra
+	
+fin2:				#necessário criar esta label para retornar 0
+	li $v0,0		
+	lw $s0, 4($sp)
+	lw $ra, 8($sp)
+	addi $sp, $sp, 12
+	jr $ra
