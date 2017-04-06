@@ -1,6 +1,6 @@
 .module primos
 	.text
-	
+	.data
 		movi $s4, 15						#QUANTIDADE DE NUMEROS PRIMOS(entrada)
 		movi $s0, 2						#dividendo
 		mov  $s1, $s0					#divisor
@@ -21,7 +21,7 @@
 		VERIFY:
 			bne $s3, $t1, END			#se nao houver apenas 2 divisoes corretas(nao e primo)
 			addi $s4, $s4, -1			#se for, contabiliza mais um numero primo na quantidade informada
-			sw $s0, 0($t2)				#armazena na memoria
+			stw $s0, 0($t2)				#armazena na memoria
 			addi $t2, $t2, 1			#incrementa a posicao da memoria para um possivel numero primo
 		
 		END:
