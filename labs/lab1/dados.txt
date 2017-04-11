@@ -1,0 +1,90 @@
+Questoes iniciais:
+
+1. 16 LEs
+
+2. Normal e aritímetico. O modo normal é adequado para aplicações de logica geral e funções
+combinacionais. 4-input LUT, 4 inputs + Cin (carry de entrada). O modo aritmético é ideal 
+para implementar adicionadores, contadores, acumuladores e comparadores, pois implementam um
+adicionador completo de 2bits e uma cadeia de transporte básica. Duas 3-input LUT, cada uma com 4 entradas para dados e uma Cin.
+
+3. 4 inputs
+
+4. 6.272 a 144.480 LEs dependendo do modelo. A que temos no laborátorio tem 28.848 LEs (EP4CE30)
+
+5. Estimamos 40 LEs, pois usamos 5 portas lógicas na implementação do FA.v sendo o mesmo instanciado 8 vezes em Adder.v
+__________________________________________
+
+Adder 8
+
+LEs: 15
+	normal/aritmetic: 15/0
+LABs: 1
+Delay Datas:
+RR:12.200 RF:12.291 FR:12.746 FF:12.775
+Delay Max: 12.775
+__________________________________________
+
+Adder 16
+
+LEs: 31
+	normal/aritmetic: 31/0
+LABs: 2
+Delay Datas:
+RR:20.234 RF:20.316 FR:21.187 FF:21.207
+Delay Max: 21.207
+__________________________________________
+
+Adder 32
+
+LEs: 67
+	normal/aritmetic: 67/0
+LABs: 6
+Delay Datas:
+RR:35.444 RF:35.405 FR:36.466 FF:36.382
+Delay Max: 36.466
+__________________________________________
+__________________________________________
+
+BehavioralAdder 8
+
+LEs: 9
+	normal/aritmetic: 1/8
+LABs: 1
+Delay Datas:
+RR:10.763 RF:10.804 FR:10.976 FF:11.071
+Delay Max: 11.071
+__________________________________________
+
+BehavioralAdder 16
+
+LEs: 17
+	normal/aritmetic: 1/16
+LABs: 2
+Delay Datas:
+RR:10.621 RF:10.536 FR:10.974 FF:10.835
+Delay Max: 10.974
+__________________________________________
+
+BehavioralAdder 32
+
+LEs: 33
+	normal/aritmetic: 1/32
+LABs: 3
+Delay Datas:
+RR:12.871 RF:12.561 FR:13.195 FF:12.939
+Delay Max: 13.195
+__________________________________________
+
+Questões Finais
+
+1. O número de LEs foi consideravelmente menor do que foi estimado, pois Um LE implemente mais de uma única porta lógica.
+
+2. O behavioralAdder fez uso de uma macro função para fazer a soma, diferente do que ocorre na
+Adder que fez uso de portas logicas para alcançar o resultado. Isso implicou que essas portas
+implementadas usando LEs normais. Já no BehavioralAdder isso nao acontece deixando a escolha da composição mais livre, sendo que para a operação "+" O LE aritimetico é o mais ideal.
+
+3. Exatamente porque o Adder que implementados faz uso de portas logicas como "and", "xor", "or", etc, implicando em uma composição de LEs normais. A implementação do BehavioralAdder resulta em uma composição de LEs aritimeticos (em sua maiora), que são melhores para essa finalidade e portanto são necessários um numero menor.
+
+
+
+

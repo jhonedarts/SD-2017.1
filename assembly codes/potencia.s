@@ -17,6 +17,7 @@
 		Endfor: 
 		movia r9, resultado
 		stw r8, 0(r9)		   #guarda o resultado na memoria
+		ldw r10, 0(r9)
 .data
 resultado:
 .word 0
