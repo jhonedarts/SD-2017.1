@@ -69,18 +69,4 @@ end:
 #msg:	.asciz "Insira um numero: "
 #msg2:	.asciz " "
 saida:
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0  		#15 words
