@@ -122,15 +122,16 @@ bubblesort: # int[] arr(a0), int n(a1)
       	addi r27, r27, 12		
       ################################################################## 
       endsort:
-      	jmp r31
+      	#jmp r31
+      	br exit
       ##################################################################
       # RETURN FROM FUNCTION
       ##################################################################
 
 
 .data
-nums: .word 55,88,0,22,77,44,99,33,110,66,121,11            # "array" of 12 words to contain values
-size: .word  12                                             # size of "array" 
+nums: .word 55,88,0,22,77,44,99,33,110,66            # "array" of 12 words to contain values
+size: .word  10                                             # size of "array" 
 
 ########################################################################
 #########  routine to print the numbers on one line. 
@@ -158,8 +159,11 @@ size: .word  12                                             # size of "array"
       bge r9, r0, out         # repeat if not finished
       jmp   r31              # return
 ########################################################################
-
+exit:
 .data
 saida:
 #space:.asciiz  " "          # space to insert between numbers
 #head: .asciiz  "Sorted array:\n"
+
+#reference:
+# https://github.com/atorres1929/MIPS-BubbleSort/blob/master/bubble_sort.asm

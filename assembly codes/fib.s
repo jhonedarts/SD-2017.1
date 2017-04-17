@@ -70,3 +70,6 @@ end:
 #msg2:	.asciz " "
 saida:
 .word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0  		#15 words
+
+#reference
+# https://www.fatalhalt.net/content/mips-assembly-recursive-fibonacci
