@@ -1,10 +1,36 @@
-.text
-	
+.data
+.equ UART0, 0x860
+resultado:
+.word 0
+msg:
+.asciz "Digite um numero inteiro (Base): "
+msg1:
+.asciz "Digite um numero inteiro (Expoente): "
+msg2:
+.asciz "Resultado: "
+
+.text	
 	.global main
 	main:
+		movi r20, 10 		# 10 = codigo do enter
+		
+		movia r4, msg		##
+		movia r5, UART0		# printf
+		call nr_uart_txstring	##
+		call scanf1
+		scan1:
+		mov r16, r21
+		
+		movia r4, msg1		##
+		movia r5, UART0		# printf
+		call nr_uart_txstring	##			
+		mov r21, r0
+		call scanf2
+		scan2:
+		mov r17, r21
 				
-		movi r16, 7 		   #DEFINE A BASE
-		movi r17, 3 		   #DEFINE A POTENCIA
+		#movi r16, 7 		   #DEFINE A BASE
+		#movi r17, 3 		   #DEFINE A POTENCIA
 		movi r18, 1 		   #CONTADOR DO LOOP
 		mov r8, r16		   #atribui a primeira iteracao, colocando a base em r8
 	
@@ -17,7 +43,36 @@
 		Endfor: 
 		movia r9, resultado
 		stw r8, 0(r9)		   #guarda o resultado na memoria
-		ldw r10, 0(r9)
-.data
-resultado:
-.word 0
+		movia r4, msg2		##
+		movia r5, UART0		# printf
+		call nr_uart_txstring	##
+		mov r4, r8		##
+		movia r5, UART0		# printf result
+		call nr_uart_txhex	##
+		br exit
+		
+		#ldw r10, 0(r9)
+	scanf1:	movia r4, UART0		
+		call nr_uart_rxchar
+		blt r2, r0, scanf1
+		mov r4, r2
+		movia r5, UART0
+		call nr_uart_txchar
+		beq r4, r20, scan1	#apertou enter sai do scanf
+	cont:	mul r21, r21, r20
+		subi r2, r2, 0x30
+		add r21, r21, r2
+		br scanf1
+		
+	scanf2:	movia r4, UART0		
+		call nr_uart_rxchar
+		blt r2, r0, scanf2
+		mov r4, r2
+		movia r5, UART0
+		call nr_uart_txchar
+		beq r4, r20, scan2	#apertou enter sai do scanf
+	cont:	mul r21, r21, r20
+		subi r2, r2, 0x30
+		add r21, r21, r2
+		br scanf2
+	exit:
