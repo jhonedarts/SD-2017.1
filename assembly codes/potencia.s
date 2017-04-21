@@ -17,16 +17,14 @@ msg2:
 		movia r4, msg		##
 		movia r5, UART0		# printf
 		call nr_uart_txstring	##
-		call scanf1
-		scan1:
+		call scanf
 		mov r16, r21
 		
 		movia r4, msg1		##
 		movia r5, UART0		# printf
 		call nr_uart_txstring	##			
 		mov r21, r0
-		call scanf2
-		scan2:
+		call scanf		
 		mov r17, r21
 				
 		#movi r16, 7 		   #DEFINE A BASE
@@ -52,27 +50,18 @@ msg2:
 		br exit
 		
 		#ldw r10, 0(r9)
-	scanf1:	movia r4, UART0		
+	scanf:	mov r22, r31
+	sloop:	movia r4, UART0		
 		call nr_uart_rxchar
-		blt r2, r0, scanf1
+		blt r2, r0, sloop
 		mov r4, r2
 		movia r5, UART0
-		call nr_uart_txchar
-		beq r4, r20, scan1	#apertou enter sai do scanf
+		call nr_uart_txchar		
+		bne r4, r20, cont	#apertou enter sai do scanf
+		jmp r22
 	cont:	mul r21, r21, r20
 		subi r2, r2, 0x30
 		add r21, r21, r2
-		br scanf1
-		
-	scanf2:	movia r4, UART0		
-		call nr_uart_rxchar
-		blt r2, r0, scanf2
-		mov r4, r2
-		movia r5, UART0
-		call nr_uart_txchar
-		beq r4, r20, scan2	#apertou enter sai do scanf
-	cont:	mul r21, r21, r20
-		subi r2, r2, 0x30
-		add r21, r21, r2
-		br scanf2
+		br sloop
+	
 	exit:
