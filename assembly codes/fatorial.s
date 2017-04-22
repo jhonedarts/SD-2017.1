@@ -1,26 +1,26 @@
 .global main
 .data
+.equ UART0, 0x860
   saida:
   .word 0
-  msgprompt: .asciz "Positive integer: "
-  msgres1: .asciz "The value of factorial("
+  msgprompt: .asciz "Digite o numero para calcular o fatorial: "
+  msgres1: .asciz "Fatorial = "
   msgres2: .asciz ") i "
 
 .text
 main:
-  movia r20, saida
-  # printing the prompt
-  #printf("Positive integer: ");
-  movia      r8, msgprompt    # load address of msgprompt into r8
-  ldw      r4, 0(r8)       # load data from address in r8 into r4
-  movi      r2, 4            # call code for print_string
-  #syscall                   # run the print_string #syscall
+  
+  movi r19, 10
+movia r5, UART0
 
-  # reading the input int
-  # scanf("%d", &number);
-  movi      r2, 5            # call code for read_int
+  movia r4, msgprompt    #print input2
+  call nr_uart_txstring
+
+  call scanf
+  
+  mov      r2, r22            # call code for read_int
   #syscall                   # run the read_int #syscall
-  movi    r8, 5          # store input in r8-------------------------------
+  mov    r8, r22         # store input in r8-------------------------------
 
   mov    r4, r8          # mov input to argument register r4
   addi    r27, r27, -12     # mov stackpointer up 3 words
@@ -32,35 +32,24 @@ main:
 
   ldw      r16, 4(r27)       # load final return val into r16
 
-  # printf("The value of 'factorial(%d)' is:  %d\n",
-  movia      r9, msgres1      # load msgres1 address into r9
-  ldw      r4, 0(r9)       # load msgres1_data value into r4
-  movi      r2, 4            # system call for print_string
-  #syscall                   # print value of msgres1_data to screen
 
   ldw      r4, 0(r27)       # load original value into r4
   movi      r2, 1            # system call for print_int
   #syscall                   # print original value to screen
 
-  movia      r10, msgres2      #load msgres2 address into r9
-  ldw      r4, 0(r10)       # load msgres_data value into r4
-  movi      r2, 4            # system call for print_string
-  #syscall                   # print value of msgres2_data to screen
-
   mov    r4, r16          # mov final return value from r16 to r4 for return
-  movi      r2, 1            # system call for print_int
-  #syscall                   # print final return value to screen
-  stw r16, 0(r20)
+  
+  
 
   addi    r27, r27, 12      # mov stack pointer back down where we started
+  
+  movia r4, msgres1    #print input2
+  call nr_uart_txstring
+  br printf
+  
 
-  # return 0;
-  movi      r2, 10           # system call for exit
-  #syscall                   # exit!
-  br exit
 
-.text
-factorial:
+factorial: 
   # base  case - still in parent's stack segment
   ldw      r8, 0(r27)       # load input from top of stack into register r8
   #if (x == 0)
@@ -86,7 +75,7 @@ factorial:
 
   addi    r27, r27, 12      # mov stackpointer back down for the parent call
 
-  jmp      r31               # jump to parent call
+  jmp r31               # jump to parent call
 
 .text
 #return 1;
@@ -94,6 +83,24 @@ returnOne:
   movi      r8, 1            # load 1 into register r8
   stw      r8, 4(r27)       # store 1 into the parent's return value register
   jmp      r31               # jump to parent call
+
+scanf:  mov r23, r31
+  sloop:  movia r4, UART0   
+    call nr_uart_rxchar
+    blt r2, r0, sloop
+    mov r4, r2
+    call nr_uart_txchar   
+    bne r4, r19, cont #apertou enter sai do scanf 
+    jmp r23 
+  cont: mul r22, r22, r19
+    subi r2, r2, 0x30
+    add r22, r22, r2
+    br sloop
+
+printf:  
+  mov r4, r16    ## printf result
+  call nr_uart_txhex  ##
+  
   
   exit:
   

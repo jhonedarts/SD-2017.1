@@ -3,7 +3,7 @@
 .equ UART0, 0x860
 saida:
 .word 0
-input_int: .asciz "Cálculo de numeros primos até a posição desejada "
+input_int: .asciz "Cálculo de numeros primos até a posição desejada " #Cálculo de numeros primos até a posição desejada
 input_int2: .asciz "Digite um número inteiro (enter para confimar):"
 input_int3: .asciz "Resultados: (hexadecimal)"
 space: .asciz " "
