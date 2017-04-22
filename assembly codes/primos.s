@@ -1,5 +1,6 @@
 #I/O console
 .data
+.equ UART0, 0x860
 saida:
 .word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 #input_int: .asciz "The prime numbers between 1 and n are:\n"
@@ -11,8 +12,8 @@ saida:
 .global main
 
 main:
-movia r20, saida
-movi r21, 0
+
+#movi r21, 0
 #movia r4, input_int #print "The prime numbers between 1 and 1000 are:"
 #movi r2,4
 #syscall
@@ -52,15 +53,19 @@ br divide
 
 fdprime:
 movi r2,1
-mov r4,r5
-#syscall
-stw r4, 0(r20)
-addi r20, r20, 2
+#mov r4,r5
+
+#stw r4, 0(r20)		#Salva os primos na memória
+#addi r20, r20, 2	#Parte comentada
+
+		mov r4, r5		##
+		movia r5, UART0		# printf result
+		call nr_uart_txhex	##
+
+
 addi r21, r21, 1 # count ++
-#print space
-#movi r2,4
-#movia r4,space
-#syscall
+
+
 addi r13,r13,1
 beq r13,r10,skip
 
