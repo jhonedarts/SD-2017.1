@@ -31,14 +31,23 @@ msg2:
 		#movi r17, 3 		   #DEFINE A POTENCIA
 		movi r18, 1 		   #CONTADOR DO LOOP
 		mov r8, r16		   #atribui a primeira iteracao, colocando a base em r8
-	
+		
+		movia r9, resultado
+		stw r18, 0(r9)
+		beq r17, r0, Endfor
+		
 		Loop: 
 		beq r18, r17, Endfor	   #verifica se o contador do loop e igual a potencia, ou seja, fim de calculo
+		mov r10, r8
 		mul r8, r8, r16		   #multiplica a base por ela mesmo e armazena em r8
 		addi r18, r18, 1	   #incrementa contador
 		br Loop			   #volta para o loop, caso contador != potencia
 		
 		Endfor: 
+		bne r17, r0, contp
+		movi r8, 1
+		movi r10, 1
+	contp:	
 		movia r9, resultado
 		stw r8, 0(r9)		   #guarda o resultado na memoria
 		movia r4, msg2		##
@@ -49,7 +58,6 @@ msg2:
 		call nr_uart_txhex	##
 		br exit
 		
-		#ldw r10, 0(r9)
 	scanf:	mov r22, r31
 	sloop:	movia r4, UART0		
 		call nr_uart_rxchar
