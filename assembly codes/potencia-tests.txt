@@ -4,10 +4,11 @@ Funcional
 informações importantes:
 Base deve ser um numero inteiro positivo
 Expoente deve ser um numero inteiro positivo
-limitado pelo valor de resultado e entrada que deve ser menor que 0xffffffff
+limitado pelo valor de resultado que só exibe numeros menores que 0xffffffff
+limitado pelo valor de entrada que nao admite numeros maiores que 0x7fffffff
 
 Funcional:
-testes com um conjunto de valores de 0,0; 1,1; 2,2; ... 9,9 exibem o resultado correto, já 10x10 não pois extrapola 0xFFFFFFFF
+testes com um conjunto de valores de  (base, expoente) 0,0; 1,1; 2,2; ... 9,9 exibem o resultado correto, já 10x10 não pois extrapola 0xFFFFFFFF
 exibindo apenas os 8 digitos menos significativos.
 O teste foi realizado fornecendo os valores de entrada e comparando sua saida com a saida experada
 

@@ -40,7 +40,7 @@ inputend:
 	add r17, r16, r8
 	ldw r10, 4(r17) 	# r10 <- A[j]
 	ldw r11, 0(r17) 	# r11 <- A[j-1]
-	bgt r10, r11, no_stwap 	# A[j] <= A[j-1]?
+	bge r10, r11, no_stwap 	# A[j] <= A[j-1]?
 	stw r10, 0(r17) 	# A[j-1] <- r10 \ move bubble
 	stw r11, 4(r17) 	# A[j] <- r11 / r10 upwards
 	movi r9, 1 		# stwap occurred

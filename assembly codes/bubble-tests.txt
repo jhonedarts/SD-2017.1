@@ -1,0 +1,26 @@
+Testes:
+Funcional
+
+informações importantes:
+O valor de entrada deve ser numero inteiro positivo
+limitado pelos valores de entrada que so admitem valores que possam ser expressos em 32bits com sinal, ou seja
+valores de -2.147.483.647 a 2.147.483.647 (-0x7fffffff a 0x7fffffff)
+Admite até 64 valores de entrada, esta limitação foi decisão de implementação. Poderia ser o numero correspondente
+ao total de palavras destinada a memoria de dados do processador NIOS.
+
+
+Funcional:
+testes com um conjunto de 7 vetores de tamanhos variados e incluindo valores negativos, e positivos (incluindo o zero)
+[0,1,2,3,4,5,6]
+[10,200,-5,0,0,44]
+[77777,99,2,-3,4,-555,-3,-9,2,-78]
+[0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10]
+[777,111,1010,333,444,666,888,555,999,444,1010,222,0]
+[3,4,1,5,66,3234,32423,44,212,,321,-4343,2312,31,23,12,31,23,1231231,23,-1,-234,25464,-545645]
+[0,2147483647,-2147483647]
+
+Todos foram ordenados corretamente.
+
+O teste foi realizado fornecendo os valores de entrada e comparando sua saida com a saida experada
+
+Fazer Exaustao...

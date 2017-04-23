@@ -1,0 +1,12 @@
+Testes:
+Funcional
+
+informações importantes:
+O valor de entrada deve ser numero inteiro positivo
+limitado pelo valor de resultado que só exibe numeros menores que 0x7fffffff
+limitado pelo valor de entrada que nao admite numeros maiores que 0x7fffffff
+
+Funcional:
+testes com um conjunto de valores de 0 a 100 interlavados de 5 em 5. Todos resultados saíram como o esperado 
+
+O teste foi realizado fornecendo os valores de entrada e comparando sua saida com a saida experada

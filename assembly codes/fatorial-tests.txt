@@ -1,0 +1,14 @@
+Testes:
+Funcional
+
+informações importantes:
+O valor de entrada deve ser numero inteiro positivo
+limitado pelo valor de resultado que só exibe numeros menores que 0x7fffffff
+limitado pelo valor de entrada que nao admite numeros maiores que 0x7fffffff
+
+Funcional:
+testes com um conjunto de valores de 0 a 13. Os resultados até 12 saíram como o esperado o 13° resultou em um 
+valor que estrapolou 32bits exibindo somente os 8 digitos em hexadecimal menos significativos.
+Logo, esse algoritmo só é capaz de calcular valores de 0 a 12 como entrada.
+
+O teste foi realizado fornecendo os valores de entrada e comparando sua saida com a saida experada

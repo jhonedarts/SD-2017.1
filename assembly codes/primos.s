@@ -4,7 +4,7 @@
 swap:
 .word 0
 input_int: .asciz "Cálculo de numeros primos até a posição desejada " #Cálculo de numeros primos até a posição desejada
-input_int2: .asciz "Digite um número inteiro (enter para confimar):"
+input_int2: .asciz "Digite um número inteiro positivo (enter para confimar):"
 input_int3: .asciz "Resultados: (hexadecimal)"
 space: .asciz " "
 
