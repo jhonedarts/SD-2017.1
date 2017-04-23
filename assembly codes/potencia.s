@@ -3,11 +3,11 @@
 resultado:
 .word 0
 msg:
-.asciz "Digite um numero inteiro (Base): "
+.asciz "Digite um numero inteiro positivo (Base): "
 msg1:
-.asciz "Digite um numero inteiro (Expoente): "
+.asciz "Digite um numero inteiro positivo (Expoente): "
 msg2:
-.asciz "Resultado: "
+.asciz "Resultado (hexadecimal): "
 
 .text	
 	.global main

@@ -127,3 +127,5 @@ printf:
 #   any data that belongs to a child call.
 # reference:
 # https://gist.github.com/dcalacci/3747521
+# 4.294.967.295 = 0xffffffff
+# fatorial de 13 = > 0xffffffff
