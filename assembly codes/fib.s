@@ -1,10 +1,10 @@
 .data
 .equ UART0, 0x860
 input1:	.asciz "Insira um numero: "
-input2:	.asciz "resultados em hexadecimal:"
-space:	.asciz " "
-saida: #64 words
-.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+input2:	.asciz "resultados (em hexadecimal):"
+#space:	.asciz " "
+#saida: #64 words //para salvar na memoria
+#.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 swap: #64 words
 .word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
@@ -12,29 +12,29 @@ swap: #64 words
 	.global main
 	
 main:
+	movi r19, 10
 	movia r20, swap		#guarda o endereço da memoria para swap
 	addi r20, r20, 256	#posiciona no final da swap
 	movi r16,0
-	movia r21, saida	#guarda o endereço das saidas em r21
+	#movia r21, saida	#guarda o endereço das saidas em r21
 	movi r16,0
-	#movi r2,4
-	#movia r4,msg
-	#call printf
-	#call scanf
+	movia r4,input1
+	call nr_uart_txstring
+	call scanf
+	movia r4,input2
+	call nr_uart_txstring
+	movia r4,10
+	call nr_uart_txchar
 	movi r17,1		#c=1
-	movi r18,35		#valor de entrada
+	mov r18,r22		#valor de entrada
 loop:	
 	mov r4,r16		#mov i -> int i
 	bgt r17,r18,end		#if c<=n
 	call fib
 	mov r4,r2		#mov return -> r4 to print
-	movi r2,1	
-	#call printf		#print number
-	stw r4, 0(r21)
-	addi r21,r21,4 
-	#movia r4,msg2
-	#movi r2,4
-	#call printf		#print space
+	#stw r4, 0(r21)
+	#addi r21,r21,4 
+	call printf		#print number		
 	addi r17,r17,1		#c=c+1
 	addi r16,r16,1		#i=i+1
 	br loop
@@ -75,7 +75,8 @@ fin2:				#necessário criar esta label para retornar 0
 	addi r20, r20, 8
 	jmp r31
 	
-scanf:	mov r23, r31
+scanf:				#lê numeros e concatena
+	mov r23, r31
 sloop:	movia r4, UART0		
 	call nr_uart_rxchar
 	blt r2, r0, sloop

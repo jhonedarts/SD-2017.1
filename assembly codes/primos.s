@@ -1,7 +1,7 @@
 #I/O console
 .data
 .equ UART0, 0x860
-saida:
+swap:
 .word 0
 input_int: .asciz "Cálculo de numeros primos até a posição desejada " #Cálculo de numeros primos até a posição desejada
 input_int2: .asciz "Digite um número inteiro (enter para confimar):"
@@ -15,7 +15,7 @@ space: .asciz " "
 main:
 movi r19, 10
 movia r5, UART0
-movia r20, saida
+movia r20, swap
 #movi r21, 0
 
 
@@ -124,6 +124,7 @@ printf: mov r23, r31
 	
 
 exit:
+subi r6, r6, 1
 
 #reference
 # http://icrontic.com/discussion/38236/prime-number-in-mips
