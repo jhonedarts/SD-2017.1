@@ -2,12 +2,8 @@
 .equ UART0, 0x860
 input1:	.asciz "Insira um numero: "
 input2:	.asciz "resultados (em hexadecimal):"
-#space:	.asciz " "
-#saida: #64 words //para salvar na memoria
-#.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 swap: #64 words
-.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-
+.skip 256
 .text 
 	.global main
 	

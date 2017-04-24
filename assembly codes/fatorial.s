@@ -4,7 +4,7 @@
   saida:
   .word 0
   swap: #64 words
-  .word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  .skip 256
   msgprompt: .asciz "Digite o numero para calcular o fatorial: "
   msgres1: .asciz "Fatorial = "
   msgres2: .asciz ") i "

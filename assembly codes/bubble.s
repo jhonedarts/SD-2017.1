@@ -1,8 +1,7 @@
 .data
 .equ UART0, 0x860
 A: #64 words
-.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- # declaracao array
+.skip 256 # declaracao array
 size: .word 0
 input1: .asciz "Digite os valores seguidos de [enter] ([space] para finalizar):"
 input2: .asciz "Vetor ordenado (hexadecimal):"
