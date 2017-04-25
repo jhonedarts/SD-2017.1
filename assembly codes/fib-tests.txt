@@ -1,17 +1,17 @@
 Testes:
 Funcional
 
-informações importantes:
+informaÃ§Ãµes importantes:
 O valor de entrada deve ser numero inteiro positivo
-limitado pelo valor de resultado que só exibe numeros menores que 0x7fffffff
+limitado pelo valor de resultado que sÃ³ exibe numeros menores que 0x7fffffff
 limitado pelo valor de entrada que nao admite numeros maiores que 0x7fffffff
-Só calcula até a 36° posição, na 37° estoura a pilha essa limitação ocorre por conta da maneira como que esta 
-sendo utilizada a pilha, que é um espaçõ limitado
+SÃ³ calcula atÃ© a 36Â° posiÃ§Ã£o, na 37Â° estoura a pilha essa limitaÃ§Ã£o ocorre por conta da maneira como que esta 
+sendo utilizada a pilha, que Ã© um espaÃ§Ãµ limitado
 
 Importante falar em alguma outra parte do doc que a pilha do nios tem 32 palavras, ou seja 128 Bytes
 
 Funcional:
-testes com um conjunto de valores de 0 a 40 onde até 36 exibe o resultado correto, a partir do 37 dá erro de de acesso 
-a endereço invalido da memoria no ponteiro da pilha, ou seja estouro de pilha 
+testes com um conjunto de valores de 0 a 40 onde atÃ© 32 exibe o resultado correto, a partir do 33 dÃ¡ erro de de acesso 
+a endereÃ§o invalido da memoria no ponteiro da pilha, ou seja estouro de pilha 
 
 O teste foi realizado fornecendo os valores de entrada e comparando sua saida com a saida experada
