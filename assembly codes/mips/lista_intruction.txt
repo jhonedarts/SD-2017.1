@@ -1,0 +1,21 @@
+addiu  ->  RD, RS, CONST16  -> RD = RS + CONST16{+/-} Extensão do sinal ou operando com sinal;
+addu   ->  RD, RS, RT       -> RD = RS + RT;
+addi   ->  RD, RS, CONST16  -> RD = RS + CONST16{+/-} Extensão do sinal ou operando com sinal;*(OVERFLOW TRAP)
+add    ->  RD, RS, RT       -> RD = RS + RT (OVERFLOW TRAP)
+div    ->  RS, RT           -> LO = RS±/RT±; ΗΙ = RS± MOD RT±
+mfhi   ->  RD               -> RD = HI
+bne    ->  RS, RT, OFF18    -> IF (RS ≠ RT) {PC += OFF18±};
+beq    ->  RS, RT, OFF18    -> IF (RS = RT) {PC += OFF18±};
+j      ->  ADDR28           -> PC = PC[31:28] :: ADDR28∅
+slti   ->  RD, RS, CONST16  -> RD = (RS± < CONST16±) ? 1 : 0
+mul    ->  RD, RS, RT       -> RD = RS± × RT±
+sub    ->  RD, RS, RT       -> RD = RS – RT (OVERFLOW TRAP)
+sw     ->  RS, OFF16(RT)    -> MEM32(RT + OFF16±) = RS
+lw     ->  RD, OFF16(RS)    -> RD = MEM32(RS + OFF16±)
+lui    ->  RD, CONST16      -> RD = CONST16 << 16
+ori    ->  RD, RS, CONST16  -> RD = RS | CONST16∅
+jal    ->  ADDR28           -> RA = PC + 8; PC = PC31:28 :: ADDR28∅
+jr     ->  RS               -> PC = RS
+sll    ->  RD, RS, SHIFT5   -> RD = RS << SHIFT5
+bgez   ->  RS, OFF18        -> IF (RS ≥ 0){PC += OFF18±};
+
