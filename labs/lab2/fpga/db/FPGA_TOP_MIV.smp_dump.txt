@@ -1,0 +1,13 @@
+
+State Machine - |FPGA_TOP_MIV|Lab2Lock:Lab2LockFSM|state_on
+Name state_on.Open1 state_on.Bad1 state_on.OK1 state_on.Locked state_on.Bad2 
+state_on.Locked 0 0 0 0 0 
+state_on.OK1 0 0 1 1 0 
+state_on.Bad1 0 1 0 1 0 
+state_on.Open1 1 0 0 1 0 
+state_on.Bad2 0 0 0 1 1 
+
+State Machine - |FPGA_TOP_MIV|LevelToPulse:LockEnterPulse|estado
+Name estado.alto 
+estado.parado 0 
+estado.alto 1 

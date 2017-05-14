@@ -1,0 +1,67 @@
+|FPGA_TOP_MIV
+clock_50MHz => clock_50MHz.IN2
+KEY[0] => LockReset.IN2
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => ~NO_FANOUT~
+KEY[4] => ~NO_FANOUT~
+KEY[5] => ~NO_FANOUT~
+KEY[6] => ~NO_FANOUT~
+KEY[7] => ~NO_FANOUT~
+KEY[8] => ~NO_FANOUT~
+KEY[9] => ~NO_FANOUT~
+KEY[10] => ~NO_FANOUT~
+KEY[11] => KEY[11].IN1
+Switch[0] => Digit[0].IN1
+Switch[1] => Digit[1].IN1
+Switch[2] => Digit[2].IN1
+Switch[3] => Digit[3].IN1
+LED_G <= Lab2Lock:Lab2LockFSM.Open
+LED_R <= Lab2Lock:Lab2LockFSM.Fail
+LED_B <= <GND>
+LEDM_C[0] <= <GND>
+LEDM_C[1] <= <VCC>
+LEDM_C[2] <= <VCC>
+LEDM_C[3] <= <VCC>
+LEDM_R[0] <= Lab2Lock:Lab2LockFSM.State
+LEDM_R[1] <= Lab2Lock:Lab2LockFSM.State
+LEDM_R[2] <= Lab2Lock:Lab2LockFSM.State
+LEDM_R[3] <= <VCC>
+LEDM_R[4] <= <VCC>
+LEDM_R[5] <= <VCC>
+LEDM_R[6] <= <VCC>
+LEDM_R[7] <= <VCC>
+
+
+|FPGA_TOP_MIV|LevelToPulse:LockEnterPulse
+Clock => estado~1.DATAIN
+Reset => estado~3.DATAIN
+Level => estado.DATAB
+Level => estado.DATAB
+Pulse <= Pulse.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_TOP_MIV|Lab2Lock:Lab2LockFSM
+Clock => state_on~2.DATAIN
+Reset => state_on~4.DATAIN
+Enter => state_on.OUTPUTSELECT
+Enter => state_on.OUTPUTSELECT
+Enter => state_on.OUTPUTSELECT
+Enter => state_on.OUTPUTSELECT
+Enter => state_on.DATAB
+Enter => Selector0.IN1
+Digit[0] => Equal0.IN3
+Digit[0] => Equal1.IN1
+Digit[1] => Equal0.IN0
+Digit[1] => Equal1.IN0
+Digit[2] => Equal0.IN2
+Digit[2] => Equal1.IN3
+Digit[3] => Equal0.IN1
+Digit[3] => Equal1.IN2
+State[0] <= State.DB_MAX_OUTPUT_PORT_TYPE
+State[1] <= State.DB_MAX_OUTPUT_PORT_TYPE
+State[2] <= State[2].DB_MAX_OUTPUT_PORT_TYPE
+Open <= Open.DB_MAX_OUTPUT_PORT_TYPE
+Fail <= Fail.DB_MAX_OUTPUT_PORT_TYPE
+
+
