@@ -4,7 +4,7 @@
  * Description: Guarda o proximo endereco e poe o atual
  * na saida.
  ***************************************************/
-module PC(enable, proxEndereco, out);
+module PC(enable, nextpc, out);
 	//enable input
 	input enable;
 	input[31:0] data_in;	
@@ -14,11 +14,11 @@ module PC(enable, proxEndereco, out);
 	assign out = PC;
 
 	always @ (*) begin
-		case(proxEndereco)
+		case(nextpc)
 			32'bxx: PC = 0;
 			default: begin
 				if(enable)
-					PC = proxEndereco;
+					PC = nextpc;
 			end
 		endcase
 	end

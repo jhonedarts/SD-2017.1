@@ -1,6 +1,6 @@
 /***************************************************
  * Modulo: parametros
- * Projeto: core_lapido
+ * Projeto: mips32
  * Description: parametros de opcode e controle
  ***************************************************/
 

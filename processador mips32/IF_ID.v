@@ -3,9 +3,9 @@
  * Projeto: mips32
  * Descrição: Registradores de pipeline
  ***************************************************/
-module IF_ID(reset, clock, pcIn, instIn, pcOut, instOut);
-	input reset;
-	input clock;
+module IF_ID(rst, clk, pcIn, instIn, pcOut, instOut);
+	input rst;
+	input clk;
 	input[31:0] pcIn
 	input[31:0] instIn;
 	output[31:0] pcOut;
@@ -15,7 +15,7 @@ module IF_ID(reset, clock, pcIn, instIn, pcOut, instOut);
 	assign pcOut = pc;	
 	assign instOut = inst;
 	
-	always @(posedge clock or posedge reset) begin
+	always @(posedge clk or posedge rst) begin
 		if (reset) begin
 			pc = 0;	
 			inst = 0;		
