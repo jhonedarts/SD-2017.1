@@ -4,7 +4,7 @@
  * Descrição: Registradores de pipeline
  ***************************************************/
 module ID_EX(rst, clk, opcodeIn, controlIn, pcIn, rsValueIn, rtValueIn, offset16In, offset26In, rsIn, rtIn, rdIn, 
-	opcodeOut, controlOut, pcOut, rsValueOut, rtValueOut, offset16Out, offset26Out, rsOut, rtOut, rdOut,);
+	opcodeOut, controlOut, pcOut, rsValueOut, rtValueOut, offset16Out, offset26Out, rsOut, rtOut, rdOut);
 	input rst, clk;
 	input[5:0] opcodeIn;
 	input[`CONTROL_SIZE-1:0] controlIn;
@@ -33,27 +33,27 @@ module ID_EX(rst, clk, opcodeIn, controlIn, pcIn, rsValueIn, rtValueIn, offset16
 
 	always @(posedge clk or posedge rst) begin
 		if (reset) begin
-			opcode = 0;
-			control = 0;
-			pc = 0;
-			rsValue = 0;
-			rtValue = 0;
-			offset16 = 0;
-			offset26 = 0;
-			rs = 0;
-			rt = 0;
-			rd = 0;
+			opcode <= 0;
+			control <= 0;
+			pc <= 0;
+			rsValue <= 0;
+			rtValue <= 0;
+			offset16 <= 0;
+			offset26 <= 0;
+			rs <= 0;
+			rt <= 0;
+			rd <= 0;
 		end else begin
-			opcode = opcodeIn;
-			control = controlIn;
-			pc = pcIn;
-			rsValue = rsValueIn;
-			rtValue = rtValueIn;
-			offset16 = offset16In;
-			offset26 = offset26In;
-			rs = rsIn;
-			rt = rtIn;
-			rd = rdIn;
+			opcode <= opcodeIn;
+			control <= controlIn;
+			pc <= pcIn;
+			rsValue <= rsValueIn;
+			rtValue <= rtValueIn;
+			offset16 <= offset16In;
+			offset26 <= offset26In;
+			rs <= rsIn;
+			rt <= rtIn;
+			rd <= rdIn;
 		end
 	end
 

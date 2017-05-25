@@ -13,11 +13,11 @@ module IF_ID(rst, clk, pcIn, instIn, pcOut, instOut);
 	
 	always @(posedge clk or posedge rst) begin
 		if (reset) begin
-			pc = 0;	
-			inst = 0;		
+			pc <= 0;	
+			inst <= 0;		
 		end else begin
-			pc = pcIn;
-			inst = instIn;
+			pc <= pcIn;
+			inst <= instIn;
 		end
 	end
 

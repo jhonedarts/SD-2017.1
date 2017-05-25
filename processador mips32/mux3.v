@@ -1,11 +1,11 @@
 /***************************************************
- * Modulo: mux3_1
+ * Modulo: mux3
  * Projeto: mips32
  ***************************************************/
-module mux3_1(a, b, c, sel, out);
-	input[31:0] a, b, c;
+module mux3 #(parameter width)(a, b, c, sel, out);
+	input[width-1:0] a, b, c;
 	input sel[1:0];
-	output[31:0] out;
+	output[width-1:0] out;
 
 	always @* begin
 		case (sel)

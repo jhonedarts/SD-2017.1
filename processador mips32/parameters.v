@@ -7,7 +7,7 @@
 `define WORD_SIZE   		32 // Tamanho da instrucao
 `define DATA_MEM_SIZE     1024 // Tamanho da memoria de dados
 `define INST_MEM_SIZE      512 // Tamanho da memoria de instrucao
-`define CONTROL_SIZE 		 8 // Tamanho do microcodigo gerado pela UC
+`define CONTROL_SIZE 		10 // Tamanho do microcodigo gerado pela UC
 
 /***************** Instrucao NOP *******************/
 `define NOP 32'h20000000 // addi r0,r0,0
