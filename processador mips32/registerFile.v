@@ -27,9 +27,9 @@ always @ (posedge clk or posedge rst) begin
             registers[i] <= 0;
         end
 	end else begin
-		if(regWrite) begin //escrita
+		if(regWrite>0) begin //escrita
 			registers[rWriteAddress] <= rWriteValue;
-		end
+		end 
 	end
 end
 //leitura

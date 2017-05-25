@@ -1,10 +1,10 @@
 Coisas que faltam fazer que não tem ou nao esta explicito no visimips
 
-- Geração ou suspensao do estagio IF quando um branch é tomado
 
 
 Coisas que nao tem no visimips ou que estão implicitas
 
-- input em HazardUnit: isBranch, será pego da saida da and no estagio MEM
+- hazardDetection tem novas entradas: isBranch(vem do estagio MEM) e isJump(vem da uc) e novas saidas: 
+ifIdFlush(flush pro registrador ifid), jumpStall(habilita geracao de bolhas no IF)
 
 
