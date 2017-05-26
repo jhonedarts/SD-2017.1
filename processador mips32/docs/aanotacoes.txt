@@ -6,5 +6,6 @@ Coisas que nao tem no visimips ou que estão implicitas
 
 - hazardDetection tem novas entradas: isBranch(vem do estagio MEM) e isJump(vem da uc) e novas saidas: 
 ifIdFlush(flush pro registrador ifid), jumpStall(habilita geracao de bolhas no IF)
+- Jumps. Para implementa-los foram necessarios um Extensor de sinal, um deslocador(shiftLeft), dois mux e um sinal de controle, alem de gaumentar o tamanho do mux RedDest.  
 
 
