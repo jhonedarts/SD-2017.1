@@ -7,7 +7,7 @@
 module PC(enable, nextpc, out);
 	//enable input
 	input enable;
-	input[31:0] data_in;	
+	input[31:0] nextpc;	
 	output[31:0] out;
 
 	reg[31:0] PC;	

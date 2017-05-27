@@ -8,10 +8,10 @@
 module mips32TOP(clk,rst);
 	input clk, rst;
 
-	wire rstIFID, rstIDEX, EXMEM, flushIFID, flushIDEX, flushEXMEM;
-	assign rstIFID = and (rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
-	assign rstIDEX = and (rst, flushIDEX);
-	assign rstEXMEM = and (rst, flushEXMEM);
+	wire rstIFID, rstIDEX, rstEXMEM, flushIFID, flushIDEX, flushEXMEM;
+	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
+	or(rstIDEX, rst, flushIDEX);
+	or(rstEXMEM, rst, flushEXMEM);
 	//wires... wires everwhere
 
 	//interStages
@@ -19,7 +19,7 @@ module mips32TOP(clk,rst);
 	//IF
 	wire[31:0] nextpc, currentpc, instructionIF, instructionIF1, pc4IF; 
 	
-wire pcWrite;
+	wire pcWrite;
 	//ID
 	wire[`CONTROL_SIZE-1:0] controlID;
 	wire isJump, jumpStall;
@@ -29,7 +29,7 @@ wire pcWrite;
 	wire[`CONTROL_SIZE-1:0] controlEX;
 	wire[31:0] pc4EX, opcodeEX, rsValueEX, rtValueEX, rtValueEX1, offset16EX, offset26EX, offset16EX1, offset26EX1;
 	wire[31:0] operating1, operating2, branchAddressEX1, branchAddressEX2, aluResultEX;
-	wire[] aluControlOut;
+	wire[5:0] aluControlOut;
 	wire flagZeroEX;
 	wire[1:0] forwardRS, forwardRT;
 	//MEM
@@ -60,17 +60,17 @@ wire pcWrite;
 		.out (pc4IF)
 	);
 
-	mux2 #(.width 32) mux2IF1(
-		.a (branchAddress)
-		.b (pc4IF)
-		.sel (isBranch)
+	mux2 #(.width (32)) mux2IF1(
+		.a (branchAddress),
+		.b (pc4IF),
+		.sel (isBranch),
 		.out (nextpc)
 	);
 
-	mux2 #(.width 32) mux2IF2(
-		.a (instructionIF)
-		.b (`NOP)
-		.sel (jumpStall)
+	mux2 #(.width (32)) mux2IF2(
+		.a (instructionIF),
+		.b (`NOP),
+		.sel (jumpStall),
 		.out (instructionIF1)
 	);
 
@@ -150,7 +150,7 @@ wire pcWrite;
 		.rdOut (rdEX)
 	);
 
-	mux3 #(.width 32) mux3EX1(
+	mux3 #(.width (32)) mux3EX1(
 		.a (rsValueEX),
 		.b (destRegValueWB),
 		.c (destRegValueMEM),
@@ -158,7 +158,7 @@ wire pcWrite;
 		.out (operating1)
 	);
 
-	mux3 #(.width 32) mux3EX2(
+	mux3 #(.width (32)) mux3EX2(
 		.a (rtValueEX),
 		.b (destRegValueWB),
 		.c (destRegValueMEM),
@@ -166,25 +166,25 @@ wire pcWrite;
 		.out (rtValueEX1)
 	);
 
-	mux3 #(.width 5) mux3EX3(
+	mux3 #(.width (5)) mux3EX3(
 		.a (rtEX),
 		.b (rdEX),
 		.c (rsEX),
-		.sel (controlEX[5:6]),
+		.sel (controlEX[6:5]),
 		.out (destRegEX)
 	);
 
-	shiftLeft shiftLeft(
-		.in (offset16EX)
+	shiftLeft shiftLeft1(
+		.in (offset16EX),
 		.out (offset16EX1)
 	);
 
-	shiftLeft shiftLeft(
-		.in (offset26EX)
+	shiftLeft shiftLeft2(
+		.in (offset26EX),
 		.out (offset26EX1)
 	);
 
-	mux2 #(.width 32) mux2EX1 (
+	mux2 #(.width (32)) mux2EX1 (
 		.a (rtValueEX1),
 		.b (offset16EX1),
 		.sel (controlEX[7]),
@@ -197,11 +197,11 @@ wire pcWrite;
 		.out (branchAddressEX1)
 	);
 
-	mux3 #(.width 32) mux3EX4 (
+	mux3 #(.width (32)) mux3EX4 (
 		.a (branchAddressEX1),
 		.b (offset26EX1),
 		.c (operating1),
-		.sel (controlEX[8:9]),
+		.sel (controlEX[9:8]),
 		.out (branchAddressEX2)
 	);
 
@@ -215,7 +215,7 @@ wire pcWrite;
 
 	aluControl aluControl (
 		.opcode (opcodeEX),
-		.function (offset16EX[26:31]),
+		.funct (offset16EX[31:26]),
 		.aluControlOut (aluControlOut)
 	);
 
@@ -234,7 +234,7 @@ wire pcWrite;
 		.rst (rstEXMEM), 
 		.clk (clk), 
 		.flagZeroIn (flagZeroEX), 
-		.controlIn (controlEX[0:4]), 
+		.controlIn (controlEX[4:0]), 
 		.branchAddressIn (branchAddressEX2), 
 		.aluResultIn (aluResultEX), 
 		.rtValueIn (rtValueEX1), 
@@ -247,7 +247,7 @@ wire pcWrite;
 		.destRegOut (destRegMEM)
 	);
 
-	assign isBranch = and(flagZeroMEM, controlMEM[2]) ;
+	and(isBranch, flagZeroMEM, controlMEM[2]);
 
 	dataMem dataMem (
 		.clk (clk), 
@@ -262,17 +262,17 @@ wire pcWrite;
 	MEM_WB memwb(
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlMEM[0:1]), 
+		.controlIn (controlMEM[1:0]), 
 		.memDataIn (memoryDataMEM), 
 		.aluResultIn (aluResultMEM), 
 		.destRegIn (destRegMEM), 
 		.controlOut (controlWB), 
 		.memDataOut (memoryDataWB), 
-		.aluResultOut (aluResultWB)
+		.aluResultOut (aluResultWB),
 		.destRegOut (destRegWB)
 	);
 
-	mux2 #(.width 32) mux2WB(
+	mux2 #(.width (32)) mux2WB(
 		.a (memoryDataWB),
 		.b (aluResultWB),
 		.sel (controlWB[0]),

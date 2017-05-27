@@ -40,9 +40,8 @@ module data_mem (clk, rst, address, writeData, write, read, dataOut);
 		else if(write) begin 	//escrita
 			memory[address] <= writeData;
 		end 
-		else if(read) begin 		//leitura
-			dataOut = memory[address];
-		end
 	end
+	//leitura
+	assign dataOut = (read)? memory[address] : 32'bxx;
 
 endmodule

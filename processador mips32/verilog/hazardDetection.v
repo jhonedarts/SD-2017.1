@@ -8,13 +8,13 @@
  ***************************************************/
 
 module hazardDetection(rs, rt, rtEX, memRead, isBranch, isJump, pcWrite, jumpStall, ifIdFlush, idExFlush, exMemFlush);
-	input reg[4:0] rs, rt, rtEX;
+	input[4:0] rs, rt, rtEX;
 	input memRead, isBranch, isJump;
 	output pcWrite, jumpStall, ifIdFlush, idExFlush, exMemFlush;
 
+	reg jump;
 	initial begin
-	    pcWrite =1'b1;
-	    jumpStall =1'b0;
+	    jump =1'b1;//jumpStall
 	end
 
 	//uso de um registrador que vai ser alterado por um lw
@@ -25,12 +25,16 @@ module hazardDetection(rs, rt, rtEX, memRead, isBranch, isJump, pcWrite, jumpSta
 	assign exMemFlush = (isBranch)? 1'b1 : 1'b0;
 	assign ifIdFlush = (isBranch)? 1'b1 : 1'b0;
 
-	//jump detectado no id
-	assign jumpStall = (isJump)? 1'b1;//ativa as bolhas no if
-	assign pcWrite = (isJump)? 1'b0;//trava o pc
-	//jump tomado no mem
-	assign jumpStall = (isBranch)? 1'b0;//desativa as bolhas no if
-	assign pcWrite = (isBranch)? 1'b1;//destrava o pc
-
-
+	assign jumpStall = jump;
+	
+	always @(isJump or isBranch) begin
+		//jump detectado no id
+		if (isJump) begin
+			jump = 1;			//ativa as bolhas no if  e trava o pc
+		end
+		//jump tomado no mem
+		else if (isBranch) begin
+			jump = 0;			//desativa as bolhas no if e destrava o pc
+		end
+	end
 endmodule

@@ -32,7 +32,7 @@ module ID_EX(rst, clk, opcodeIn, controlIn, pcIn, rsValueIn, rtValueIn, offset16
 	assign rdOut = rd;
 
 	always @(posedge clk or posedge rst) begin
-		if (reset) begin
+		if (rst) begin
 			opcode <= 0;
 			control <= 0;
 			pc <= 0;

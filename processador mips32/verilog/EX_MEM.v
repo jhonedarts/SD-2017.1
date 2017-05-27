@@ -4,7 +4,7 @@
  * Descrição: Registradores de pipeline
  ***************************************************/
 module EX_MEM(rst, clk, flagZeroIn, controlIn, branchAddressIn, aluResultIn, rtValueIn, destRegIn, flagZeroOut, controlOut, 
-	branchAddressOut, aluResulOut, rtValueOut, destRegOut);
+	branchAddressOut, aluResultOut, rtValueOut, destRegOut);
 	input rst, clk, flagZeroIn;
 	input[4:0] controlIn, destRegIn;
 	input[31:0] branchAddressIn, aluResultIn, rtValueIn;
@@ -24,7 +24,7 @@ module EX_MEM(rst, clk, flagZeroIn, controlIn, branchAddressIn, aluResultIn, rtV
 	assign destRegOut = destReg;
 
 	always @(posedge clk or posedge rst) begin
-		if (reset) begin
+		if (rst) begin
 			flagZero <= 0;
 			control <= 0;
 			branchAddress <= 0;

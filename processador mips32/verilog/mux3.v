@@ -4,15 +4,8 @@
  ***************************************************/
 module mux3 #(parameter width)(a, b, c, sel, out);
 	input[width-1:0] a, b, c;
-	input sel[1:0];
+	input[1:0] sel;
 	output[width-1:0] out;
 
-	always @* begin
-		case (sel)
-	        2'b00    : out = a;
-	        2'b01    : out = b;
-	        2'b10    : out = c;
-	        default : out = a;
-	    endcase
-    end
+assign out = (a&{width{(~sel[0] & ~sel[1])}}) | (b&{width{(~sel[1] & sel[0])}}) | (c&{width{(sel[1] & ~sel[0])}});
 endmodule

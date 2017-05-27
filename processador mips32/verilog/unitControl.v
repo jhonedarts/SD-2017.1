@@ -8,9 +8,9 @@
 `include "parameters.v"
 
 module unitControl (opcode, controlOut, isJump);
-	input reg[5:0] opcode;
+	input[5:0] opcode;
 	output reg [`CONTROL_SIZE-1:0] controlOut;
-	output isJump;
+	output reg isJump;
 	//  ID
 	// X : isJump		Se for um jump(1) //vai pro hazardDetection pra segurar NOP ate tomar o desvio
 	//controlOut :

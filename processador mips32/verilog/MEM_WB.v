@@ -23,7 +23,7 @@ module MEM_WB(rst, clk, controlIn, memDataIn, aluResultIn, destRegIn, controlOut
 	assign aluResultOut = aluResult;
 
 	always @(posedge clk or posedge rst) begin
-		if (reset) begin
+		if (rst) begin
 			control <= 0;
 			memData <= 0;
 			aluResult <= 0;

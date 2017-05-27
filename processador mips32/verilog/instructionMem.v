@@ -1,13 +1,13 @@
 /***************************************************
- * Module: memoriaInstrucao
+ * Module: instructionMem
  * Project: mips32
  * Description: Carrega amemoria de instrucoes com os valores
  * de entrada (rst). Recebe um address de sua memoria
  * e coloca na saida o valor contido nesse address.
  ***************************************************/
-`include "parametros.v"
+`include "parameters.v"
 
-module memoriaInstrucao(rst, address, instruction);
+module instructionMem(rst, address, instruction);
     input rst;
     input [`WORD_SIZE-1:0] address;
     output [`WORD_SIZE-1:0] instruction;
