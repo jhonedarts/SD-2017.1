@@ -1,0 +1,93 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/aluno/Documentos/lab3/sim/build
+vALU
+Z1 I7A8jDb?X:JW4=XTD;BOG12
+Z2 VX8IY7zXg<dYkZD0;`U4SX0
+Z3 d/home/aluno/Documentos/lab3/sim/build
+Z4 w1472125962
+Z5 8../../src/ALU.v
+Z6 F../../src/ALU.v
+L0 18
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s102 -nocovercells
+Z9 o+acc -source -nocovercells -O0
+Z10 !s92 +acc -source -nocovercells +incdir+../../src+incdir+../../sim/tb -O0
+Z11 n@a@l@u
+Z12 !s100 H]C3^kQB]?h^9LKjWiCQk2
+Z13 !s108 1497288622.604236
+Z14 !s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALU.v|
+Z15 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../src/ALU.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vALUdec
+Z16 I7D?6>]94g0;kg`UZF^C0U0
+Z17 VIH5nfG^GEgOhTIZfcG>4D2
+R3
+Z18 w1472116302
+Z19 8../../src/ALUdec.v
+Z20 F../../src/ALUdec.v
+L0 16
+R7
+r1
+31
+R9
+Z21 n@a@l@udec
+Z22 !s100 USDL?fWGl_bXWSkAZ=o3?3
+Z23 !s108 1497288622.578512
+Z24 !s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALUdec.v|
+Z25 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../src/ALUdec.v|
+R8
+R10
+!i10b 1
+!s85 0
+!s101 -O0
+vALUTestbench
+!i10b 1
+!s100 <I78nK1e]RYVk_;[jgiiC2
+IES_[CGm:C`HODKPn_[K4]3
+Vo`cUXigK]QT;E49l[Ccm<3
+R3
+w1472140070
+8../../sim/tb/ALUTestbench.v
+F../../sim/tb/ALUTestbench.v
+L0 15
+R7
+r1
+!s85 0
+31
+!s108 1497288622.653891
+!s107 ../../src/Opcode.vh|../../sim/tb/ALUTestbench.v|
+!s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../sim/tb/ALUTestbench.v|
+!s101 -O0
+R8
+R9
+R10
+n@a@l@u@testbench
+vALUTestVectorTestbench
+Z26 I0`NOhS[db<Gi@[0A<gNSF1
+Z27 VmN=OzPQjP4DD=`BUQS3Vj3
+R3
+Z28 w1472108802
+Z29 8../../sim/tb/ALUTestVectorTestbench.v
+Z30 F../../sim/tb/ALUTestVectorTestbench.v
+L0 11
+R7
+r1
+31
+R8
+R9
+R10
+Z31 n@a@l@u@test@vector@testbench
+!i10b 1
+Z32 !s100 @a0fU50_1ZIPAkEb5g<@R0
+!s85 0
+Z33 !s108 1497288622.628807
+Z34 !s107 ../../sim/tb/ALUTestVectorTestbench.v|
+Z35 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../sim/tb|../../sim/tb/ALUTestVectorTestbench.v|
+!s101 -O0

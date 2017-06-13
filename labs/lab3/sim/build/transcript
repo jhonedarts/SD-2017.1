@@ -1,0 +1,29 @@
+# OpenFile ../results/alu.wlf 
+add wave -position insertpoint  \
+{alu:/ALUTestbench/REFout[0]}
+add wave -position insertpoint  \
+alu:/ALUTestbench/DUTout
+add wave  \
+alu:/ALUTestbench/Clock
+add wave  \
+alu:/ALUTestbench/funct \
+alu:/ALUTestbench/opcode \
+alu:/ALUTestbench/A \
+alu:/ALUTestbench/B \
+alu:/ALUTestbench/DUTout \
+alu:/ALUTestbench/REFout \
+alu:/ALUTestbench/ALUop
+# Can't move the Now cursor.
+# Can't move the Now cursor.
+# Can't move the Now cursor.
+# Can't move the Now cursor.
+add wave  \
+alu:/ALUTestbench/funct \
+alu:/ALUTestbench/opcode \
+alu:/ALUTestbench/A \
+alu:/ALUTestbench/B \
+alu:/ALUTestbench/DUTout \
+alu:/ALUTestbench/REFout \
+alu:/ALUTestbench/ALUop
+# Can't move the Now cursor.
+# Can't move the Now cursor.
