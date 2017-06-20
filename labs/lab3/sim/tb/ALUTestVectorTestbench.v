@@ -61,7 +61,7 @@ module ALUTestVectorTestbench();
     // testvector input file, which you can find with the command:
     // % wc -l ../sim/tests/testvectors.input
     // //////////////////////////////////////////////////////////////
-    localparam testcases = 584;
+    localparam testcases = 584; // quantidade de linhas que o arquivo possui e é tambem o numero de instruções. 
 
     reg [107:0] testvector [0:testcases-1]; // Each testcase has 108 bits:
     // 64 for A and B, 32 for REFout, 6 for
@@ -74,12 +74,11 @@ module ALUTestVectorTestbench();
     initial 
     begin
 
-         $readmemb("testvectors.input", testvector);
+        $readmemb("testvectors.input", testvector); // faz a leitura do arquivo que está no "testvectors.input" e salva no vetor "testvctor"
 
-        for(i = 0; i < testcases; i = i + 1) begin                
-            
-            
-            opcode = testvector[i][107:102];           
+        for(i = 0; i < testcases; i = i + 1) begin  // for que intera as linhas do arquivo e salva determinados intervalos do vector em variaveis.              
+           
+            opcode = testvector[i][107:102];      //salva o intervalo de 6 bits referentes ao opcode da linha i e coloca na variavel opcode.      
             funct = testvector[i][101:96];
             A = testvector[i][95:64];
             B = testvector[i][63:32];
