@@ -1,4 +1,4 @@
-1 - no teste exaustivo fazemos o mesmo teste varias vezes e no teste randomico são testes aleatorios. É preferivel usar o teste exaustivo quando queremos certificar que independente da quantidade de vezes que executarmos o teste as respostas serão sempre as mesmas 
-2 - teoricamente ele deve da errado pois o periodo é menor que o tempo necessario pra excutar corretamente o circuito.
-3 - labs 44(2%) 
-    LEs normal 581 e aritimetico 94.	
+1 - No teste exaustivo fazemos o mesmo teste varias vezes e no teste randomico são testes aleatorios. É preferivel usar o teste 
+exaustivo quando queremos certificar que independente da quantidade de vezes que executarmos o teste as respostas serão sempre as mesmas 
+
+2 - Não foram encontradas falhas durante os testes.

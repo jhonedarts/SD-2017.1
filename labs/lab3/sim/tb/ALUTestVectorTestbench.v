@@ -61,7 +61,15 @@ module ALUTestVectorTestbench();
     // testvector input file, which you can find with the command:
     // % wc -l ../sim/tests/testvectors.input
     // //////////////////////////////////////////////////////////////
-    localparam testcases = 584; // quantidade de linhas que o arquivo possui e é tambem o numero de instruções. 
+    localparam testcases = 584; // quantidade de linhas que o arquivo possui e é tambem o numero de instruções.
+
+	/**
+	* Foram adicionadas 4 linhas {581,582,583,584} no final do arquivo, que correspondem respectivamente as instruções:
+	* SLT
+	* SLTU
+	* SRA
+	* SRL
+	*/
 
     reg [107:0] testvector [0:testcases-1]; // Each testcase has 108 bits:
     // 64 for A and B, 32 for REFout, 6 for

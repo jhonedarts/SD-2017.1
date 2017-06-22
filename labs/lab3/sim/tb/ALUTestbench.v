@@ -270,6 +270,8 @@ module ALUTestbench();
 	#1;
 	checkOutput(opcode, funct);
 	
+	// FIM SUBTRAÇÂO HARD-CODED TESTS
+	
              
 
         $display("\n\n SLT HARD-CODED TESTS");
