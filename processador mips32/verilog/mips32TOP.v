@@ -8,10 +8,8 @@
 module mips32TOP(clk,rst);
 	input clk, rst;
 
-	wire rstIFID, rstIDEX, rstEXMEM, flushIFID, flushIDEX, flushEXMEM;
+	wire rstIFID, rstIDEX, rstEXMEM, flushIFID;
 	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
-	or(rstIDEX, rst, flushIDEX);
-	or(rstEXMEM, rst, flushEXMEM);
 	//wires... wires everwhere
 
 	//interStages
@@ -21,21 +19,22 @@ module mips32TOP(clk,rst);
 	
 	wire pcWrite;
 	//ID
-	wire[`CONTROL_SIZE-1:0] controlID;
+	wire[`CONTROL_SIZE-1:0] controlID;	
+	wire[1:0] forwardRSID, forwardRTID, branchSrc;
+	wire[2:0] compareCode;
 	wire isJump, jumpStall;
-	wire[31:0] instructionID, rsValueID, rtValueID, offset16ID, offset26ID, pc4ID;
+	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet, branchAddress;
 	//EX
 	wire[4:0] rsEX, rtEX, rdEX, destRegEX;
 	wire[`CONTROL_SIZE-1:0] controlEX;
-	wire[31:0] pc4EX, opcodeEX, rsValueEX, rtValueEX, rtValueEX1, offset16EX, offset26EX, offset16EX1, offset26EX1;
-	wire[31:0] operating1, operating2, branchAddressEX1, branchAddressEX2, aluResultEX;
+	wire[31:0] opcodeEX, rsValueEX, rtValueEX, rtValueEX1, offset16EX;
+	wire[31:0] operating1, operating2, aluResultEX;
 	wire[5:0] aluControlOut;
-	wire flagZeroEX;
 	wire[1:0] forwardRS, forwardRT;
 	//MEM
-	wire flagZeroMEM;
-	wire[4:0] controlMEM, destRegMEM;
-	wire[31:0] destRegValueMEM, writeData, aluResultMEM, memoryDataMEM;
+	wire[4:0] destRegMEM;
+	wire[3:0] controlMEM;
+	wire[31:0] aluResultMEM, writeData, aluResultMEM, memoryDataMEM;
 	
 	//WB
 	wire[1:0] controlWB;
@@ -87,20 +86,34 @@ module mips32TOP(clk,rst);
 		.rs (instructionID[25:21]), 
 		.rt (instructionID[20:16]), 
 		.rtEX (rtEX),
-		.memRead (controlEX[3]), 
+		.memRead (controlEX[2]), 
 		.isBranch (isBranch), 
 		.isJump (isJump),  
 		.pcWrite (pcWrite), 
 		.jumpStall (jumpStall), 
-		.ifIdFlush (flushIFID), 
-		.idExFlush (flushIDEX), 
-		.exMemFlush (flushEXMEM)
+		.ifIdFlush (flushIFID)
 	);
 
 	unitControl unitControl(
 		.opcode (instructionID[31:26]),
 		.controlOut(controlID), 
-		.isJump (isJump)
+		.isJump (isJump),
+		.branchSrc (branchSrc),
+		.compareCode (compareCode)
+	);
+
+	adder adderID (
+		.a (pc4ID),
+		.b (offset16ID2),
+		.out (branchOffSet)
+	);
+
+	mux3 #(.width (32)) mux3ID3(
+		.a (branchOffSet),//branch
+		.b ({pc4ID[31,26] instructionID[25,0]),//jump
+		.c (rsValueID2),//jump r
+		.sel (branchSrc),
+		.out (branchAddress)
 	);
 
 	registerFile registerFile(
@@ -111,40 +124,59 @@ module mips32TOP(clk,rst);
 		.rWriteValue (destReg), 
 		.rWriteAddress (destRegValueWB), 
 		.regWrite (controlWB[1]), 
-		.rsData (rsValueID), 
-		.rtData (rtValueID)
+		.rsData (rsValueID1), 
+		.rtData (rtValueID1)
+	);
+
+	mux3 #(.width (32)) mux3ID1(
+		.a (rsValueID1),
+		.b (aluResultEX),
+		.c (aluResultMEM),
+		.sel (forwardRSID),
+		.out (rsValueID2)
+	);
+
+	mux3 #(.width (32)) mux3ID2(
+		.a (rtValueID1),
+		.b (aluResultEX),
+		.c (aluResultMEM),
+		.sel (forwardRTID),
+		.out (rtValueID2)
+	);
+
+	compare compare(
+		.rs (rsValueID2), 
+		.rt (rtValueID2), 
+		.code (compareCode), 
+		.isBranch (isBranch)
 	);
 
 	signEx16 signEx16(
 		.in (instructionID[15:0]),
-		.out (offset16ID)
+		.out (offset16ID1)
 	);
 
-	signEx26 signEx26(
-		.in (instructionID[25:0]),
-		.out (offset26ID)
+	shiftLeft shiftLeft(
+		.in (offset16ID1),
+		.out (offset16ID2)
 	);
 
 	ID_EX idex(
 		.rst (rstIDEX), 
 		.clk (clk), 
 		.opcodeIn (instructionID[31:26]), 
-		.controlIn (controlID), 
-		.pcIn (pc4ID), 
-		.rsValueIn (rsValueID), 
-		.rtValueIn (rtValueID), 
+		.controlIn (controlID),  
+		.rsValueIn (rsValueID1), 
+		.rtValueIn (rtValueID1), 
 		.offset16In (offset16ID), 
-		.offset26In (offset26ID), 
 		.rsIn (instructionID[25:21]),
 		.rtIn (instructionID[20:16]), 
 		.rdIn (instructionID[15:11]), 
 		.opcodeOut (opcodeEX), 
 		.controlOut (controlEX), 
-		.pcOut (pc4EX), 
 		.rsValueOut (rsValueEX), 
 		.rtValueOut (rtValueEX), 
 		.offset16Out (offset16EX), 
-		.offset26Out (offset26EX), 
 		.rsOut (rsEX), 
 		.rtOut (rtEX), 
 		.rdOut (rdEX)
@@ -153,7 +185,7 @@ module mips32TOP(clk,rst);
 	mux3 #(.width (32)) mux3EX1(
 		.a (rsValueEX),
 		.b (destRegValueWB),
-		.c (destRegValueMEM),
+		.c (aluResultMEM),
 		.sel (forwardRS),
 		.out (operating1)
 	);
@@ -161,7 +193,7 @@ module mips32TOP(clk,rst);
 	mux3 #(.width (32)) mux3EX2(
 		.a (rtValueEX),
 		.b (destRegValueWB),
-		.c (destRegValueMEM),
+		.c (aluResultMEM),
 		.sel (forwardRT),
 		.out (rtValueEX1)
 	);
@@ -169,47 +201,22 @@ module mips32TOP(clk,rst);
 	mux3 #(.width (5)) mux3EX3(
 		.a (rtEX),
 		.b (rdEX),
-		.c (rsEX),
-		.sel (controlEX[6:5]),
+		.c (5'b11111),
+		.sel (controlEX[5:4]),
 		.out (destRegEX)
-	);
-
-	shiftLeft shiftLeft1(
-		.in (offset16EX),
-		.out (offset16EX1)
-	);
-
-	shiftLeft shiftLeft2(
-		.in (offset26EX),
-		.out (offset26EX1)
 	);
 
 	mux2 #(.width (32)) mux2EX1 (
 		.a (rtValueEX1),
-		.b (offset16EX1),
-		.sel (controlEX[7]),
+		.b (offset16EX),
+		.sel (controlEX[6]),
 		.out (operating2)
-	);
-
-	adder adderEX (
-		.a (offset16EX1),
-		.b (pc4EX),
-		.out (branchAddressEX1)
-	);
-
-	mux3 #(.width (32)) mux3EX4 (
-		.a (branchAddressEX1),
-		.b (offset26EX1),
-		.c (operating1),
-		.sel (controlEX[9:8]),
-		.out (branchAddressEX2)
 	);
 
 	alu alu (
 		.a (operating1),
 		.b (operating2),
 		.sel (aluControlOut), //sinal que vem da aluControl
-		.flagZero (flagZeroEX),
 		.result (aluResultEX)
 	);
 
@@ -221,41 +228,41 @@ module mips32TOP(clk,rst);
 
 	forwardUnit forwardUnit (
 		.rs (rsEX), 
-		.rt (rtEX), 
+		.rt (rtEX),
+		.rsID (instructionID[25:21]), 
+		.rtID (instructionID[20:16]), 
+		.destRegEX (destRegEX),
 		.destRegMEM (destRegMEM), 
 		.destRegWB (destRegWB), 
+		.regWriteEX (controlEX[1]),
 		.regWriteMEM (controlMEM[1]), 
 		.regWriteWB (controlWB[1]), 
 		.forwardRS (forwardRS), 
-		.forwardRT (forwardRT)
+		.forwardRT (forwardRT),
+		.forwardRS (forwardRSID), 
+		.forwardRT (forwardRTID)
 	);
 
 	EX_MEM exmem (
 		.rst (rstEXMEM), 
 		.clk (clk), 
-		.flagZeroIn (flagZeroEX), 
-		.controlIn (controlEX[4:0]), 
-		.branchAddressIn (branchAddressEX2), 
+		.controlIn (controlEX[3:0]), 
 		.aluResultIn (aluResultEX), 
 		.rtValueIn (rtValueEX1), 
 		.destRegIn (destRegEX), 
-		.flagZeroOut (flagZeroMEM), 
 		.controlOut (controlMEM), 
-		.branchAddressOut (branchAddress), 
 		.aluResultOut (aluResultMEM),
 		.rtValueOut (writeData),
 		.destRegOut (destRegMEM)
 	);
-
-	and(isBranch, flagZeroMEM, controlMEM[2]);
 
 	dataMem dataMem (
 		.clk (clk), 
 		.rst (rst), 
 		.address (aluResultMEM), 
 		.writeData (writeData), 
-		.write (controlMEM[3]), 
-		.read (controlMEM[4]), 
+		.write (controlMEM[2]), 
+		.read (controlMEM[3]), 
 		.dataOut (memoryDataMEM)
 	);
 

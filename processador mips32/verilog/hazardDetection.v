@@ -7,10 +7,10 @@
  * quando um desvio é tomado.
  ***************************************************/
 
-module hazardDetection(rs, rt, rtEX, memRead, isBranch, isJump, pcWrite, jumpStall, ifIdFlush, idExFlush, exMemFlush);
+module hazardDetection(rs, rt, rtEX, memRead, isBranch, isJump, pcWrite, jumpStall, ifIdFlush);
 	input[4:0] rs, rt, rtEX;
 	input memRead, isBranch, isJump;
-	output pcWrite, jumpStall, ifIdFlush, idExFlush, exMemFlush;
+	output pcWrite, jumpStall, ifIdFlush;
 
 	reg jump;
 	initial begin
@@ -21,8 +21,6 @@ module hazardDetection(rs, rt, rtEX, memRead, isBranch, isJump, pcWrite, jumpSta
 	assign pcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
 
 	//branch
-	assign idExFlush = (isBranch)? 1'b1 : 1'b0;
-	assign exMemFlush = (isBranch)? 1'b1 : 1'b0;
 	assign ifIdFlush = (isBranch)? 1'b1 : 1'b0;
 
 	assign jumpStall = jump;
