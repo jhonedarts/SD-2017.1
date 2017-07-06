@@ -43,7 +43,7 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 			`R_TYPE: begin
 				if(function == `JR) begin
 
-						controlOut = 8'b00100000; //pode mudar caso o valor saia do pc+4, o 1 indica que habilita escrita no registrador.
+						controlOut = 8'b00000000; //pode mudar caso o valor saia do pc+4, o 1 indica que habilita escrita no registrador.
 						isJump = 1'b1;
 						BranchSrc = 2'b10;      // esse pode mudar se não for salvar em registrador.
 						compareCode = 3'b101;
@@ -59,7 +59,7 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 				end
 			end
 			`J: begin
-				controlOut = 8'b10000110; // considerei que sai do pc+4 e que não tem registrador de destino por isso coloquei 11 que não é nenhum.
+				controlOut = 8'b00000000; // considerei que sai do pc+4 e que não tem registrador de destino por isso coloquei 11 que não é nenhum.
 				isJump = 1'b1;
 				brancSrc = 2'b00;
 				compareCode = 3'b101;
@@ -73,12 +73,12 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 			end	
 
 			`ANDI: begin 
-					controlOut = 8'b00100010;
-					isJump = 1'b0;
-					branchSrc = 2'b00;
-					compareCode = 3'b000;
+				controlOut = 8'b00100010;
+				isJump = 1'b0;
+				branchSrc = 2'b00;
+				compareCode = 3'b000;
 			end
-			`ORI: 
+			`ORI: begin
 				controlOut = 8'b00100010;
 				isJump = 1'b0;
 				branchSrc = 2'b00;
@@ -93,18 +93,18 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 			end
 			
 			`BEQ: begin
-				controlOut = 8'b00000110;
+				controlOut = 8'b00000000;
 				isJump = 1'b0;
 				branchSRC = 2'b10;
 				compareCode = 3'b001;
 			end
 			
 			`BNE: begin
-				controlOut = 8'b00000110;
+				controlOut = 8'b00000000;
 				isJump = 1'b0;
 				branchSrc = 2'b10;
 				compareCode = 3'b010;		
-
+			end	
 			`JAL: begin
 				controlOut = 8'b10100100;
 				isJump = 1'b1;
@@ -120,7 +120,7 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 			end	
 
 			`SW: begin
-				controlOut = 8'b01110010;
+				controlOut = 8'b00010000;
 				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 3'b000;
