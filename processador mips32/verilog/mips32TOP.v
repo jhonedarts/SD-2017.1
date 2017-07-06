@@ -23,23 +23,24 @@ module mips32TOP(clk,rst);
 	wire[1:0] forwardRSID, forwardRTID, branchSrc;
 	wire[2:0] compareCode;
 	wire isJump, jumpStall;
-	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet, branchAddress;
+	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet;
+	wire[31:0] branchAddress;
 	//EX
 	wire[4:0] rsEX, rtEX, rdEX, destRegEX;
 	wire[`CONTROL_SIZE-1:0] controlEX;
 	wire[31:0] opcodeEX, rsValueEX, rtValueEX, rtValueEX1, offset16EX;
-	wire[31:0] operating1, operating2, aluResultEX;
+	wire[31:0] operating1, operating2, aluResultEX, pc4EX;
 	wire[5:0] aluControlOut;
 	wire[1:0] forwardRS, forwardRT;
 	//MEM
 	wire[4:0] destRegMEM;
-	wire[3:0] controlMEM;
-	wire[31:0] aluResultMEM, writeData, aluResultMEM, memoryDataMEM;
+	wire[4:0] controlMEM;
+	wire[31:0] aluResultMEM, writeData, aluResultMEM, memoryDataMEM, pc4MEM;
 	
 	//WB
-	wire[1:0] controlWB;
+	wire[2:0] controlWB;
 	wire[4:0] destRegWB;
-	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB;
+	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
 
 	PC pc(
 		.enable (pcWrite),
@@ -86,7 +87,7 @@ module mips32TOP(clk,rst);
 		.rs (instructionID[25:21]), 
 		.rt (instructionID[20:16]), 
 		.rtEX (rtEX),
-		.memRead (controlEX[2]), 
+		.memRead (controlEX[4]), 
 		.isBranch (isBranch), 
 		.isJump (isJump),  
 		.pcWrite (pcWrite), 
@@ -96,6 +97,7 @@ module mips32TOP(clk,rst);
 
 	unitControl unitControl(
 		.opcode (instructionID[31:26]),
+		.function (instructionID[5:0]),
 		.controlOut(controlID), 
 		.isJump (isJump),
 		.branchSrc (branchSrc),
@@ -123,7 +125,7 @@ module mips32TOP(clk,rst);
 		.rt (instructionID[20:16]),
 		.rWriteValue (destReg), 
 		.rWriteAddress (destRegValueWB), 
-		.regWrite (controlWB[1]), 
+		.regWrite (controlWB[2]), 
 		.rsData (rsValueID1), 
 		.rtData (rtValueID1)
 	);
@@ -165,6 +167,7 @@ module mips32TOP(clk,rst);
 		.rst (rstIDEX), 
 		.clk (clk), 
 		.opcodeIn (instructionID[31:26]), 
+		.pcIn (pc4ID),
 		.controlIn (controlID),  
 		.rsValueIn (rsValueID1), 
 		.rtValueIn (rtValueID1), 
@@ -173,6 +176,7 @@ module mips32TOP(clk,rst);
 		.rtIn (instructionID[20:16]), 
 		.rdIn (instructionID[15:11]), 
 		.opcodeOut (opcodeEX), 
+		.pcOut (pc4EX),
 		.controlOut (controlEX), 
 		.rsValueOut (rsValueEX), 
 		.rtValueOut (rtValueEX), 
@@ -181,7 +185,7 @@ module mips32TOP(clk,rst);
 		.rtOut (rtEX), 
 		.rdOut (rdEX)
 	);
-
+	//rsForward no EX
 	mux3 #(.width (32)) mux3EX1(
 		.a (rsValueEX),
 		.b (destRegValueWB),
@@ -189,7 +193,7 @@ module mips32TOP(clk,rst);
 		.sel (forwardRS),
 		.out (operating1)
 	);
-
+	//rtForward no EX
 	mux3 #(.width (32)) mux3EX2(
 		.a (rtValueEX),
 		.b (destRegValueWB),
@@ -197,19 +201,19 @@ module mips32TOP(clk,rst);
 		.sel (forwardRT),
 		.out (rtValueEX1)
 	);
-
+	//RegDest
 	mux3 #(.width (5)) mux3EX3(
-		.a (rtEX),
-		.b (rdEX),
-		.c (5'b11111),
-		.sel (controlEX[5:4]),
+		.a (rdEX),
+		.b (rtEX),
+		.c (5'b11111),//ra
+		.sel (controlEX[6:5]),
 		.out (destRegEX)
 	);
 
 	mux2 #(.width (32)) mux2EX1 (
 		.a (rtValueEX1),
 		.b (offset16EX),
-		.sel (controlEX[6]),
+		.sel (controlEX[7]),
 		.out (operating2)
 	);
 
@@ -234,9 +238,9 @@ module mips32TOP(clk,rst);
 		.destRegEX (destRegEX),
 		.destRegMEM (destRegMEM), 
 		.destRegWB (destRegWB), 
-		.regWriteEX (controlEX[1]),
-		.regWriteMEM (controlMEM[1]), 
-		.regWriteWB (controlWB[1]), 
+		.regWriteEX (controlEX[2]),
+		.regWriteMEM (controlMEM[2]), 
+		.regWriteWB (controlWB[2]), 
 		.forwardRS (forwardRS), 
 		.forwardRT (forwardRT),
 		.forwardRS (forwardRSID), 
@@ -246,11 +250,13 @@ module mips32TOP(clk,rst);
 	EX_MEM exmem (
 		.rst (rstEXMEM), 
 		.clk (clk), 
-		.controlIn (controlEX[3:0]), 
+		.controlIn (controlEX[4:0]), 
+		.pcIn (pc4EX),
 		.aluResultIn (aluResultEX), 
 		.rtValueIn (rtValueEX1), 
 		.destRegIn (destRegEX), 
-		.controlOut (controlMEM), 
+		.controlOut (controlMEM),
+		.pcOut (pc4MEM),
 		.aluResultOut (aluResultMEM),
 		.rtValueOut (writeData),
 		.destRegOut (destRegMEM)
@@ -261,28 +267,31 @@ module mips32TOP(clk,rst);
 		.rst (rst), 
 		.address (aluResultMEM), 
 		.writeData (writeData), 
-		.write (controlMEM[2]), 
-		.read (controlMEM[3]), 
+		.write (controlMEM[3]), 
+		.read (controlMEM[2]), 
 		.dataOut (memoryDataMEM)
 	);
 
 	MEM_WB memwb(
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlMEM[1:0]), 
+		.controlIn (controlMEM[2:0]), 
+		.pcIn (pc4MEM),
 		.memDataIn (memoryDataMEM), 
 		.aluResultIn (aluResultMEM), 
 		.destRegIn (destRegMEM), 
-		.controlOut (controlWB), 
+		.controlOut (controlWB),
+		.pcOut (pc4WB) 
 		.memDataOut (memoryDataWB), 
 		.aluResultOut (aluResultWB),
 		.destRegOut (destRegWB)
 	);
 
-	mux2 #(.width (32)) mux2WB(
+	mux3 #(.width (32)) mux3WB(
 		.a (memoryDataWB),
 		.b (aluResultWB),
-		.sel (controlWB[0]),
+		.c (pc4MEM),
+		.sel (controlWB[1:0]),
 		.out (destRegValueWB)
 	);
 

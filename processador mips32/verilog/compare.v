@@ -11,37 +11,41 @@ module compare (rs, rt, code, isBranch);
 
 	always @(*) begin
 		case(opcode)
-			3'b000: begin //beq
+			3'b000: begin //nenhum
+				isBranch = 0;
+			end	
+			3'b001: begin //beq
 				if (rs == rt) begin
 					isBranch = 1;
 				end else begin
 					isBranch = 0;
 				end
 			end 
-			3'b001: begin //bne
+			3'b010: begin //bne
 				if (rs != rt) begin
 					isBranch = 1;
 				end else begin
 					isBranch = 0;
 				end
 			end
-			3'b010: begin //bgt
+			3'b011: begin //bgt
 				if (rs > rt) begin
 					isBranch = 1;
 				end else begin
 					isBranch = 0;
 				end
 			end
-			3'b011: begin //ble
+			3'b100: begin //ble
 				if (rs < rt) begin
 					isBranch = 1;
 				end else begin
 					isBranch = 0;
 				end
 			end
-			3'b100: begin //j, jal, jr
+			3'b101: begin //j, jal, jr
 				isBranch = 1;
-			end			
+			end	
+					
 		endcase
 	end
 endmodule
