@@ -34,34 +34,70 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 	always @(*) begin
 		case(opcode)
 			6'bx: begin //impedancia
-				controlOut = 7'b00000000;
+				controlOut = 8'b00000000;
 				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 3'b000;
 
 			end
 			`R_TYPE: begin
-				case (function)
-					`AND: begin
-						controlOut = 7'b00100001;
+				if(function == `JR) begin
+
+						controlOut = 8'b00100000; //pode mudar caso o valor saia do pc+4, o 1 indica que habilita escrita no registrador.
+						isJump = 1'b1;
+						BranchSrc = 2'b10;      // esse pode mudar se não for salvar em registrador.
+						compareCode = 3'b101;
+				end
+				// outras instruçoes do tipo R
+				else begin
+
+						controlOut = 8'b00100001;
 						isJump = 1'b0;
 						branchSrc = 2'b00;
-						compareCode = 3'b000;
-					end
-				endcase
+						compareCode = 3'b000;		
+
+				end
 			end
-			`ANDI: begin 
-				controlOut = 7'b00100010;
+			`J: begin
+				controlOut = 8'b10000110; // considerei que sai do pc+4 e que não tem registrador de destino por isso coloquei 11 que não é nenhum.
+				isJump = 1'b1;
+				brancSrc = 2'b00;
+				compareCode = 3'b101;
+			end
+
+			`ADDI: begin
+				controlOut = 8'b00100010;
 				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 3'b000;
+			end	
+
+			`ANDI: begin 
+					controlOut = 8'b00100010;
+					isJump = 1'b0;
+					branchSrc = 2'b00;
+					compareCode = 3'b000;
 			end
+			
 			`JAL: begin
-				controlOut = 7'b10100100;
+				controlOut = 8'b10100100;
 				isJump = 1'b1;
 				branchSrc = 2'b00;
 				compareCode = 3'b101
 			end
+			`LW: begin
+				controlOut = 8'b01101010;
+				isJump = 1'b0;
+				branchSrc = 2'b00;
+				compareCode = 3'b000;
+			end	
+
+			`SW: begin
+				controlOut = 8'b01110010;
+				isJump = 1'b0;
+				branchSrc = 2'b00;
+				compareCode = 3'b000;
+			end	
 		endcase
 		
 	end
