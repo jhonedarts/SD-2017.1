@@ -78,13 +78,40 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 					branchSrc = 2'b00;
 					compareCode = 3'b000;
 			end
+			`ORI: 
+				controlOut = 8'b00100010;
+				isJump = 1'b0;
+				branchSrc = 2'b00;
+				compareCode = 3'b000;
+			end
 			
+			`SLTI: begin
+				controlOut = 8'b00100010;
+				isJump = 1'b0;
+				branchSrc = 2'b00;
+				compareCode = 3'b000;
+			end
+			
+			`BEQ: begin
+				controlOut = 8'b00000110;
+				isJump = 1'b0;
+				branchSRC = 2'b10;
+				compareCode = 3'b001;
+			end
+			
+			`BNE: begin
+				controlOut = 8'b00000110;
+				isJump = 1'b0;
+				branchSrc = 2'b10;
+				compareCode = 3'b010;		
+
 			`JAL: begin
 				controlOut = 8'b10100100;
 				isJump = 1'b1;
 				branchSrc = 2'b00;
-				compareCode = 3'b101
+				compareCode = 3'b101;
 			end
+
 			`LW: begin
 				controlOut = 8'b01101010;
 				isJump = 1'b0;
@@ -98,6 +125,8 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 				branchSrc = 2'b00;
 				compareCode = 3'b000;
 			end	
+
+
 		endcase
 		
 	end
