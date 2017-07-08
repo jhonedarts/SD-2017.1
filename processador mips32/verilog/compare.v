@@ -6,43 +6,29 @@
  ***************************************************/
 module compare (rs, rt, code, isBranch);
 	input[4:0] rs, rt;
-	input[2:0] code;
+	input[1:0] code;
 	output isBranch;
 
 	always @(*) begin
 		case(opcode)
-			3'b000: begin //nenhum
+			2'b00: begin //nenhum
 				isBranch = 0;
 			end	
-			3'b001: begin //beq
+			2'b01: begin //beq
 				if (rs == rt) begin
 					isBranch = 1;
 				end else begin
 					isBranch = 0;
 				end
 			end 
-			3'b010: begin //bne
+			2'b10: begin //bne
 				if (rs != rt) begin
 					isBranch = 1;
 				end else begin
 					isBranch = 0;
 				end
 			end
-			3'b011: begin //bgt
-				if (rs > rt) begin
-					isBranch = 1;
-				end else begin
-					isBranch = 0;
-				end
-			end
-			3'b100: begin //ble
-				if (rs < rt) begin
-					isBranch = 1;
-				end else begin
-					isBranch = 0;
-				end
-			end
-			3'b101: begin //j, jal, jr
+			2'b11: begin //j, jal, jr
 				isBranch = 1;
 			end	
 					

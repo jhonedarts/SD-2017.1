@@ -20,8 +20,7 @@ module mips32TOP(clk,rst);
 	wire pcWrite;
 	//ID
 	wire[`CONTROL_SIZE-1:0] controlID;	
-	wire[1:0] forwardRSID, forwardRTID, branchSrc;
-	wire[2:0] compareCode;
+	wire[1:0] forwardRSID, forwardRTID, branchSrc, compareCode;
 	wire isJump, jumpStall;
 	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet;
 	wire[31:0] branchAddress;
