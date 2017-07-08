@@ -48,10 +48,10 @@ module mips32TOP(clk,rst);
 		.out (currentpc)
 	);
 
-	instructionMem instructionMem(
-		.rst (rst),
+	instructionMem instructionMem(		
 		.address (currentpc),
-		.instruction (instructionIF)
+		.clock (clk),
+		.q (instructionIF)
 	);
 
 	adder adderIF (
@@ -263,13 +263,12 @@ module mips32TOP(clk,rst);
 	);
 
 	dataMem dataMem (
-		.clk (clk), 
-		.rst (rst), 
+		.clock (clk), 
 		.address (aluResultMEM), 
-		.writeData (writeData), 
-		.write (controlMEM[3]), 
-		.read (controlMEM[2]), 
-		.dataOut (memoryDataMEM)
+		.data (writeData), 
+		.wren (controlMEM[3]), 
+		.rden (controlMEM[2]), 
+		.q (memoryDataMEM)
 	);
 
 	MEM_WB memwb(
