@@ -11,7 +11,7 @@ module alu(a,b, sel, result);
 	input[3:0] sel;
 	output[31:0] result;
 
-wire signed [31:0] A_signed, B_signed;
+wire signed [31:0] b_signed; //nao há usos de a_signed, entao o exclui
 	wire signed_comp;
 	wire unsigned_comp;
 
@@ -20,8 +20,8 @@ wire signed [31:0] A_signed, B_signed;
 
   		case(sel)
 
-  			`ALU_ADDU: result = A + B;
-			`ALU_SUBU: result = A - B;
+  			`ALU_ADDU: result = a + b;
+			`ALU_SUBU: result = a - b;
 			`ALU_SLT:  begin
 							if(signed_comp == 1) result = 32'd1;
 							else result = 32'd0;
@@ -32,14 +32,14 @@ wire signed [31:0] A_signed, B_signed;
 							else result = 32'd0;
 				
 						end
-			`ALU_AND: result = A & B;
-			`ALU_OR: result = A | B;		
-			`ALU_XOR: result = A ^ B;
-			`ALU_LUI: result = B << 5'b10000;
-			`ALU_SLLV: result = B << A[4:0];
-			`ALU_SRLV: result = B >> A[4:0];
-			`ALU_SRAV: result = B_signed >>> A[4:0];
-			`ALU_NOR: result = (~A) & (~B);
+			`ALU_AND: result = a & b;
+			`ALU_OR: result = a | b;		
+			`ALU_XOR: result = a ^ b;
+			`ALU_LUI: result = b << 5'b10000;
+			`ALU_SLLV: result = b << a[4:0];
+			`ALU_SRLV: result = b >> a[4:0];
+			`ALU_SRAV: result = b_signed >>> a[4:0];
+			`ALU_NOR: result = (~a) & (~b);
 			`ALU_XXX:  result = 32'd0;
 
 
@@ -50,8 +50,8 @@ wire signed [31:0] A_signed, B_signed;
   end
   
   	
-	assign signed_comp = ($signed(A) < $signed(B));
-	assign unsigned_comp = A < B;
-	assign B_signed = $signed(B);
+	assign signed_comp = ($signed(a) < $signed(b));
+	assign unsigned_comp = a < b;
+	assign b_signed = $signed(b);
   
 endmodule

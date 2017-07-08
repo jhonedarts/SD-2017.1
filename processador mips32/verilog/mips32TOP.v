@@ -227,7 +227,7 @@ module mips32TOP(clk,rst);
 	aluControl aluControl (
 		.opcode (opcodeEX),
 		.funct (offset16EX[31:26]),
-		.aluControlOut (aluControlOut)
+		.aluOp (aluControlOut)
 	);
 
 	forwardUnit forwardUnit (
