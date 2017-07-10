@@ -1,9 +1,9 @@
 /***************************************************
- * Module: somador
+ * Module: adder
  * Project: mips32
  * Description: soma dois numeros 
  ***************************************************/
- module somador(a, b, out);
+ module adder(a, b, out);
 	input[31:0] a, b;
 	output[31:0] out;
 	

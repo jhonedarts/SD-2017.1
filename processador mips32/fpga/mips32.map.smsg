@@ -1,0 +1,3 @@
+Warning (10273): Verilog HDL warning at pc.v(18): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at unitControl.v(36): extended using "x" or "z"
+Warning (10268): Verilog HDL information at MEM_WB.v(26): always construct contains both blocking and non-blocking assignments

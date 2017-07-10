@@ -38,7 +38,7 @@
 // synopsys translate_on
 module dataMem (address, clock,	data, rden,	wren, q);
 
-	input	[31:0]  address; //estava em 14
+	input	[13:0]  address; 
 	input	  clock;
 	input	[31:0]  data;
 	input	  rden;
@@ -83,7 +83,7 @@ module dataMem (address, clock,	data, rden,	wren, q);
 	defparam
 		altsyncram_component.clock_enable_input_a = "BYPASS",
 		altsyncram_component.clock_enable_output_a = "BYPASS",
-		altsyncram_component.init_file = "/memoryInit/data.mif",
+		altsyncram_component.init_file = "memoryInit/data.mif",
 		altsyncram_component.intended_device_family = "Cyclone IV E",
 		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
 		altsyncram_component.lpm_type = "altsyncram",
@@ -93,7 +93,7 @@ module dataMem (address, clock,	data, rden,	wren, q);
 		altsyncram_component.outdata_reg_a = "CLOCK0",
 		altsyncram_component.power_up_uninitialized = "FALSE",
 		altsyncram_component.read_during_write_mode_port_a = "NEW_DATA_NO_NBE_READ",
-		altsyncram_component.widthad_a = 32, //estava em 14
+		altsyncram_component.widthad_a = 14,
 		altsyncram_component.width_a = 32,
 		altsyncram_component.width_byteena_a = 1;
 

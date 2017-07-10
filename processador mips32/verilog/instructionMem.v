@@ -38,7 +38,7 @@
 // synopsys translate_on
 module instructionMem (address,	clock, q);
 
-	input	[31:0]  address;//estava em 10
+	input	[9:0]  address;
 	input	  clock;
 	output	[31:0]  q;
 `ifndef ALTERA_RESERVED_QIS
@@ -80,7 +80,7 @@ module instructionMem (address,	clock, q);
 		altsyncram_component.address_aclr_a = "NONE",
 		altsyncram_component.clock_enable_input_a = "BYPASS",
 		altsyncram_component.clock_enable_output_a = "BYPASS",
-		altsyncram_component.init_file = "/memoryInit/instruction.mif",
+		altsyncram_component.init_file = "memoryInit/instruction.mif",
 		altsyncram_component.intended_device_family = "Cyclone IV E",
 		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
 		altsyncram_component.lpm_type = "altsyncram",
@@ -88,7 +88,7 @@ module instructionMem (address,	clock, q);
 		altsyncram_component.operation_mode = "ROM",
 		altsyncram_component.outdata_aclr_a = "NONE",
 		altsyncram_component.outdata_reg_a = "UNREGISTERED",
-		altsyncram_component.widthad_a = 32,//estava em 10
+		altsyncram_component.widthad_a = 10,
 		altsyncram_component.width_a = 32,
 		altsyncram_component.width_byteena_a = 1;
 

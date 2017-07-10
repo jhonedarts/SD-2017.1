@@ -49,7 +49,7 @@ module mips32TOP(clk,rst);
 	);
 
 	instructionMem instructionMem(		
-		.address (currentpc),
+		.address (currentpc[`INST_MEM_ADDR_SIZE-1:0]),
 		.clock (clk),
 		.q (instructionIF)
 	);
@@ -243,8 +243,8 @@ module mips32TOP(clk,rst);
 		.regWriteWB (controlWB[2]), 
 		.forwardRS (forwardRS), 
 		.forwardRT (forwardRT),
-		.forwardRS (forwardRSID), 
-		.forwardRT (forwardRTID)
+		.forwardRSID (forwardRSID), 
+		.forwardRTID (forwardRTID)
 	);
 
 	EX_MEM exmem (
@@ -264,7 +264,7 @@ module mips32TOP(clk,rst);
 
 	dataMem dataMem (
 		.clock (clk), 
-		.address (aluResultMEM), 
+		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
 		.data (writeData), 
 		.wren (controlMEM[3]), 
 		.rden (controlMEM[2]), 
