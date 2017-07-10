@@ -7,8 +7,8 @@
  ***************************************************/
 `include "parameters.v"
 
-module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode);
-	input[5:0] opcode, function;
+module unitControl (opcode, func, controlOut, isJump, branchSrc, compareCode);
+	input[5:0] opcode, func;
 	output reg [`CONTROL_SIZE-1:0] controlOut;
 	output reg isJump;
 	output reg[1:0] branchSrc;
@@ -41,11 +41,11 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 
 			end
 			`R_TYPE: begin
-				if(function == `JR) begin
+				if(func == `JR) begin
 
 						controlOut = 8'b00000000; //pode mudar caso o valor saia do pc+4, o 1 indica que habilita escrita no registrador.
 						isJump = 1'b1;
-						BranchSrc = 2'b10;      // esse pode mudar se não for salvar em registrador.
+						branchSrc = 2'b10;      // esse pode mudar se não for salvar em registrador.
 						compareCode = 2'b11;
 				end
 				// outras instruçoes do tipo R
@@ -61,7 +61,7 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 			`J: begin
 				controlOut = 8'b00000000; // considerei que sai do pc+4 e que não tem registrador de destino por isso coloquei 11 que não é nenhum.
 				isJump = 1'b1;
-				brancSrc = 2'b00;
+				branchSrc = 2'b00;
 				compareCode = 2'b11;
 			end
 
@@ -95,7 +95,7 @@ module unitControl (opcode, function, controlOut, isJump, branchSrc, compareCode
 			`BEQ: begin
 				controlOut = 8'b00000000;
 				isJump = 1'b0;
-				branchSRC = 2'b10;
+				branchSrc = 2'b10;
 				compareCode = 2'b01;
 			end
 			

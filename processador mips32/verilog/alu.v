@@ -9,7 +9,7 @@ module alu(a,b, sel, result);
 
 	input[31:0] a, b;
 	input[3:0] sel;
-	output[31:0] result;
+	output reg[31:0] result;
 
 wire signed [31:0] b_signed; //nao há usos de a_signed, entao o exclui
 	wire signed_comp;

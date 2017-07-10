@@ -12,7 +12,7 @@ module aluControl (opcode, funct, aluOp);
     always@(*) begin     	
     	case(opcode) 
 
-    		`RTYPE: begin    			
+    		`R_TYPE: begin    			
     			case(funct) 
     				`SLL:     	aluOp = `ALU_SLLV;
 					`SRL:     	aluOp = `ALU_SRLV;

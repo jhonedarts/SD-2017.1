@@ -4,7 +4,7 @@
  * Description: Responsavel por recuperar o valor atualizado
  * de um registrador que ainda sera salvo na operação anterior
  ***************************************************/
-module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regWriteEX, regWriteMEM, regWriteWB, forwardRS, forwardRT);
+module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regWriteEX, regWriteMEM, regWriteWB, forwardRS, forwardRT, forwardRSID, forwardRTID);
 	input[4:0] rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB;
 	input regWriteEX, regWriteMEM, regWriteWB;
 	output reg [1:0] forwardRSID, forwardRTID, forwardRS, forwardRT;

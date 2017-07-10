@@ -34,12 +34,13 @@ module mips32TOP(clk,rst);
 	//MEM
 	wire[4:0] destRegMEM;
 	wire[4:0] controlMEM;
-	wire[31:0] aluResultMEM, writeData, aluResultMEM, memoryDataMEM, pc4MEM;
+	wire[31:0] aluResultMEM, writeData, memoryDataMEM, pc4MEM;
 	
 	//WB
 	wire[2:0] controlWB;
 	wire[4:0] destRegWB;
-	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
+	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;	
+
 
 	PC pc(
 		.enable (pcWrite),
@@ -96,7 +97,7 @@ module mips32TOP(clk,rst);
 
 	unitControl unitControl(
 		.opcode (instructionID[31:26]),
-		.function (instructionID[5:0]),
+		.func (instructionID[5:0]),
 		.controlOut(controlID), 
 		.isJump (isJump),
 		.branchSrc (branchSrc),
@@ -111,7 +112,7 @@ module mips32TOP(clk,rst);
 
 	mux3 #(.width (32)) mux3ID3(
 		.a (branchOffSet),//branch
-		.b ({pc4ID[31,26] instructionID[25,0]),//jump
+		.b ({pc4ID[31:26],instructionID[25:0]}),//jump
 		.c (rsValueID2),//jump r
 		.sel (branchSrc),
 		.out (branchAddress)
@@ -229,7 +230,7 @@ module mips32TOP(clk,rst);
 		.aluOp (aluControlOut)
 	);
 
-	forwardUnit forwardUnit (
+	forwardingUnit forwardUnit (
 		.rs (rsEX), 
 		.rt (rtEX),
 		.rsID (instructionID[25:21]), 
@@ -279,7 +280,7 @@ module mips32TOP(clk,rst);
 		.aluResultIn (aluResultMEM), 
 		.destRegIn (destRegMEM), 
 		.controlOut (controlWB),
-		.pcOut (pc4WB) 
+		.pcOut (pc4WB), 
 		.memDataOut (memoryDataWB), 
 		.aluResultOut (aluResultWB),
 		.destRegOut (destRegWB)

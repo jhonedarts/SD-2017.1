@@ -26,11 +26,11 @@ module registerFile (clk, rst, rs, rt, rWriteValue, rWriteAddress, regWrite, rsD
 	        for (i=1; i<32; i=i+1) begin
 	            registers[i] <= 0;
 	        end
-		end else if (negedge clk) begin
-			if(regWrite>0) begin //escrita
+		end else //if (negedge clk) begin
+			if(regWrite!=0) begin //escrita
 				registers[rWriteAddress] <= rWriteValue;
 			end 
-		end
+		//end
 	end
 	//leitura
 	assign rsData = (rs == 0) ? 32'h00000000 : registers[rs];

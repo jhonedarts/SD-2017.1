@@ -7,10 +7,10 @@
 module compare (rs, rt, code, isBranch);
 	input[4:0] rs, rt;
 	input[1:0] code;
-	output isBranch;
+	output reg isBranch;
 
 	always @(*) begin
-		case(opcode)
+		case(code)
 			2'b00: begin //nenhum
 				isBranch = 0;
 			end	
