@@ -8,11 +8,11 @@ module MEM_WB(rst, clk, controlIn, pcIn, memDataIn, aluResultIn, destRegIn, cont
 	input[1:0] controlIn;
 	input[4:0]destRegIn;
 	input[31:0] pcIn, memDataIn, aluResultIn;
-	output[1:0] controlOut;
+	output[2:0] controlOut;
 	output[4:0] destRegOut;
 	output[31:0] pcOut, memDataOut, aluResultOut;
 
-	reg[1:0] control;//wb
+	reg[2:0] control;//wb
 	reg[4:0] destReg; 
 	reg[31:0] pc, memData, aluResult;
 

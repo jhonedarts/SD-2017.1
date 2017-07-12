@@ -7,14 +7,12 @@
  ***************************************************/
 `include "parameters.v"
 
-module unitControl (opcode, func, controlOut, isJump, branchSrc, compareCode);
+module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 	input[5:0] opcode, func;
 	output reg [`CONTROL_SIZE-1:0] controlOut;
-	output reg isJump;
 	output reg[1:0] branchSrc;
 	output reg[1:0] compareCode;
 	//  ID
-	// X : isJump		Se for um jump(1) //vai pro hazardDetection pra segurar NOP ate tomar o desvio
 	// X : branchSrc	imediato + pc+4(0) ou imediato 26 bits(1) ou valor do registrador source(2) - branch address
 	// X : compareCode 	codigo usado pra fazer a comparacao de valores pra poder tomar o desvio 
 	//					| 00:nenhum, 01:beq, 10:bne, 11:j jal jr  |
@@ -35,7 +33,6 @@ module unitControl (opcode, func, controlOut, isJump, branchSrc, compareCode);
 		case(opcode)
 			6'bx: begin //impedancia
 				controlOut = 8'b00000000;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 
@@ -44,7 +41,6 @@ module unitControl (opcode, func, controlOut, isJump, branchSrc, compareCode);
 				if(func == `JR) begin
 
 						controlOut = 8'b00000000; //pode mudar caso o valor saia do pc+4, o 1 indica que habilita escrita no registrador.
-						isJump = 1'b1;
 						branchSrc = 2'b10;      // esse pode mudar se não for salvar em registrador.
 						compareCode = 2'b11;
 				end
@@ -52,7 +48,6 @@ module unitControl (opcode, func, controlOut, isJump, branchSrc, compareCode);
 				else begin
 
 						controlOut = 8'b00100001;
-						isJump = 1'b0;
 						branchSrc = 2'b00;
 						compareCode = 2'b00;		
 
@@ -60,68 +55,58 @@ module unitControl (opcode, func, controlOut, isJump, branchSrc, compareCode);
 			end
 			`J: begin
 				controlOut = 8'b00000000; // considerei que sai do pc+4 e que não tem registrador de destino por isso coloquei 11 que não é nenhum.
-				isJump = 1'b1;
 				branchSrc = 2'b00;
 				compareCode = 2'b11;
 			end
 
 			`ADDI: begin
 				controlOut = 8'b00100010;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end	
 
 			`ANDI: begin 
 				controlOut = 8'b00100010;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end
 			`ORI: begin
 				controlOut = 8'b00100010;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end
 			
 			`SLTI: begin
 				controlOut = 8'b00100010;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end
 			
 			`BEQ: begin
 				controlOut = 8'b00000000;
-				isJump = 1'b0;
 				branchSrc = 2'b10;
 				compareCode = 2'b01;
 			end
 			
 			`BNE: begin
 				controlOut = 8'b00000000;
-				isJump = 1'b0;
 				branchSrc = 2'b10;
 				compareCode = 2'b10;		
 			end	
 			`JAL: begin
 				controlOut = 8'b10100100;
-				isJump = 1'b1;
 				branchSrc = 2'b00;
 				compareCode = 2'b11;
 			end
 
 			`LW: begin
 				controlOut = 8'b01101010;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end	
 
 			`SW: begin
 				controlOut = 8'b00010000;
-				isJump = 1'b0;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end	

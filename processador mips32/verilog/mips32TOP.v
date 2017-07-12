@@ -8,20 +8,19 @@
 module mips32TOP(clk,rst);
 	input clk, rst;
 
-	wire rstIFID, rstIDEX, rstEXMEM, flushIFID;
+	wire rstIFID, flushIFID;
 	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
 	//wires... wires everwhere
 
 	//interStages
 	wire isBranch;
 	//IF
-	wire[31:0] nextpc, currentpc, instructionIF, instructionIF1, pc4IF; 
+	wire[31:0] nextpc, currentpc, instructionIF, pc4IF; 
 	
 	wire pcWrite;
 	//ID
 	wire[`CONTROL_SIZE-1:0] controlID;	
 	wire[1:0] forwardRSID, forwardRTID, branchSrc, compareCode;
-	wire isJump, jumpStall;
 	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet;
 	wire[31:0] branchAddress;
 	//EX
@@ -56,7 +55,7 @@ module mips32TOP(clk,rst);
 
 	adder adderIF (
 		.a (currentpc),
-		.b (32'd4),
+		.b (32'h00000004),
 		.out (pc4IF)
 	);
 
@@ -67,18 +66,11 @@ module mips32TOP(clk,rst);
 		.out (nextpc)
 	);
 
-	mux2 #(.width (32)) mux2IF2(
-		.a (instructionIF),
-		.b (`NOP),
-		.sel (jumpStall),
-		.out (instructionIF1)
-	);
-
 	IF_ID ifid(
 		.rst (rstIFID), 
 		.clk (clk), 
 		.pcIn (pc4IF), 
-		.instIn (instructionIF1), 
+		.instIn (instructionIF), 
 		.pcOut (pc4ID), 
 		.instOut (instructionID)
 	);
@@ -89,9 +81,7 @@ module mips32TOP(clk,rst);
 		.rtEX (rtEX),
 		.memRead (controlEX[4]), 
 		.isBranch (isBranch), 
-		.isJump (isJump),  
 		.pcWrite (pcWrite), 
-		.jumpStall (jumpStall), 
 		.ifIdFlush (flushIFID)
 	);
 
@@ -164,7 +154,7 @@ module mips32TOP(clk,rst);
 	);
 
 	ID_EX idex(
-		.rst (rstIDEX), 
+		.rst (rst), 
 		.clk (clk), 
 		.opcodeIn (instructionID[31:26]), 
 		.pcIn (pc4ID),
@@ -248,7 +238,7 @@ module mips32TOP(clk,rst);
 	);
 
 	EX_MEM exmem (
-		.rst (rstEXMEM), 
+		.rst (rst), 
 		.clk (clk), 
 		.controlIn (controlEX[4:0]), 
 		.pcIn (pc4EX),
