@@ -22,7 +22,7 @@ module registerFile (clk, rst, rs, rt, rWriteValue, rWriteAddress, regWrite, rsD
 
 	always @ (posedge clk or posedge rst) begin
 		if(rst) begin
-			 integer i;
+			 
 	        for (i=1; i<32; i=i+1) begin
 	            registers[i] <= 0;
 	        end

@@ -20,13 +20,13 @@ module RAM #(parameter SIZE = 16384, FILE_IN = "/caminho/")(
 
     integer i;
     initial begin
-        /*
+        
         for (i = 0; i < SIZE; i=i+1) begin
             memory[i] = 0;
         end
-        */
+        
              
-        $readmemb(FILE_IN, memory);
+        //$readmemb(FILE_IN, memory);
     end
 
     // Escrita sequencial na subida do clock

@@ -3,9 +3,9 @@
  * Project: mips32
  * Description: Gera os codigo de operação pra Alu
  ************************************************************/
+ `include "parameters.v"
  
-`include "parameters.v"
-
+project/include/define.v
 module aluControl (opcode, funct, aluOp);
 	input [5:0] opcode, funct;
   	output reg [3:0] aluOp;

@@ -3,6 +3,9 @@
  * Projeto: mips32
  * Descrição: Registradores de pipeline
  ***************************************************/
+
+ `include "parameters.v"
+ 
 module ID_EX(rst, clk, opcodeIn, pcIn, controlIn, rsValueIn, rtValueIn, offset16In, rsIn, rtIn, rdIn, 
 	opcodeOut, pcOut, controlOut, rsValueOut, rtValueOut, offset16Out, rsOut, rtOut, rdOut);
 
