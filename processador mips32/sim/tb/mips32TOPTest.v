@@ -12,26 +12,46 @@ module mips32TOPTest ();
     always #(Halfcycle) Clock = ~Clock;
 
     wire [31:0] address;
-    wire writeEnable;
-    wire [31:0] writeData, dataToMem;
-    wire [31:0] readData;
+    wire writeMem, readMem;
+    wire [31:0] writeDataMem;
+    //wire brWrite, isBrnch, brDataIn, , brancSrc;
+    //wire [4:0] brAddr;
 
     RAM ram (
         .Clock(Clock),
         .Address(address),
-        .MemWrite(writeEnable),
-        .WriteData(writeData),
-        .ReadData(readData)
+        .MemWrite(writeMem),
+        .MemRead(readMem),
+        .WriteData(writeDataMem)        
     );
 
+    /*registerFile BR (
+        .clk (Clock), 
+		.rst (Reset), 
+		.rs (), 
+		.rt (),
+		.rWriteValue (destRegValueWB), 
+		.rWriteAddress (destRegWB), 
+		.regWrite (controlWB[2]), 
+		.rsData (), 
+		.rtData ()
+    );*/
+
     mips32TOP cpu (
-        .Clock(Clock),
-        .Reset(Reset),
-        .Mem_DataIn(readData),
-        .Mem_Address(address),
-        .Mem_WriteEnable(writeEnable),
-        .Mem_DataOut(writeData)
-    );
+        .clk(Clock),
+        .rst(Reset),
+        .memWr(writeMem),
+        .memRd(readMem),
+        .memAddr(address),
+        .memDataIn(writeDataMem),
+        .brDataIn(),
+        .brAddr(),
+        .brWrite(),
+        .isBrnch(),
+        .compCode(),
+        .brancSrc()
+    );   
+
 
     task printOutput;
         input [13:0] addr;

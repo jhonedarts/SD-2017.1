@@ -5,9 +5,24 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP(clk,rst);
+module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWrite, isBrnch, compCode, brancSrc);
 	input clk, rst;
+	output memWr, memRd, brWrite, isBrnch;
+	output reg [31:0] memAddr, memDataIn,  brDataIn;
+	output reg [4:0] brAddr;
+	output reg [1:0] compCode, brancSrc;
 
+	assign memWr = controlMEM[3];
+	assign memRd = controlMEM[2];
+	assign memDataIn = writeData;
+	assign memAddr = aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0];
+	assign brDataIn = destRegValueWB;
+	assign brAddr = destRegWB;
+	assign brWrite = controlWB[2];
+	assign isBrnch = isBranch;	
+	assign compCode = compareCode;
+	assign brancSrc = branchSrc;
+	
 	wire rstIFID, flushIFID;
 	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
 	//wires... wires everwhere
