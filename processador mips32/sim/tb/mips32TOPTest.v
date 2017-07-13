@@ -1,4 +1,4 @@
-`timescale 1ps / 1ps
+`timescale 1ns / 1ps
 
 module mips32TOPTest ();
 
@@ -16,6 +16,7 @@ module mips32TOPTest ();
     wire [31:0] brDataIn;
     wire [4:0] brAddr;
     reg [4:0] rs, rt;
+    reg [31:0] compareDataOut;
 
     integer count_stop = 0;    
 
@@ -59,15 +60,21 @@ module mips32TOPTest ();
     );   
 
 
-    task printOutput;
-        input [13:0] addr;
-        input writeEn;
-        input [31:0] dIn,dOut;
-        begin
-            $display ("Address: %d  Write: %d",addr,writeEn);
-            $display("DataOut: %d  DataIn: %d\n",dOut,dIn);
+    task printOutputBankRegister;
+        input [4:0] addr1;                
+        input [31:0] r1Data;
+        input [31:0] result;
+        if ( r1Data !== result ) begin           
+            $display("FAIL: Incorrect result for register : %b , Resultado encontrado: %d, Resultado esperado: %d", addr1, r1Data, result);            
+            $finish();
+        end
+
+        else begin
+            $display ("PASSED - Address: %d  DataOut: %d",r1Data);           
         end
     endtask
+
+    
 
     /*localparam wordsInFile = 8192;
 
@@ -75,27 +82,47 @@ module mips32TOPTest ();
     integer i;*/
 
     initial begin
-      /*Reset = 1;
-      #(Cycle);
-      Reset = 0;
      
+     //correr ciclos para executar as instruções
 
-        #(Halfcycle);
-      
-      while (address != 32'h400) begin
-        #(Halfcycle);
-      end
-      
-
-      $finish(); */
-    Reset = 1;
-    #(Cycle);
-    Reset = 0;
-
-      while (count_stop<=100) begin
+    /*
+        Tempo suficiente para rodar o programa carregado.
+    */
+    while(count_stop <=15) begin
         #(Cycle);
-        count_stop = count_stop+1;
-      end
+        count_stop = count_stop + 1;
+    end  
+    
+
+    /*======================================================
+
+        VERIFiCAÇÃO PARA O SEGUINTE PROGRAMA :     
+        addi $t0,$zero, 2
+        addi $t1, $zero, 3
+        add $t2, $t0, $t1
+
+        001000 00000 01000 0000000000000010
+        001000 00000 01001 0000000000000011
+        000000 01000 01001 010100 0000100000
+    ======================================================*/
+
+        rs = 5'b01000; //$t0
+        result = 2;
+       
+        #(Cycle);
+        printOutputBankRegister(rs,rsData, result);
+
+        rs = 5'b01001; //$t1
+        result = 3;    
+        #(Cycle);
+        printOutputBankRegister(rs,rsData, result);
+
+        rs = 5'b01010; //$t2
+        result = 5;        
+        #(Cycle);
+        printOutputBankRegister(rs,rsData,result);
+);
+    
 
 		$finish();
         
