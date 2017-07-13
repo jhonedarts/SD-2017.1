@@ -75,23 +75,37 @@ module FowardingUnitTest ();
 		else begin
 			REFforwardRTID = 1'b00;	
 		end
+
 		if (REFforwardRS==forwardRS && REFforwardRT==forwardRT && REFforwardRSID==forwardRSID && REFforwardRTID==forwardRTID) begin
-			$display("\nTEST %d PASSED\n", i);			
+			$display("\nTEST %d PASSED\n", i);	
+			$display("Forward in EX stage:\n");
+			$display("RS: %b  RT: %b\n", rs, rt);
+			$display("destRegMEM: %b  destRegWB: %b\n", destRegMEM, destRegWB);
+			$display("regWriteMEM: %b  regWriteWB: %b\n", regWriteMEM, regWriteWB);
+			$display("Saida Esperada: forwardRS: %b, forwardRT: %b\n", REFforwardRS, REFforwardRT);
+			$display("Saida Obtida:   forwardRS: %b, forwardRT: %b\n", forwardRS, forwardRT);
+			$display("Forward in ID stage:\n");
+			$display("RSID: %b  RTID: %b\n", rsID, rtID);
+			$display("destRegEX: %b  destRegMEM: %b\n", destRegEX, destRegMEM);
+			$display("regWriteEX: %b  regWriteMEM: %b\n", regWriteEX, regWriteMEM);
+			$display("Saida Esperada: forwardRSID: %b, forwardRTID: %b\n", REFforwardRSID, REFforwardRTID);
+			$display("Saida Obtida:   forwardRSID: %b, forwardRTID: %b\n", forwardRSID, forwardRTID);		
 		end else begin
 			$display("\nTEST %d FAILED\n", i);		
+			$display("Forward in EX stage:\n");
+			$display("RS: %b  RT: %b\n", rs, rt);
+			$display("destRegMEM: %b  destRegWB: %b\n", destRegMEM, destRegWB);
+			$display("regWriteMEM: %b  regWriteWB: %b\n", regWriteMEM, regWriteWB);
+			$display("Saida Esperada: forwardRS: %b, forwardRT: %b\n", REFforwardRS, REFforwardRT);
+			$display("Saida Obtida:   forwardRS: %b, forwardRT: %b\n", forwardRS, forwardRT);
+			$display("Forward in ID stage:\n");
+			$display("RSID: %b  RTID: %b\n", rsID, rtID);
+			$display("destRegEX: %b  destRegMEM: %b\n", destRegEX, destRegMEM);
+			$display("regWriteEX: %b  regWriteMEM: %b\n", regWriteEX, regWriteMEM);
+			$display("Saida Esperada: forwardRSID: %b, forwardRTID: %b\n", REFforwardRSID, REFforwardRTID);
+			$display("Saida Obtida:   forwardRSID: %b, forwardRTID: %b\n", forwardRSID, forwardRTID);
+			$finish();
 		end
-		$display("Forward in EX stage:\n");
-		$display("RS: %b  RT: %b\n", rs, rt);
-		$display("destRegMEM: %b  destRegWB: %b\n", destRegMEM, destRegWB);
-		$display("regWriteMEM: %b  regWriteWB: %b\n", regWriteMEM, regWriteWB);
-		$display("Saida Esperada: forwardRS: %b, forwardRT: %b\n", REFforwardRS, REFforwardRT);
-		$display("Saida Obtida:   forwardRS: %b, forwardRT: %b\n", forwardRS, forwardRT);
-		$display("Forward in ID stage:\n");
-		$display("RSID: %b  RTID: %b\n", rsID, rtID);
-		$display("destRegEX: %b  destRegMEM: %b\n", destRegEX, destRegMEM);
-		$display("regWriteEX: %b  regWriteMEM: %b\n", regWriteEX, regWriteMEM);
-		$display("Saida Esperada: forwardRSID: %b, forwardRTID: %b\n", REFforwardRSID, REFforwardRTID);
-		$display("Saida Obtida:   forwardRSID: %b, forwardRTID: %b\n", forwardRSID, forwardRTID);
 	endtask
 
 	localparam loops = 500; // quantidade de testes aleatorios
