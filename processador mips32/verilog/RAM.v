@@ -9,6 +9,7 @@ module RAM #(parameter SIZE = 16384, FILE_IN = "/caminho/")(
     input Clock,
     input [13:0] Address,
     input MemWrite,
+    input MemRead,
     input [31:0] WriteData,
     output [31:0] ReadData
     );
@@ -34,12 +35,17 @@ module RAM #(parameter SIZE = 16384, FILE_IN = "/caminho/")(
         if (MemWrite) begin
             memory[Address] <= WriteData;
         end
+        else begin
+            if(MemRead) begin
+                addr_reg <= Address;
+            end
+        end
     end
 
     
-    always @(negedge Clock) begin
+    /*always @(negedge Clock) begin
         addr_reg <= Address;
-    end
+    end*/
     
     assign ReadData = MemWrite ? WriteData : memory[addr_reg];
 

@@ -7,13 +7,16 @@ module mips32TOPTest ();
     localparam Cycle = 2*Halfcycle;
 
     reg Clock, Reset;
+    
+    wire [13:0] address;
+    wire writeMem, readMem;
+    wire [31:0] writeDataMem;
+    wire [31:0] ReadData;
 
     initial Clock = 0;
     always #(Halfcycle) Clock = ~Clock;
 
-    wire [31:0] address;
-    wire writeMem, readMem;
-    wire [31:0] writeDataMem;
+    
     //wire brWrite, isBrnch, brDataIn, , brancSrc;
     //wire [4:0] brAddr;
 
@@ -22,7 +25,8 @@ module mips32TOPTest ();
         .Address(address),
         .MemWrite(writeMem),
         .MemRead(readMem),
-        .WriteData(writeDataMem)        
+        .WriteData(writeDataMem),
+        .ReadData(ReadData)        
     );
 
     /*registerFile BR (
@@ -43,13 +47,7 @@ module mips32TOPTest ();
         .memWr(writeMem),
         .memRd(readMem),
         .memAddr(address),
-        .memDataIn(writeDataMem),
-        .brDataIn(),
-        .brAddr(),
-        .brWrite(),
-        .isBrnch(),
-        .compCode(),
-        .brancSrc()
+        .memDataIn(writeDataMem)        
     );   
 
 

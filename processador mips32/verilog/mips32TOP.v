@@ -5,12 +5,13 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWrite, isBrnch, compCode, brancSrc);
+module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn/*, brDataIn, brAddr, brWrite, isBrnch, compCode, brancSrc*/);
 	input clk, rst;
-	output memWr, memRd, brWrite, isBrnch;
-	output reg [31:0] memAddr, memDataIn,  brDataIn;
-	output reg [4:0] brAddr;
-	output reg [1:0] compCode, brancSrc;	
+	output memWr, memRd; //brWrite, isBrnch;
+	output [13:0] memAddr;  //brDataIn;
+	output [31:0] memDataIn;
+	/*output reg [4:0] brAddr;
+	output reg [1:0] compCode, brancSrc;*/
 
 	wire rstIFID, flushIFID;
 	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
@@ -30,13 +31,14 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	//EX
 	wire[4:0] rsEX, rtEX, rdEX, destRegEX;
 	wire[`CONTROL_SIZE-1:0] controlEX;
-	wire[31:0] opcodeEX, rsValueEX, rtValueEX, rtValueEX1, offset16EX;
+	wire[31:0] rsValueEX, rtValueEX, rtValueEX1, offset16EX;
 	wire[31:0] operating1, operating2, aluResultEX, pc4EX;
-	wire[5:0] aluControlOut;
+	wire[5:0]  opcodeEX;
+	wire[3:0] aluControlOut;
 	wire[1:0] forwardRS, forwardRT;
 	//MEM
 	wire[4:0] destRegMEM;
-	wire[4:0] controlMEM;
+	wire[3:0] controlMEM;
 	wire[31:0] aluResultMEM, writeData, memoryDataMEM, pc4MEM;
 	
 	//WB
@@ -48,12 +50,12 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	assign controlMEM[2] = memRd;
 	assign writeData = memDataIn;
 	assign aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0] = memAddr;
-	assign destRegValueWB = brDataIn;
+	/*assign destRegValueWB = brDataIn;
 	assign destRegWB = brAddr;
 	assign brWrite = controlWB[2];
 	assign isBrnch = isBranch;	
 	assign compareCode = compCode;
-	assign branchSrc = brancSrc; 	
+	assign branchSrc = brancSrc; 	*/
 
 
 	PC pc(
@@ -62,11 +64,20 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.out (currentpc)
 	);
 
-	instructionMem instructionMem(		
+	/*instructionMem instructionMem(		
 		.address (currentpc[`INST_MEM_ADDR_SIZE-1:0]),
 		.clock (clk),
 		.q (instructionIF)
-	);
+	);*/
+	/* Usando outra memoria de instruções para testes
+	*/
+
+	ROM rom (
+        .Clock(clk),
+        .Address(currentpc[`INST_MEM_ADDR_SIZE-1:0]),        
+		.ReadData(instructionIF)        
+    );
+	
 
 	adder adderIF (
 		.a (currentpc),
@@ -103,8 +114,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	unitControl unitControl(
 		.opcode (instructionID[31:26]),
 		.func (instructionID[5:0]),
-		.controlOut(controlID), 
-		.isJump (isJump),
+		.controlOut(controlID), 		
 		.branchSrc (branchSrc),
 		.compareCode (compareCode)
 	);
@@ -128,8 +138,8 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.rst (rst), 
 		.rs (instructionID[25:21]), 
 		.rt (instructionID[20:16]),
-		.rWriteValue (destReg), 
-		.rWriteAddress (destRegValueWB), 
+		.rWriteValue (destRegValueWB), 
+		.rWriteAddress (destRegWB), 
 		.regWrite (controlWB[2]), 
 		.rsData (rsValueID1), 
 		.rtData (rtValueID1)
@@ -176,7 +186,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.controlIn (controlID),  
 		.rsValueIn (rsValueID1), 
 		.rtValueIn (rtValueID1), 
-		.offset16In (offset16ID), 
+		.offset16In (offset16ID1), 
 		.rsIn (instructionID[25:21]),
 		.rtIn (instructionID[20:16]), 
 		.rdIn (instructionID[15:11]), 
@@ -255,7 +265,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	EX_MEM exmem (
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlEX[4:0]), 
+		.controlIn (controlEX[3:0]), 
 		.pcIn (pc4EX),
 		.aluResultIn (aluResultEX), 
 		.rtValueIn (rtValueEX1), 
@@ -267,19 +277,30 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.destRegOut (destRegMEM)
 	);
 
-	dataMem dataMem (
+	/*dataMem dataMem (
 		.clock (clk), 
 		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
 		.data (writeData), 
 		.wren (controlMEM[3]), 
 		.rden (controlMEM[2]), 
 		.q (memoryDataMEM)
-	);
+	);*/
+	/*
+	Usando outra memória para fazer teste
+	*/
+	RAM ram (
+        .Clock(clk),
+        .Address(aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]),
+        .MemWrite(controlMEM[3]),
+        .MemRead(controlMEM[2]),
+        .WriteData(writeData),
+		.ReadData(memoryDataMEM)        
+    );
 
 	MEM_WB memwb(
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlMEM[2:0]), 
+		.controlIn (controlMEM[1:0]), 
 		.pcIn (pc4MEM),
 		.memDataIn (memoryDataMEM), 
 		.aluResultIn (aluResultMEM), 

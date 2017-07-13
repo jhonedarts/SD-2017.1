@@ -22,7 +22,7 @@ module PC(enable, nextpc, out);
 					prevPC = PC;
 					PC = nextpc;
 				end else begin
-					PC = prevPC
+					PC = prevPC;
 				end
 			end
 		endcase

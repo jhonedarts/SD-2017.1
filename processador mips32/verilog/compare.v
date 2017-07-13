@@ -5,7 +5,7 @@
  *  tomar ou nao os desvios
  ***************************************************/
 module compare (rs, rt, code, isBranch);
-	input[4:0] rs, rt;
+	input[31:0] rs, rt;
 	input[1:0] code;
 	output reg isBranch;
 
