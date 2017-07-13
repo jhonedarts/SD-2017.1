@@ -5,13 +5,12 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn/*, brDataIn, brAddr, brWrite, isBrnch, compCode, brancSrc*/);
+module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWrite);
 	input clk, rst;
-	output memWr, memRd; //brWrite, isBrnch;
-	output [13:0] memAddr;  //brDataIn;
-	output [31:0] memDataIn;
-	/*output reg [4:0] brAddr;
-	output reg [1:0] compCode, brancSrc;*/
+	output memWr, memRd, brWrite;
+	output [13:0] memAddr;  
+	output [31:0] memDataIn, brDataIn;
+	output reg [4:0] brAddr;	
 
 	wire rstIFID, flushIFID;
 	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
@@ -50,12 +49,9 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn/*, brDataIn, brAddr, br
 	assign controlMEM[2] = memRd;
 	assign writeData = memDataIn;
 	assign aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0] = memAddr;
-	/*assign destRegValueWB = brDataIn;
+	assign destRegValueWB = brDataIn;
 	assign destRegWB = brAddr;
-	assign brWrite = controlWB[2];
-	assign isBrnch = isBranch;	
-	assign compareCode = compCode;
-	assign branchSrc = brancSrc; 	*/
+	assign brWrite = controlWB[2];	
 
 
 	PC pc(

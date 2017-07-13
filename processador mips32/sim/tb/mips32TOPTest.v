@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1ps / 1ps
 
 module mips32TOPTest ();
 
@@ -11,14 +11,19 @@ module mips32TOPTest ();
     wire [13:0] address;
     wire writeMem, readMem;
     wire [31:0] writeDataMem;
-    wire [31:0] ReadData;
+    wire [31:0] ReadData,rsData, rtData;
+    wire brWrite;
+    wire [31:0] brDataIn;
+    wire [4:0] brAddr;
+    reg [4:0] rs, rt;
 
-    initial Clock = 0;
+    integer count_stop = 0;    
+
+    initial Clock = 1;
     always #(Halfcycle) Clock = ~Clock;
 
     
-    //wire brWrite, isBrnch, brDataIn, , brancSrc;
-    //wire [4:0] brAddr;
+    
 
     RAM ram (
         .Clock(Clock),
@@ -29,17 +34,17 @@ module mips32TOPTest ();
         .ReadData(ReadData)        
     );
 
-    /*registerFile BR (
+    registerFile BR (
         .clk (Clock), 
 		.rst (Reset), 
-		.rs (), 
-		.rt (),
-		.rWriteValue (destRegValueWB), 
-		.rWriteAddress (destRegWB), 
-		.regWrite (controlWB[2]), 
-		.rsData (), 
-		.rtData ()
-    );*/
+		.rs (rs), 
+		.rt (rt),
+		.rWriteValue (brDataIn), 
+		.rWriteAddress (brAddr), 
+		.regWrite (brWrite), 
+		.rsData (rsData), 
+		.rtData (rtData)
+    );
 
     mips32TOP cpu (
         .clk(Clock),
@@ -47,7 +52,10 @@ module mips32TOPTest ();
         .memWr(writeMem),
         .memRd(readMem),
         .memAddr(address),
-        .memDataIn(writeDataMem)        
+        .memDataIn(writeDataMem),
+        .brDataIn(brDataIn),
+        .brAddr(brAddr),
+        .brWrite(brWrite)       
     );   
 
 
@@ -61,21 +69,37 @@ module mips32TOPTest ();
         end
     endtask
 
-    localparam wordsInFile = 8192;
+    /*localparam wordsInFile = 8192;
 
     reg [31:0] fileContent [0:wordsInFile-1];
-    integer i;
+    integer i;*/
 
     initial begin
-      Reset = 1;
+      /*Reset = 1;
       #(Cycle);
       Reset = 0;
+     
+
+        #(Halfcycle);
       
-      while (address != 32'h3ffc) begin
-        #(Cycle);
+      while (address != 32'h400) begin
+        #(Halfcycle);
       end
       
 
-      $finish();
+      $finish(); */
+    Reset = 1;
+    #(Cycle);
+    Reset = 0;
+
+      while (count_stop<=100) begin
+        #(Cycle);
+        count_stop = count_stop+1;
+      end
+
+		$finish();
+        
+	
+
     end
 endmodule
