@@ -77,7 +77,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 
 	adder adderIF (
 		.a (currentpc),
-		.b (32'h00000004),
+		.b (32'h00000001),
 		.out (pc4IF)
 	);
 

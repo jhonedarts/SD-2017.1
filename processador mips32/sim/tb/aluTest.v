@@ -12,7 +12,7 @@
 
 `include "parameters.v"
 
-module ALUTestbench();
+module ulaTest();
 
     parameter Halfcycle = 5; //half period is 5ns
     

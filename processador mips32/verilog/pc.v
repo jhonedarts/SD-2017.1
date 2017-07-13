@@ -4,9 +4,9 @@
  * Description: Guarda o proximo endereco e poe o atual
  * na saida.
  ***************************************************/
-module PC(enable, nextpc, out);
+module PC(clk, rst, enable, nextpc, out);
 	//enable input
-	input enable;
+	input clk, rst, enable;
 	input[31:0] nextpc;	
 	output[31:0] out;
 
@@ -14,18 +14,23 @@ module PC(enable, nextpc, out);
 	reg[31:0] prevPC;
 	assign out = PC;
 
-	always @ (*) begin
-		case(nextpc)
-			32'bxx: PC = 0;
-			default: begin
-				if(enable) begin
+	always @(posedge clk or posedge rst) begin
+		if (rst) begin
+			// reset
+			PC = 0;			
+		end
+		else begin 
+			if (enable) begin
+				if(nextpc==32'bxx) begin
+					PC = 0;
+				end else begin
 					prevPC = PC;
 					PC = nextpc;
-				end else begin
-					PC = prevPC;
 				end
+			end else begin
+				PC = prevPC;
 			end
-		endcase
+		end
 	end
 	
 endmodule
