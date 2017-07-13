@@ -26,15 +26,21 @@ module hazardDetectionTest ();
 
 	task checkOutput;
 		if (REFpcWrite==pcWrite && REFifIdFlush==ifIdFlush) begin
-			$display("\nTEST %d PASSED\n", i);			
+			$display("\nTEST %d PASSED\n", i);		
+			$display("RS: %b\n", rs);
+			$display("RT: %b\n", rt);
+			$display("RT(ex): %b\n", rtEX);
+			$display("Saida Esperada: pcWrite: %b, ifIdFlush: %b\n", REFpcWrite, REFifIdFlush);
+			$display("Saida Obtida:   pcWrite: %b, ifIdFlush: %b\n", pcWrite, ifIdFlush);	
 		end else begin
-			$display("\nTEST %d FAILED\n", i);		
+			$display("\nTEST %d FAILED\n", i);	
+			$display("RS: %b\n", rs);
+			$display("RT: %b\n", rt);
+			$display("RT(ex): %b\n", rtEX);
+			$display("Saida Esperada: pcWrite: %b, ifIdFlush: %b\n", REFpcWrite, REFifIdFlush);
+			$display("Saida Obtida:   pcWrite: %b, ifIdFlush: %b\n", pcWrite, ifIdFlush);	
+			$finish();
 		end
-		$display("RS: %b\n", rs);
-		$display("RT: %b\n", rt);
-		$display("RT(ex): %b\n", rtEX);
-		$display("Saida Esperada: pcWrite: %b, ifIdFlush: %b\n", REFpcWrite, REFifIdFlush);
-		$display("Saida Obtida:   pcWrite: %b, ifIdFlush: %b\n", pcWrite, ifIdFlush);
 	endtask
 
 	localparam loops = 500; // quantidade de testes aleatorios
