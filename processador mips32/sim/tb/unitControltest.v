@@ -1,9 +1,9 @@
 `include "parameters.v"
 
-module unitControlTb ();
+module unitControlTest ();
 
-reg[5:0] opcode[0:11], funct, op;
-reg [12:0] result[0:11];
+reg[5:0] opcode[0:12], funct, op;
+reg [12:0] result[0:12];
 wire[1:0] branchSrc, compareCode;
 wire[12:0] control;
 wire[`CONTROL_SIZE-1:0] controlOut; 

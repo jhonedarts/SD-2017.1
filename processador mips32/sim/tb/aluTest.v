@@ -60,14 +60,16 @@ module ulaTest();
     endtask
 
     //This is where the modules being tested are instantiated. 
-    ALUdec DUT1(.funct(funct),
+    aluControl DUT1(
+        .funct(funct),
         .opcode(opcode),
-        .ALUop(ALUop));
+        .aluOp(ALUop));
 
-    ALU DUT2( .A(A),
-        .B(B),
-        .ALUop(ALUop),
-        .Out(DUTout));
+    alu DUT2( 
+        .a(A),
+        .b(B),
+        .sel(ALUop),
+        .result(DUTout));
 
     integer i;
     localparam loops = 500; // number of times to run the tests for

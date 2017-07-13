@@ -29,7 +29,7 @@ module aluControl (opcode, funct, aluOp);
 					`NOR:     	aluOp = `ALU_NOR;
 					`SLT:     	aluOp = `ALU_SLT;
 					`SLTU:  	aluOp = `ALU_SLTU;
-					default: aluOp = `ALU_XXX;					
+					default: 	aluOp = `ALU_XXX;					
     			endcase
     		end
     		`LB,`LH,`LW,`LBU,`LHU,`SB,`SH,`SW: aluOp = `ALU_ADDU;

@@ -26,7 +26,14 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	ROM
 
-} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v}
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/mips32TOPTest.v} {0 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/mips32TOPTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mips32TOPTest
+** Error: C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/mips32TOPTest.v(110): (vlog-2730) Undefined variable: 'result'.
+
+** Error: C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/mips32TOPTest.v(124): near ")": syntax error, unexpected ')'
+
+} {4.0 5.0 6.0 7.0} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module RAM
 
@@ -39,6 +46,20 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 
 Top level modules:
 	adder
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/forwardingUnitTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/forwardingUnitTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module forwardingUnitTest
+
+Top level modules:
+	forwardingUnitTest
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mips32TOP
+
+Top level modules:
+	mips32TOP
 
 } {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -78,6 +99,13 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	signEx26
 
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/unitControltest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/unitControltest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module unitControlTest
+
+Top level modules:
+	unitControlTest
+
 } {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/hazardDetectionTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/hazardDetectionTest.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module hazardDetectionTest
@@ -98,6 +126,13 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 
 Top level modules:
 	compare
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/aluTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/tb/aluTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ulaTest
+
+Top level modules:
+	ulaTest
 
 } {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
