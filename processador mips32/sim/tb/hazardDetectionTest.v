@@ -25,6 +25,8 @@ module hazardDetectionTest ();
 	);
 
 	task checkOutput;
+		REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
+		REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
 		if (REFpcWrite==pcWrite && REFifIdFlush==ifIdFlush) begin
 			$display("\nTEST %d PASSED\n", i);		
 			$display("RS: %b\n", rs);
@@ -55,16 +57,13 @@ module hazardDetectionTest ();
 	        // and hard-coded tests outside of the loop
 	        // (see comment below)
 	        // //////////////////////////////////////////
-	        #1;
+	        
 	        rs = {$random} % 5'b11111;
 	        rt = {$random} % 5'b11111;
 	        rtEX = {$random} % 5'b11111;
 	        memRead = {$random} % 1'b1;
 	        isBranch = {$random} % 1'b1;
-
-	        REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
-			REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
-
+			#1;
 			checkOutput();
 		end
 	end
@@ -77,9 +76,7 @@ module hazardDetectionTest ();
     rtEX = 5'b01111;
     memRead = 1'b1;
     isBranch = 1'b0;
-    REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
-	REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
-	#1
+	#1;
 	checkOutput();
 
 	i = 1;
@@ -87,10 +84,8 @@ module hazardDetectionTest ();
     rt = 5'b01100;
     rtEX = 5'b01100;
     memRead = 1'b1;
-    isBranch = 1'b0;
-    REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
-	REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
-	#1
+    isBranch = 1'b0;    
+	#1;
 	checkOutput();
 
 	i = 2;
@@ -99,10 +94,7 @@ module hazardDetectionTest ();
     rtEX = 5'b01100;
     memRead = 1'b1;
     isBranch = 1'b1;
-
-    REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
-	REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
-	#1
+	#1;
 	checkOutput();
 
 	i = 3;
@@ -111,10 +103,7 @@ module hazardDetectionTest ();
     rtEX = 5'b01100;
     memRead = 1'b0;
     isBranch = 1'b1;
-
-    REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
-	REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
-	#1
+	#1;
 	checkOutput();
 
 	i = 4;
@@ -123,12 +112,10 @@ module hazardDetectionTest ();
     rtEX = 5'b11111;
     memRead = 1'b1;
     isBranch = 1'b1;
-
-    REFpcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
-	REFifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
-	#1
+	#1;
 	checkOutput();
-	#1
+
+	$display("\n\nALL TESTS PASSED!");
 	$finish();
 
 endmodule

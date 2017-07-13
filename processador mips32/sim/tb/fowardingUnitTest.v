@@ -115,7 +115,6 @@ module FowardingUnitTest ();
 	    $display("\n\n ALL INSTRUCTIONS TESTS RANDOM");
 	    for(i = 0; i < loops; i = i + 1)
 	    begin
-	        #1;
 	        rs = {$random} % 5'b11111;
 	        rt = {$random} % 5'b11111;
 	        rsID = {$random} % 5'b11111;
@@ -126,7 +125,7 @@ module FowardingUnitTest ();
 	        regWriteEX = {$random} % 1'b1;
 	        regWriteMEM = {$random} % 1'b1;
 	        regWriteWB = {$random} % 1'b1;
-
+			#1;
 			checkOutput();
 		end
 	end
@@ -144,7 +143,7 @@ module FowardingUnitTest ();
     regWriteEX = 1'b1;
     regWriteMEM = 1'b1;
     regWriteWB = 1'b1;
-    #1
+    #1;
 	checkOutput();
 
 	i = 1;
@@ -158,7 +157,7 @@ module FowardingUnitTest ();
     regWriteEX = 1'b0;
     regWriteMEM = 1'b1;
     regWriteWB = 1'b1;
-    #1
+    #1;
 	checkOutput();
 
 	i = 2;
@@ -172,7 +171,7 @@ module FowardingUnitTest ();
     regWriteEX = 1'b0;
     regWriteMEM = 1'b0;
     regWriteWB = 1'b1;
-    #1
+    #1;
 	checkOutput();
 
 	i = 3;
@@ -186,7 +185,7 @@ module FowardingUnitTest ();
     regWriteEX = 1'b1;
     regWriteMEM = 1'b1;
     regWriteWB = 1'b0;
-    #1
+    #1;
 	checkOutput();
 
 	i = 4;
@@ -200,7 +199,7 @@ module FowardingUnitTest ();
     regWriteEX = 1'b0;
     regWriteMEM = 1'b0;
     regWriteWB = 1'b0;
-    #1
+    #1;
 	checkOutput();
 
 	i = 5;
@@ -214,12 +213,12 @@ module FowardingUnitTest ();
     regWriteEX = 1'b0;
     regWriteMEM = 1'b0;
     regWriteWB = 1'b1;
-    #1
+    #1;
 	checkOutput();
 	
 	
 	
-	#1
+	$display("\n\nALL TESTS PASSED!");
 	$finish();
 
 endmodule
