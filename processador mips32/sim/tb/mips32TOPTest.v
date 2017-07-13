@@ -16,7 +16,7 @@ module mips32TOPTest ();
     wire [31:0] brDataIn;
     wire [4:0] brAddr;
     reg [4:0] rs, rt;
-    reg [31:0] compareDataOut;
+    reg [31:0] result;
 
     integer count_stop = 0;    
 
@@ -121,7 +121,6 @@ module mips32TOPTest ();
         result = 5;        
         #(Cycle);
         printOutputBankRegister(rs,rsData,result);
-);
     
 
 		$finish();
