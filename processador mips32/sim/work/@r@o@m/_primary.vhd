@@ -3,7 +3,7 @@ use verilog.vl_types.all;
 entity ROM is
     generic(
         SIZE            : integer := 1024;
-        FILE_IN         : string  := "instructions.input"
+        FILE_IN         : string  := "memoryInit/instructions.input"
     );
     port(
         Clock           : in     vl_logic;

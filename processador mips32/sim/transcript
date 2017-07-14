@@ -7,139 +7,6 @@
 # Compile of signEx16.v was successful.
 # Compile of signEx26.v was successful.
 # Compile of adder.v was successful.
-# Compile of alu.v failed with 14 errors.
-# Compile of aluControl.v failed with 55 errors.
-# Compile of compare.v was successful.
-# Compile of instructionMem.v was successful.
-# Compile of dataMem.v was successful.
-# Compile of RAM.v was successful.
-# Compile of ROM.v was successful.
-# Compile of forwardingUnit.v was successful.
-# Compile of hazardDetection.v was successful.
-# Compile of IF_ID.v was successful.
-# Compile of ID_EX.v failed with 4 errors.
-# Compile of EX_MEM.v was successful.
-# Compile of MEM_WB.v was successful.
-# Compile of mips32TOP.v failed with 6 errors.
-# Compile of ROMTest.v was successful.
-# Compile of unitControl.v failed with 14 errors.
-# Compile of aluTest.v failed with 42 errors.
-# Compile of unitControltest.v failed with 17 errors.
-# Compile of forwardingUnitTest.v was successful.
-# Compile of hazardDetectionTest.v was successful.
-# Compile of mips32TOPTest.v was successful.
-# Compile of mips32TOPTest 2.v was successful.
-# 31 compiles, 7 failed with 152 errors. 
-# Compile of parameters.v was successful.
-# Compile of mux2.v was successful.
-# Compile of mux3.v was successful.
-# Compile of pc.v was successful.
-# Compile of registerFile.v was successful.
-# Compile of shiftLeft.v was successful.
-# Compile of signEx16.v was successful.
-# Compile of signEx26.v was successful.
-# Compile of adder.v was successful.
-# Compile of alu.v was successful.
-# Compile of aluControl.v was successful.
-# Compile of compare.v was successful.
-# Compile of instructionMem.v was successful.
-# Compile of dataMem.v was successful.
-# Compile of RAM.v was successful.
-# Compile of ROM.v was successful.
-# Compile of forwardingUnit.v was successful.
-# Compile of hazardDetection.v was successful.
-# Compile of IF_ID.v was successful.
-# Compile of ID_EX.v was successful.
-# Compile of EX_MEM.v was successful.
-# Compile of MEM_WB.v was successful.
-# Compile of mips32TOP.v was successful.
-# Compile of ROMTest.v was successful.
-# Compile of unitControl.v was successful.
-# Compile of aluTest.v was successful.
-# Compile of unitControltest.v was successful.
-# Compile of forwardingUnitTest.v was successful.
-# Compile of hazardDetectionTest.v was successful.
-# Compile of mips32TOPTest.v was successful.
-# Compile of mips32TOPTest 2.v was successful.
-# 31 compiles, 0 failed with no errors. 
-# Compile of parameters.v was successful.
-# Compile of mux2.v was successful.
-# Compile of mux3.v was successful.
-# Compile of pc.v was successful.
-# Compile of registerFile.v was successful.
-# Compile of shiftLeft.v was successful.
-# Compile of signEx16.v was successful.
-# Compile of signEx26.v was successful.
-# Compile of adder.v was successful.
-# Compile of alu.v was successful.
-# Compile of aluControl.v was successful.
-# Compile of compare.v was successful.
-# Compile of instructionMem.v was successful.
-# Compile of dataMem.v was successful.
-# Compile of RAM.v was successful.
-# Compile of ROM.v was successful.
-# Compile of forwardingUnit.v was successful.
-# Compile of hazardDetection.v was successful.
-# Compile of unitControl.v was successful.
-# Compile of IF_ID.v was successful.
-# Compile of ID_EX.v was successful.
-# Compile of EX_MEM.v was successful.
-# Compile of MEM_WB.v was successful.
-# Compile of mips32TOP.v was successful.
-# Compile of mips32TOP 2.v was successful.
-# Compile of ROMTest.v was successful.
-# Compile of aluTest.v was successful.
-# Compile of unitControltest.v was successful.
-# Compile of forwardingUnitTest.v was successful.
-# Compile of hazardDetectionTest.v was successful.
-# Compile of mips32TOPTest.v was successful.
-# Compile of mips32TOPTest 2.v was successful.
-# 32 compiles, 0 failed with no errors. 
-# Compile of parameters.v was successful.
-# Compile of mux2.v was successful.
-# Compile of mux3.v was successful.
-# Compile of pc.v was successful.
-# Compile of registerFile.v was successful.
-# Compile of shiftLeft.v was successful.
-# Compile of signEx16.v was successful.
-# Compile of signEx26.v was successful.
-# Compile of adder.v was successful.
-# Compile of alu.v was successful.
-# Compile of aluControl.v was successful.
-# Compile of compare.v was successful.
-# Compile of instructionMem.v was successful.
-# Compile of dataMem.v was successful.
-# Compile of RAM.v was successful.
-# Compile of ROM.v was successful.
-# Compile of forwardingUnit.v was successful.
-# Compile of hazardDetection.v was successful.
-# Compile of unitControl.v was successful.
-# Compile of IF_ID.v was successful.
-# Compile of ID_EX.v was successful.
-# Compile of EX_MEM.v was successful.
-# Compile of MEM_WB.v was successful.
-# Compile of mips32TOP.v was successful.
-# Compile of mips32TOP 2.v failed with 4 errors.
-# Compile of ROMTest.v was successful.
-# Compile of aluTest.v was successful.
-# Compile of unitControltest.v was successful.
-# Compile of forwardingUnitTest.v was successful.
-# Compile of hazardDetectionTest.v was successful.
-# Compile of mips32TOPTest.v was successful.
-# Compile of mips32TOPTest 2.v was successful with warnings.
-# 32 compiles, 1 failed with 4 errors. 
-# Compile of mips32TOP 2.v was successful.
-# Compile of mips32TOPTest 2.v was successful.
-# Load canceled
-# Compile of parameters.v was successful.
-# Compile of mux2.v was successful.
-# Compile of mux3.v was successful.
-# Compile of pc.v was successful.
-# Compile of registerFile.v was successful.
-# Compile of shiftLeft.v was successful.
-# Compile of signEx16.v was successful.
-# Compile of signEx26.v was successful.
-# Compile of adder.v was successful.
 # Compile of alu.v was successful.
 # Compile of aluControl.v was successful.
 # Compile of compare.v was successful.
@@ -198,89 +65,7 @@ vsim -gui work.mips32TOPTest2
 #             C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/work
 # Loading work.MEM_WB
 # Error loading design
-vsim -Lf altera_mf_ver -gui work.instructionMem
-# vsim -Lf altera_mf_ver -gui work.instructionMem 
-# Loading work.instructionMem
-# Loading altera_mf_ver.altsyncram
-# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
-# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-vsim -Lf altera_mf_ver -gui work.dataMem
-# vsim -Lf altera_mf_ver -gui work.dataMem 
-# Loading work.dataMem
-# Loading altera_mf_ver.altsyncram
-# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
-# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-vsim -Lf altera_mf_ver -gui work.mips32TOPTest2
-# vsim -Lf altera_mf_ver -gui work.mips32TOPTest2 
-# Loading work.mips32TOPTest2
-# Loading work.mips32TOP2
-# Loading work.PC
-# Loading work.instructionMem
-# Loading altera_mf_ver.altsyncram
-# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
-# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-# Loading work.adder
-# Loading work.mux2
-# Loading work.IF_ID
-# Loading work.hazardDetection
-# Loading work.unitControl
-# Loading work.mux3
-# Loading work.registerFile
-# Loading work.compare
-# Loading work.signEx16
-# Loading work.shiftLeft
-# Loading work.ID_EX
-# Loading work.alu
-# Loading work.aluControl
-# Loading work.forwardingUnit
-# Loading work.EX_MEM
-# Loading work.dataMem
-# Loading work.MEM_WB
-# ** Error: (vsim-3043) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v(34): Unresolved reference to 'memAddr'.
-# 
-#         Region: /mips32TOPTest2
-# ** Warning: (vsim-3017) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v(59): [TFMPC] - Too few port connections. Expected 5, found 3.
-# 
-#         Region: /mips32TOPTest2/cpu/pc
-# ** Warning: (vsim-3722) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v(59): [TFMPC] - Missing connection for port 'clk'.
-# 
-# ** Warning: (vsim-3722) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v(59): [TFMPC] - Missing connection for port 'rst'.
-# 
-# Error loading design
 # Load canceled
-# Compile of parameters.v was successful.
-# Compile of mux2.v was successful.
-# Compile of mux3.v was successful.
-# Compile of pc.v was successful.
-# Compile of registerFile.v was successful.
-# Compile of shiftLeft.v was successful.
-# Compile of signEx16.v was successful.
-# Compile of signEx26.v was successful.
-# Compile of adder.v was successful.
-# Compile of alu.v was successful.
-# Compile of aluControl.v was successful.
-# Compile of compare.v was successful.
-# Compile of instructionMem.v was successful.
-# Compile of dataMem.v was successful.
-# Compile of RAM.v was successful.
-# Compile of ROM.v was successful.
-# Compile of forwardingUnit.v was successful.
-# Compile of hazardDetection.v was successful.
-# Compile of unitControl.v was successful.
-# Compile of IF_ID.v was successful.
-# Compile of ID_EX.v was successful.
-# Compile of EX_MEM.v was successful.
-# Compile of MEM_WB.v was successful.
-# Compile of mips32TOP.v was successful.
-# Compile of mips32TOP2.v was successful.
-# Compile of ROMTest.v was successful.
-# Compile of aluTest.v was successful.
-# Compile of unitControltest.v was successful.
-# Compile of forwardingUnitTest.v was successful.
-# Compile of hazardDetectionTest.v was successful.
-# Compile of mips32TOPTest.v was successful.
-# Compile of mips32TOPTest2.v was successful.
-# 32 compiles, 0 failed with no errors. 
 vsim -Lf altera_mf_ver -gui work.mips32TOPTest2
 # vsim -Lf altera_mf_ver -gui work.mips32TOPTest2 
 # Loading work.mips32TOPTest2
@@ -308,24 +93,8 @@ vsim -Lf altera_mf_ver -gui work.mips32TOPTest2
 # Loading work.dataMem
 # Loading work.MEM_WB
 run -all
-# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "memoryInit/instruction.mif" for reading.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Program Files/altera/13.1/modelsim_ase/win32aloem/../altera/verilog/src/altera_mf.v(187)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest2/cpu/instructionMem/altsyncram_component
-# ERROR: cannot read memoryInit/instruction.mif.
-# ** Warning: (vsim-7) Failed to open readmem file "memoryInit/instruction.ver" in read mode.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Program Files/altera/13.1/modelsim_ase/win32aloem/../altera/verilog/src/altera_mf.v(45506)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest2/cpu/instructionMem/altsyncram_component
-# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "memoryInit/data.mif" for reading.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Program Files/altera/13.1/modelsim_ase/win32aloem/../altera/verilog/src/altera_mf.v(187)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest2/cpu/dataMem/altsyncram_component
-# ERROR: cannot read memoryInit/data.mif.
-# ** Warning: (vsim-7) Failed to open readmem file "memoryInit/data.ver" in read mode.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Program Files/altera/13.1/modelsim_ase/win32aloem/../altera/verilog/src/altera_mf.v(45506)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest2/cpu/dataMem/altsyncram_component
+# ERROR: memoryInit/instruction.mif, line 1, Invalid Altera-mif record.
+# ERROR: memoryInit/data.mif, line 1, Invalid Altera-mif record.
 # controlCode ID: xxxxxxxxxxxx
 # Memory Addr: xxxxxxxxxxxxxx, Data: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # DestReg: xxxxx, Value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -399,7 +168,7 @@ run -all
 # Compile of ID_EX.v was successful.
 # Compile of EX_MEM.v was successful.
 # Compile of MEM_WB.v was successful.
-# Compile of mips32TOP.v failed with 1 errors.
+# Compile of mips32TOP.v was successful.
 # Compile of mips32TOP2.v was successful.
 # Compile of ROMTest.v was successful.
 # Compile of aluTest.v was successful.
@@ -408,22 +177,23 @@ run -all
 # Compile of hazardDetectionTest.v was successful.
 # Compile of mips32TOPTest.v was successful.
 # Compile of mips32TOPTest2.v was successful.
-# 32 compiles, 1 failed with 1 error. 
-# Compile of mips32TOP.v was successful.
-vsim -Lf altera_mf_ver -gui work.mips32TOPTest
-# vsim -Lf altera_mf_ver -gui work.mips32TOPTest 
-# Loading work.mips32TOPTest
-# Loading work.RAM
-# Loading work.registerFile
-# Loading work.mips32TOP
+# 32 compiles, 0 failed with no errors. 
+vsim -Lf altera_mf_ver -gui work.mips32TOPTest2
+# vsim -Lf altera_mf_ver -gui work.mips32TOPTest2 
+# Loading work.mips32TOPTest2
+# Loading work.mips32TOP2
 # Loading work.PC
-# Loading work.ROM
+# Loading work.instructionMem
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
 # Loading work.adder
 # Loading work.mux2
 # Loading work.IF_ID
 # Loading work.hazardDetection
 # Loading work.unitControl
 # Loading work.mux3
+# Loading work.registerFile
 # Loading work.compare
 # Loading work.signEx16
 # Loading work.shiftLeft
@@ -432,79 +202,59 @@ vsim -Lf altera_mf_ver -gui work.mips32TOPTest
 # Loading work.aluControl
 # Loading work.forwardingUnit
 # Loading work.EX_MEM
-# Loading work.MEM_WB
-# ** Warning: (vsim-3017) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v(61): [TFMPC] - Too few port connections. Expected 5, found 3.
-# 
-#         Region: /mips32TOPTest/cpu/pc
-# ** Warning: (vsim-3722) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v(61): [TFMPC] - Missing connection for port 'clk'.
-# 
-# ** Warning: (vsim-3722) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v(61): [TFMPC] - Missing connection for port 'rst'.
-# 
-# ** Error: (vsim-PLI-3071) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v(73): $display : Too few arguments.
-# 
-#         Region: /mips32TOPTest
-# Error loading design
-# Compile of mips32TOP.v was successful.
-vsim -Lf altera_mf_ver -gui work.mips32TOPTest
-# vsim -Lf altera_mf_ver -gui work.mips32TOPTest 
-# Loading work.mips32TOPTest
-# Loading work.RAM
-# Loading work.registerFile
-# Loading work.mips32TOP
-# Loading work.PC
-# Loading work.ROM
-# Loading work.adder
-# Loading work.mux2
-# Loading work.IF_ID
-# Loading work.hazardDetection
-# Loading work.unitControl
-# Loading work.mux3
-# Loading work.compare
-# Loading work.signEx16
-# Loading work.shiftLeft
-# Loading work.ID_EX
-# Loading work.alu
-# Loading work.aluControl
-# Loading work.forwardingUnit
-# Loading work.EX_MEM
-# Loading work.MEM_WB
-# ** Error: (vsim-PLI-3071) C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v(73): $display : Too few arguments.
-# 
-#         Region: /mips32TOPTest
-# Error loading design
-# Compile of mips32TOPTest.v was successful.
-vsim -Lf altera_mf_ver -gui work.mips32TOPTest
-# vsim -Lf altera_mf_ver -gui work.mips32TOPTest 
-# Loading work.mips32TOPTest
-# Loading work.RAM
-# Loading work.registerFile
-# Loading work.mips32TOP
-# Loading work.PC
-# Loading work.ROM
-# Loading work.adder
-# Loading work.mux2
-# Loading work.IF_ID
-# Loading work.hazardDetection
-# Loading work.unitControl
-# Loading work.mux3
-# Loading work.compare
-# Loading work.signEx16
-# Loading work.shiftLeft
-# Loading work.ID_EX
-# Loading work.alu
-# Loading work.aluControl
-# Loading work.forwardingUnit
-# Loading work.EX_MEM
+# Loading work.dataMem
 # Loading work.MEM_WB
 run -all
-# ** Warning: (vsim-7) Failed to open readmem file "memoryInit/instructions.input" in read mode.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v(21)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest/cpu/rom
-# FAIL: Incorrect result for register : 01000 , Resultado encontrado:          0, Resultado esperado:          2
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: xxxxxxxxxxxxxx, Data: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# DestReg: xxxxx, Value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: xxxxxxxxxxxxxx, Data: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# DestReg: xxxxx, Value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: xxxxx, Value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
+# controlCode ID: xxxxxxxxxxxx
+# Memory Addr: 00000000000000, Data: 00000000000000000000000000000000
+# DestReg: 00000, Value: 00000000000000000000000000000000
 # 1
-# Break in Task printOutputBankRegister at C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v line 69
-# Compile of ROM.v was successful.
+# Break in Module mips32TOPTest2 at C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v line 36
 vsim -Lf altera_mf_ver -gui work.mips32TOPTest
 # vsim -Lf altera_mf_ver -gui work.mips32TOPTest 
 # Loading work.mips32TOPTest
@@ -529,43 +279,7 @@ vsim -Lf altera_mf_ver -gui work.mips32TOPTest
 # Loading work.EX_MEM
 # Loading work.MEM_WB
 run -all
-# ** Warning: (vsim-7) Failed to open readmem file "instructions.input" in read mode.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v(21)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest/cpu/rom
-# FAIL: Incorrect result for register : 01000 , Resultado encontrado:          0, Resultado esperado:          2
-# 1
-# Break in Task printOutputBankRegister at C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v line 69
-# Load canceled
-# Load canceled
-vsim -gui work.mips32TOPTest
-# vsim -gui work.mips32TOPTest 
-# Loading work.mips32TOPTest
-# Loading work.RAM
-# Loading work.registerFile
-# Loading work.mips32TOP
-# Loading work.PC
-# Loading work.ROM
-# Loading work.adder
-# Loading work.mux2
-# Loading work.IF_ID
-# Loading work.hazardDetection
-# Loading work.unitControl
-# Loading work.mux3
-# Loading work.compare
-# Loading work.signEx16
-# Loading work.shiftLeft
-# Loading work.ID_EX
-# Loading work.alu
-# Loading work.aluControl
-# Loading work.forwardingUnit
-# Loading work.EX_MEM
-# Loading work.MEM_WB
-run -all
-# ** Warning: (vsim-7) Failed to open readmem file "instructions.input" in read mode.
-# 
-# No such file or directory. (errno = ENOENT)    : C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v(21)
-#    Time: 0 ps  Iteration: 0  Instance: /mips32TOPTest/cpu/rom
-# FAIL: Incorrect result for register : 01000 , Resultado encontrado:          0, Resultado esperado:          2
+# TEST FAIL: Incorrect result for register : 01000 
+#  Resultado encontrado:          0, Resultado esperado:          2
 # 1
 # Break in Task printOutputBankRegister at C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v line 69

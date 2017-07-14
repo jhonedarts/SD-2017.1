@@ -5,7 +5,7 @@
     Endereço de 14 bits e saída de 32 bits
 */
 
-module ROM #(parameter SIZE = 1024, FILE_IN = "instructions.input")(
+module ROM #(parameter SIZE = 1024, FILE_IN = "memoryInit/instructions.input")(
     input Clock,
     input [9:0] Address,
     output [31:0] ReadData
