@@ -1,0 +1,214 @@
+{C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mips32TOPTest2
+
+Top level modules:
+	mips32TOPTest2
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux3
+
+Top level modules:
+	mux3
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module signEx16
+
+Top level modules:
+	signEx16
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ROM
+
+Top level modules:
+	ROM
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module RAM
+
+Top level modules:
+	RAM
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/adder.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/adder.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mips32TOP
+
+Top level modules:
+	mips32TOP
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module instructionMem
+
+Top level modules:
+	instructionMem
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module shiftLeft
+
+Top level modules:
+	shiftLeft
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module hazardDetectionTest
+
+Top level modules:
+	hazardDetectionTest
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module unitControlTest
+
+Top level modules:
+	unitControlTest
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ulaTest
+
+Top level modules:
+	ulaTest
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module forwardingUnit
+
+Top level modules:
+	forwardingUnit
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module forwardingUnitTest
+
+Top level modules:
+	forwardingUnitTest
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/parameters.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/parameters.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module registerFile
+
+Top level modules:
+	registerFile
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ROMTest
+
+Top level modules:
+	ROMTest
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module signEx26
+
+Top level modules:
+	signEx26
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MEM_WB
+
+Top level modules:
+	MEM_WB
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module compare
+
+Top level modules:
+	compare
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module unitControl
+
+Top level modules:
+	unitControl
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ID_EX
+
+Top level modules:
+	ID_EX
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module hazardDetection
+
+Top level modules:
+	hazardDetection
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module dataMem
+
+Top level modules:
+	dataMem
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/alu.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/alu.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mips32TOP2
+
+Top level modules:
+	mips32TOP2
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module EX_MEM
+
+Top level modules:
+	EX_MEM
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module IF_ID
+
+Top level modules:
+	IF_ID
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module aluControl
+
+Top level modules:
+	aluControl
+
+} {} {}}
