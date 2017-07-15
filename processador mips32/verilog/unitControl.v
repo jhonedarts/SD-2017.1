@@ -30,13 +30,7 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 	// 0 : RegSrc		valor que sai da ula(0) ou que sai da memoria de dados(1) ou pc+4(2)
 
 	always @(*) begin
-		case(opcode)
-			6'bx: begin //impedancia
-				controlOut = 8'b00000000;
-				branchSrc = 2'b00;
-				compareCode = 2'b00;
-
-			end
+		case(opcode)			
 			`R_TYPE: begin
 				if(func == `JR) begin
 
@@ -110,6 +104,12 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
 			end	
+			default: begin //impedancia
+				controlOut = 8'b00000000;
+				branchSrc = 2'b00;
+				compareCode = 2'b00;
+
+			end
 
 
 		endcase

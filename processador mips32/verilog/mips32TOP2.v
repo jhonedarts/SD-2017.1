@@ -5,10 +5,10 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWrite);
+module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr);
 	input clk, rst;
-	output memWr, memRd, brWrite;
-	output [13:0] memAddr;  
+	output [11:0] controlCode;
+	output [`DATA_MEM_ADDR_SIZE-1:0] memAddr;  
 	output [31:0] memDataIn, brDataIn;
 	output [4:0] brAddr;	
 
@@ -45,42 +45,35 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	wire[4:0] destRegWB;
 	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
 
-	assign memWr = controlMEM[3];
-	assign memRd = controlMEM[2];
+	assign controlCode = {controlID, branchSrc, controlCode};
 	assign memDataIn = writeData;
 	assign memAddr = aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0];
 	assign brDataIn = destRegValueWB;
 	assign brAddr = destRegWB;
-	assign controlWB[2] = brWrite;	
 
 
-<<<<<<< HEAD
 	PC pc(
-		.clk(clk),
-		.rst(rst),
-=======
-	PC pc(		
 		.clk (clk),
 		.rst (rst),
->>>>>>> 027e0ed0c6c81d809477ba759e2c854659cbea48
 		.enable (pcWrite),
 		.nextpc (nextpc),
 		.out (currentpc)
 	);
 
-	/*instructionMem instructionMem(		
+	instructionMem instructionMem(		
 		.address (currentpc[`INST_MEM_ADDR_SIZE-1:0]),
 		.clock (clk),
 		.q (instructionIF)
-	);*/
+	);
 	/* Usando outra memoria de instruções para testes
 	*/
-
+	/*
 	ROM rom (
         .Clock(clk),
         .Address(currentpc[`INST_MEM_ADDR_SIZE-1:0]),        
 		.ReadData(instructionIF)        
     );
+    */
 	
 
 	adder adderIF (
@@ -281,17 +274,18 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.destRegOut (destRegMEM)
 	);
 
-	/*dataMem dataMem (
+	dataMem dataMem (
 		.clock (clk), 
 		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
 		.data (writeData), 
 		.wren (controlMEM[3]), 
 		.rden (controlMEM[2]), 
 		.q (memoryDataMEM)
-	);*/
+	);
 	/*
 	Usando outra memória para fazer teste
 	*/
+	/*
 	RAM ram (
         .Clock(clk),
         .Address(aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]),
@@ -299,7 +293,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
         .MemRead(controlMEM[2]),
         .WriteData(writeData),
 		.ReadData(memoryDataMEM)        
-    );
+    );*/
 
 	MEM_WB memwb(
 		.rst (rst), 
