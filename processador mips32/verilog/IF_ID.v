@@ -3,24 +3,24 @@
  * Projeto: mips32
  * Descrição: Registradores de pipeline
  ***************************************************/
-module IF_ID(rst, clk, pcIn, instIn, pcOut, instOut);
-	input rst, clk;
+module IF_ID(rst, clk, flush, pcIn, instIn, pcOut, instOut);
+	input rst, clk, flush;
 	input[31:0] pcIn, instIn;
 	output[31:0] pcOut, instOut;
 
-	reg[31:0] pc, inst;
-	assign pcOut = pc;	
-	assign instOut = inst;
+	reg[31:0] pc, inst;	
 	
-	always @(posedge clk or posedge rst) begin
-		if (rst) begin
+	always @(posedge clk or posedge rst or posedge flush) begin
+		if (rst || flush) begin
 			pc <= 0;	
-			inst <= 0;		
+			inst <= 5;		
 		end else begin
 			pc <= pcIn;
 			inst <= instIn;
 		end
 	end
+	assign pcOut = pc;	
+	assign instOut = inst;
 
 
 endmodule

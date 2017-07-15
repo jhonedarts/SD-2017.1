@@ -2,37 +2,42 @@
 
 module mips32TOPTest2 ();
 
-    parameter Halfcycle = 5;
-    localparam Cycle = 2*Halfcycle;
+    parameter halfcycle = 5;
+    localparam cycle = 2*halfcycle;    
+    integer count_stop; 
 
-    reg Clock, Reset;    
+    reg clock, reset;    
     wire [13:0] memAddr;
     wire [11:0] controlCode;
-    wire [31:0] brData, memData;
+    wire [31:0] brData, memData, nextpcOut, instructionIFOut, instructionIDOut;
     wire [4:0] brAddr;
 
-    integer count_stop = 0;    
+    always #(halfcycle) clock = ~clock; 
 
-    initial Clock = 1;
-    always #(Halfcycle) Clock = ~Clock;
-    
     mips32TOP2 cpu (
-        .clk(Clock),
-        .rst(Reset),
+        .clk(clock),
+        .rst(reset),
         .controlCode(controlCode),
         .memAddr(memAddr),
         .memDataIn(memData),
         .brDataIn(brData),
-        .brAddr(brAddr)   
-    );   
-
-    initial begin
+        .brAddr(brAddr),
+        .nextpcOut (nextpcOut),
+        .instructionIFOut (instructionIFOut),
+        .instructionIDOut (instructionIDOut)
+    );    
+    
+    initial begin 
+        clock = 0;
+        reset = 0;
+        count_stop = 0;       
         while(count_stop <=15) begin
-            #(Cycle);
+            #(cycle);
             count_stop = count_stop + 1;
-            $display("controlCode ID: %b\nMemory Addr: %b, Data: %b\nDestReg: %b, Value: %b", 
-                controlCode, memAddr, memData, brAddr, brData);
+            $display("\ncontrolCode ID: %b\nMemory Addr: %b, Data: %b\nDestReg: %b, Value: %b\nNextPc: %h, instructionIF: %h", 
+                controlCode, memAddr, memData, brAddr, brData, nextpcOut, instructionIFOut);
+            $display("instructionID: %h" , instructionIDOut);
         end  
-        $finish(); 
+        $finish();  
     end
 endmodule

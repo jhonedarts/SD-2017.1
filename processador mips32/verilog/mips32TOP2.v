@@ -5,15 +5,15 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr);
+module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, instructionIFOut, nextpcOut, instructionIDOut);
 	input clk, rst;
 	output [11:0] controlCode;
 	output [`DATA_MEM_ADDR_SIZE-1:0] memAddr;  
-	output [31:0] memDataIn, brDataIn;
+	output [31:0] memDataIn, brDataIn, instructionIFOut, nextpcOut, instructionIDOut;
 	output [4:0] brAddr;	
 
-	wire rstIFID, flushIFID;
-	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
+	wire flushIFID;
+	//um and com rst da placa e os comandos de flush pro ifid;
 	//wires... wires everwhere
 
 	//interStages
@@ -50,11 +50,12 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr);
 	assign memAddr = aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0];
 	assign brDataIn = destRegValueWB;
 	assign brAddr = destRegWB;
+	assign nextpcOut = nextpc;
+	assign instructionIFOut = instructionIF;
+	assign instructionIDOut = instructionID;
 
 
-	PC pc(
-		.clk (clk),
-		.rst (rst),
+	pc2 pc2(
 		.enable (pcWrite),
 		.nextpc (nextpc),
 		.out (currentpc)
@@ -90,8 +91,9 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr);
 	);
 
 	IF_ID ifid(
-		.rst (rstIFID), 
+		.rst (rst), 
 		.clk (clk), 
+		.flush (flushIFID),
 		.pcIn (pc4IF), 
 		.instIn (instructionIF), 
 		.pcOut (pc4ID), 
