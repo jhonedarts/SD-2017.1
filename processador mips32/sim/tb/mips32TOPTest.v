@@ -70,7 +70,7 @@ module mips32TOPTest ();
         end
 
         else begin
-            $display ("PASSED - Address: %d  DataOut: %d",r1Data);           
+            $display ("PASSED - Address: %d  DataOut: %d",addr1, r1Data);           
         end
     endtask
 

@@ -55,6 +55,8 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 
 
 	PC pc(
+		.clk(clk),
+		.rst(rst),
 		.enable (pcWrite),
 		.nextpc (nextpc),
 		.out (currentpc)
