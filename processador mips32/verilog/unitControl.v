@@ -9,7 +9,7 @@
 
 module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 	input[5:0] opcode, func;
-	output reg [`CONTROL_SIZE-1:0] controlOut;
+	output reg [0:`CONTROL_SIZE-1] controlOut;
 	output reg[1:0] branchSrc;
 	output reg[1:0] compareCode;
 	//  ID
@@ -28,6 +28,7 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 	// 2 : RegWrite		habilita a escrita no banco de registradores(1)
 	// 1 : RegSrc
 	// 0 : RegSrc		valor que sai da ula(0) ou que sai da memoria de dados(1) ou pc+4(2)
+
 
 	always @(opcode or func) begin
 		$display("Opcode: %b",opcode);
@@ -50,11 +51,11 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 			end
 			`J: begin
 				controlOut = 8'b00000000; // considerei que sai do pc+4 e que não tem registrador de destino por isso coloquei 11 que não é nenhum.
-				branchSrc = 2'b00;
+				branchSrc = 2'b01;
 				compareCode = 2'b11;
 			end
 
-			`ADDI: begin
+			`ADDI: begin 
 				controlOut = 8'b00100010;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
@@ -79,18 +80,18 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 			
 			`BEQ: begin
 				controlOut = 8'b00000000;
-				branchSrc = 2'b10;
+				branchSrc = 2'b00;
 				compareCode = 2'b01;
 			end
 			
 			`BNE: begin
 				controlOut = 8'b00000000;
-				branchSrc = 2'b10;
+				branchSrc = 2'b00;
 				compareCode = 2'b10;		
 			end	
 			`JAL: begin
 				controlOut = 8'b10100100;
-				branchSrc = 2'b00;
+				branchSrc = 2'b01;
 				compareCode = 2'b11;
 			end
 

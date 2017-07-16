@@ -5,18 +5,8 @@
  * 32 bits.
  ***************************************************/
 module signEx16(in, out);
-		input[15:0] in;
-		output[31:0] out;
-		reg[31:0] out;
-		
-		always @(in)
-		begin
-			if(in[15] == 1'b0) begin
-				out <= 16'b0000000000000000 + in;
-			end
-			else begin
-				out <= 16'b1111111111111111 + in; 
-			end
+	input[15:0] in;
+	output[31:0] out;
 			
-		end
+	assign out = (in[15]==1'b1) ? {16'b1111111111111111, in} : {16'b0000000000000000, in};
 endmodule

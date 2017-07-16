@@ -8,14 +8,14 @@ module EX_MEM(rst, clk, controlIn, pcIn, aluResultIn, rtValueIn, destRegIn, cont
 
 	input rst, clk;
 	input[4:0] destRegIn;
-	input[3:0] controlIn;
+	input[0:4] controlIn;
 	input[31:0] pcIn, aluResultIn, rtValueIn;
 	output[4:0] destRegOut;
-	output[3:0] controlOut;
+	output[0:4] controlOut;
 	output[31:0] pcOut, aluResultOut, rtValueOut;
 
 	reg[4:0] destReg; //mem e wb
-	reg[3:0] control;
+	reg[0:4] control;
 	reg[31:0] pc, aluResult, rtValue;
 
 	assign controlOut = control;

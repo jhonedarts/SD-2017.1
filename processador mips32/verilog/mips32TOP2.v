@@ -23,13 +23,13 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	
 	wire pcWrite;
 	//ID
-	wire[`CONTROL_SIZE-1:0] controlID;	
+	wire[0:`CONTROL_SIZE-1] controlID;	
 	wire[1:0] forwardRSID, forwardRTID, branchSrc, compareCode;
 	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet;
 	wire[31:0] branchAddress;
 	//EX
 	wire[4:0] rsEX, rtEX, rdEX, destRegEX;
-	wire[`CONTROL_SIZE-1:0] controlEX;
+	wire[0:`CONTROL_SIZE-1] controlEX;
 	wire[31:0] rsValueEX, rtValueEX, rtValueEX1, offset16EX;
 	wire[31:0] operating1, operating2, aluResultEX, pc4EX;
 	wire[5:0]  opcodeEX;
@@ -37,11 +37,11 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	wire[1:0] forwardRS, forwardRT;
 	//MEM
 	wire[4:0] destRegMEM;
-	wire[3:0] controlMEM;
+	wire[0:4] controlMEM;
 	wire[31:0] aluResultMEM, writeData, memoryDataMEM, pc4MEM;
 	
 	//WB
-	wire[2:0] controlWB;
+	wire[0:2] controlWB;
 	wire[4:0] destRegWB;
 	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
 
@@ -79,7 +79,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 
 	adder adderIF (
 		.a (currentpc),
-		.b (32'h00000001),
+		.b (32'h00000007),
 		.out (pc4IF)
 	);
 
@@ -93,7 +93,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	assign rstIDIF =  ((flushIFID != 1'bx) & (rst==1'b1) & (flushIFID == 1'b1))? 1'b1 : 1'b0;
 
 	IF_ID ifid(
-		.rst (1'b0), 
+		.rst (1'b0), //(rstIDIF),
 		.clk (clk), 
 		.pcIn (pc4IF), 
 		.instIn (instructionIF), 
@@ -124,7 +124,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 		.b (offset16ID2),
 		.out (branchOffSet)
 	);
-
+	//branchSrc
 	mux3 #(.width (32)) mux3ID3(
 		.a (branchOffSet),//branch
 		.b ({pc4ID[31:26],instructionID[25:0]}),//jump
@@ -144,7 +144,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 		.rsData (rsValueID1), 
 		.rtData (rtValueID1)
 	);
-
+	//fowardRS ID
 	mux3 #(.width (32)) mux3ID1(
 		.a (rsValueID1),
 		.b (aluResultEX),
@@ -152,7 +152,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 		.sel (forwardRSID),
 		.out (rsValueID2)
 	);
-
+	//fowardRT ID
 	mux3 #(.width (32)) mux3ID2(
 		.a (rtValueID1),
 		.b (aluResultEX),
@@ -203,16 +203,16 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	//rsForward no EX
 	mux3 #(.width (32)) mux3EX1(
 		.a (rsValueEX),
-		.b (destRegValueWB),
-		.c (aluResultMEM),
+		.b (aluResultMEM),
+		.c (destRegValueWB),
 		.sel (forwardRS),
 		.out (operating1)
 	);
 	//rtForward no EX
 	mux3 #(.width (32)) mux3EX2(
 		.a (rtValueEX),
-		.b (destRegValueWB),
-		.c (aluResultMEM),
+		.b (aluResultMEM),
+		.c (destRegValueWB),
 		.sel (forwardRT),
 		.out (rtValueEX1)
 	);
@@ -221,13 +221,13 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 		.a (rdEX),
 		.b (rtEX),
 		.c (5'b11111),//ra
-		.sel (controlEX[6:5]),
+		.sel (controlEX[5:6]),
 		.out (destRegEX)
 	);
-
+	//aluSrc
 	mux2 #(.width (32)) mux2EX1 (
-		.a (rtValueEX1),
-		.b (offset16EX),
+		.a (offset16EX),
+		.b (rtValueEX1),
 		.sel (controlEX[7]),
 		.out (operating2)
 	);
@@ -265,7 +265,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	EX_MEM exmem (
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlEX[3:0]), 
+		.controlIn (controlEX[0:4]), 
 		.pcIn (pc4EX),
 		.aluResultIn (aluResultEX), 
 		.rtValueIn (rtValueEX1), 
@@ -282,7 +282,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
 		.data (writeData), 
 		.wren (controlMEM[3]), 
-		.rden (controlMEM[2]), 
+		.rden (controlMEM[4]), 
 		.q (memoryDataMEM)
 	);
 	/*
@@ -301,7 +301,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	MEM_WB memwb(
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlMEM[1:0]), 
+		.controlIn (controlMEM[0:2]), 
 		.pcIn (pc4MEM),
 		.memDataIn (memoryDataMEM), 
 		.aluResultIn (aluResultMEM), 
@@ -312,12 +312,12 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 		.aluResultOut (aluResultWB),
 		.destRegOut (destRegWB)
 	);
-
+	//regSrc
 	mux3 #(.width (32)) mux3WB(
-		.a (memoryDataWB),
-		.b (aluResultWB),
+		.a (32'h00000006),//(aluResultWB),
+		.b (memoryDataWB),
 		.c (pc4MEM),
-		.sel (controlWB[1:0]),
+		.sel (controlWB[0:1]),
 		.out (destRegValueWB)
 	);
 

@@ -7,8 +7,10 @@
 module compare (rs, rt, code, isBranch);
 	input[31:0] rs, rt;
 	input[1:0] code;
-	output reg isBranch;
+	output isBranch;
 
+	assign isBranch = ((code==2'b11) | (code==2'b10 & rs != rt) | (code==2'b01 & rs == rt)) ? 1 : 0;
+	/*
 	always @(*) begin
 		case(code)
 			2'b00: begin //nenhum
@@ -33,5 +35,5 @@ module compare (rs, rt, code, isBranch);
 			end	
 					
 		endcase
-	end
+	end*/
 endmodule

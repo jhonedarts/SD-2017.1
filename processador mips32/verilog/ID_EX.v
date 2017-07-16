@@ -11,16 +11,16 @@ module ID_EX(rst, clk, opcodeIn, pcIn, controlIn, rsValueIn, rtValueIn, offset16
 
 	input rst, clk;
 	input[5:0] opcodeIn;
-	input[`CONTROL_SIZE-1:0] controlIn;
+	input[0:`CONTROL_SIZE-1] controlIn;
 	input[31:0] pcIn, rsValueIn, rtValueIn, offset16In;
 	input[4:0] rsIn, rtIn, rdIn;
 	output[5:0] opcodeOut;
-	output[`CONTROL_SIZE-1:0] controlOut;
+	output[0:`CONTROL_SIZE-1] controlOut;
 	output[31:0] pcOut, rsValueOut, rtValueOut, offset16Out;
 	output[4:0] rsOut, rtOut, rdOut;	
 
 	reg[5:0] opcode;
-	reg[`CONTROL_SIZE-1:0] control; //ex, mem e wb
+	reg[0:`CONTROL_SIZE-1] control; //ex, mem e wb
 	reg[31:0] pc, rsValue, rtValue, offset16;
 	reg[4:0] rs, rt, rd;
 

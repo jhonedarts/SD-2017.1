@@ -17,7 +17,7 @@ wire signed [31:0] b_signed; //nao há usos de a_signed, entao o exclui
 
   always@(*) begin 
   		
-  		$display("ULA - A: %d, B: %d", a, b);
+  		$display("--------------ULA--------------\n A: %d, B: %d", a, b);
   		case(sel)
 
   			`ALU_ADDU: result = a + b;
