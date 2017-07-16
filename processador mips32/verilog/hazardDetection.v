@@ -14,8 +14,8 @@ module hazardDetection(rs, rt, rtEX, memRead, isBranch, pcWrite, ifIdFlush);
 
 	
 	//uso de um registrador que vai ser alterado por um lw
-	assign pcWrite = (memRead==1'b1 && (rs==rtEX || rt==rtEX))? 1'b0 : 1'b1;
+	assign pcWrite = (memRead==1'b1 & (rs==rtEX | rt==rtEX))? 1'b0 : 1'b1;
 
 	//branch
-	assign ifIdFlush = (isBranch || !(memRead==1'b1 && (rs==rtEX || rt==rtEX)))? 1'b1 : 1'b0;
+	assign ifIdFlush = (isBranch | ~(memRead==1'b1 & (rs==rtEX | rt==rtEX)))? 1'b1 : 1'b0;
 endmodule

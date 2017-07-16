@@ -29,7 +29,8 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 	// 1 : RegSrc
 	// 0 : RegSrc		valor que sai da ula(0) ou que sai da memoria de dados(1) ou pc+4(2)
 
-	always @(*) begin
+	always @(opcode or func) begin
+		$display("Opcode: %b",opcode);
 		case(opcode)			
 			`R_TYPE: begin
 				if(func == `JR) begin
@@ -108,7 +109,6 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 				controlOut = 8'b00000000;
 				branchSrc = 2'b00;
 				compareCode = 2'b00;
-
 			end
 
 

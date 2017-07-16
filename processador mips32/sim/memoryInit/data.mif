@@ -7,7 +7,7 @@ BEGIN
  
              
 -- memory address : data
-00 : 02;   
+00 : 07;   
 01 : 0A;   
 02 : 05;   
 03 : 2A;   

@@ -34,7 +34,7 @@ module mips32TOPTest2 ();
         while(count_stop <=15) begin
             #(cycle);
             count_stop = count_stop + 1;
-            $display("\ncontrolCode ID: %b\nMemory Addr: %b, Data: %b\nDestReg: %b, Value: %b\nNextPc: %h, instructionIF: %h", 
+            $display("\ncontrolCode ID: %b\nMemory Addr: %d, Data: %d\nDestReg: %d, Value: %d\nNextPc: %d, instructionIF: %h", 
                 controlCode, memAddr, memData, brAddr, brData, nextpcOut, instructionIFOut);
             $display("instructionID: %h" , instructionIDOut);
         end  

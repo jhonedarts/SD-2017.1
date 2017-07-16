@@ -12,10 +12,10 @@ module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regW
 
 	always @(*) begin
 		//rs
-		if ((rs==destRegMEM)&&(regWriteMEM==1'b1)) begin
+		if ((rs==destRegMEM)&(regWriteMEM==1'b1)) begin
 			forwardRS = 1;
 		end
-		else if ((rs==destRegWB)&&(regWriteWB==1'b1)) begin
+		else if ((rs==destRegWB)&(regWriteWB==1'b1)) begin
 			forwardRS = 2;
 		end
 		else begin
@@ -23,10 +23,10 @@ module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regW
 		end
 
 		//rt
-		if ((rt==destRegMEM)&&(regWriteMEM==1'b1)) begin
+		if ((rt==destRegMEM)&(regWriteMEM==1'b1)) begin
 			forwardRT = 1;
 		end
-		else if ((rt==destRegWB)&&(regWriteWB==1'b1)) begin
+		else if ((rt==destRegWB)&(regWriteWB==1'b1)) begin
 			forwardRT = 2;
 		end
 		else begin
@@ -34,10 +34,10 @@ module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regW
 		end
 
 		//rsID
-		if ((rsID==destRegEX)&&(regWriteEX==1'b1)) begin
+		if ((rsID==destRegEX)&(regWriteEX==1'b1)) begin
 			forwardRSID = 1;
 		end
-		else if ((rsID==destRegMEM)&&(regWriteMEM==1'b1)) begin
+		else if ((rsID==destRegMEM)&(regWriteMEM==1'b1)) begin
 			forwardRSID = 2;
 		end
 		else begin
@@ -45,10 +45,10 @@ module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regW
 		end
 
 		//rtID
-		if ((rtID==destRegEX)&&(regWriteEX==1'b1)) begin
+		if ((rtID==destRegEX)&(regWriteEX==1'b1)) begin
 			forwardRTID = 1;
 		end
-		else if ((rtID==destRegMEM)&&(regWriteMEM==1'b1)) begin
+		else if ((rtID==destRegMEM)&(regWriteMEM==1'b1)) begin
 			forwardRTID = 2;
 		end
 		else begin
