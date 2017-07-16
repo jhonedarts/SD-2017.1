@@ -35,6 +35,7 @@ module ID_EX(rst, clk, opcodeIn, pcIn, controlIn, rsValueIn, rtValueIn, offset16
 	assign rdOut = rd;
 
 	always @(posedge clk or posedge rst) begin
+		$display("ID-EX ------------------------ RSvalue: %d, RTvalue: %d", rsValueIn, rtValueIn);
 		if (rst) begin
 			opcode <= 0;
 			control <= 0;

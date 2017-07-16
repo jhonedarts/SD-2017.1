@@ -17,17 +17,17 @@ r1
 31
 Z9 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/adder.v|
 Z10 o-work work -O0
-Z11 !s108 1500221931.484000
+Z11 !s108 1500230991.646000
 Z12 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/adder.v|
 !i10b 1
 !s85 0
 !s101 -O0
 valu
-Z13 !s100 7@zS=G`b`RI6o_J2ze@GF3
-Z14 IHZ06C8Xef4diDCS:o?8S50
+Z13 !s100 OlEZRQn9QOBLgO;:[8>7<3
+Z14 IM4Z<AHQOP[^cQ@@X2B1HA2
 Z15 VQfgGD]k_6k39@jIMPf;<z3
 R4
-Z16 w1500205665
+Z16 w1500230176
 Z17 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/alu.v
 Z18 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/alu.v
 L0 8
@@ -36,17 +36,16 @@ r1
 31
 Z19 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/alu.v|
 R10
-Z20 !s108 1500221932.267000
+Z20 !s108 1500230992.610000
 Z21 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/alu.v|
 !i10b 1
 !s85 0
 !s101 -O0
 valuControl
-Z22 !s100 0XB:E46X4<LdnzMzN0L<X3
-Z23 INzAd0U]:b;3Uj8Ek9GIlP1
-Z24 VO[ZAXibzZa7?TIIN_R[>=3
+Z22 IOH:ELg_i``@T`@^7Dz7Q@1
+Z23 VO[ZAXibzZa7?TIIN_R[>=3
 R4
-R5
+Z24 w1500230982
 Z25 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v
 Z26 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v
 L0 9
@@ -56,584 +55,585 @@ r1
 Z27 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v|
 R10
 Z28 nalu@control
-Z29 !s108 1500221933.268000
-Z30 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v|
+Z29 !s100 ?kmi:Gd2Q3zmlm3;UKh:^3
+Z30 !s108 1500230993.101000
+Z31 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/aluControl.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vcompare
-Z31 !s100 8EAE_ziI<o`>A?LMJ=>8>2
-Z32 ICH;EAZafR36in^ZaRi=YH3
-Z33 Vem1XN27UKzAQ<2n<_WO<30
+Z32 !s100 8EAE_ziI<o`>A?LMJ=>8>2
+Z33 ICH;EAZafR36in^ZaRi=YH3
+Z34 Vem1XN27UKzAQ<2n<_WO<30
 R4
-Z34 w1500220825
-Z35 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v
-Z36 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v
+Z35 w1500220825
+Z36 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v
+Z37 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v
 L0 7
 R8
 r1
 31
-Z37 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v|
+Z38 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v|
 R10
-Z38 !s108 1500221933.785000
-Z39 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v|
+Z39 !s108 1500230993.532000
+Z40 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/compare.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vdataMem
-Z40 !s100 @dGbZZma1n]o><FIL_FBO1
-Z41 IhAF;NN5c>;]M`JOcEINEG1
-Z42 VZ8OV:dRS:]m;CI7]BAo772
+Z41 !s100 @dGbZZma1n]o><FIL_FBO1
+Z42 IhAF;NN5c>;]M`JOcEINEG1
+Z43 VZ8OV:dRS:]m;CI7]BAo772
 R4
 R5
-Z43 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v
-Z44 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v
+Z44 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v
+Z45 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v
 L0 39
 R8
 r1
 31
-Z45 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v|
+Z46 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v|
 R10
-Z46 ndata@mem
-Z47 !s108 1500221935.517000
-Z48 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v|
+Z47 ndata@mem
+Z48 !s108 1500230995.548000
+Z49 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/dataMem.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vEX_MEM
-Z49 !s100 VMhkfZbF^ETAm:Ujb7fRa3
-Z50 I?mPLUf[X9R`Xg4HEX>OJK3
-Z51 V5dn5a215;UFDW24iMYLk02
+Z50 !s100 KiD6T=37c4W?E<J0Q2>6;1
+Z51 I3K4P5Qz3MkmB9GdO;dRng0
+Z52 V5dn5a215;UFDW24iMYLk02
 R4
-Z52 w1500218684
-Z53 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v
-Z54 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v
+Z53 w1500229374
+Z54 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v
+Z55 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v
 L0 6
 R8
 r1
 31
-Z55 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v|
+Z56 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v|
 R10
-Z56 n@e@x_@m@e@m
-Z57 !s108 1500221941.449000
-Z58 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v|
+Z57 n@e@x_@m@e@m
+Z58 !s108 1500230999.891000
+Z59 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vforwardingUnit
-Z59 !s100 @gYA9W;bCh2D0fiKOLX__1
-Z60 IPzW:8haa9ZdNDaO<<:V^Q0
-Z61 V6MzH0LHm7;?AS^fVg[[W:1
+Z60 !s100 @gYA9W;bCh2D0fiKOLX__1
+Z61 IPzW:8haa9ZdNDaO<<:V^Q0
+Z62 V6MzH0LHm7;?AS^fVg[[W:1
 R4
-Z62 w1500170099
-Z63 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v
-Z64 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v
+Z63 w1500227590
+Z64 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v
+Z65 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v
 L0 7
 R8
 r1
 31
-Z65 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v|
+Z66 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v|
 R10
-Z66 nforwarding@unit
-Z67 !s108 1500221937.732000
-Z68 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v|
+Z67 nforwarding@unit
+Z68 !s108 1500230996.048000
+Z69 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/forwardingUnit.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vforwardingUnitTest
-Z69 !s100 XK8ai5YE7m?KJ^RMBB8Q>2
-Z70 I:EAAaYU0Rhm3?HgW2<M3o0
-Z71 V95J57nAnBDSU]6Z7n?PSC1
+Z70 !s100 XK8ai5YE7m?KJ^RMBB8Q>2
+Z71 I:EAAaYU0Rhm3?HgW2<M3o0
+Z72 V95J57nAnBDSU]6Z7n?PSC1
 R4
 R5
-Z72 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v
-Z73 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v
+Z73 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v
+Z74 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v
 L0 3
 R8
 r1
 31
-Z74 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v|
+Z75 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v|
 R10
-Z75 nforwarding@unit@test
-Z76 !s108 1500221945.502000
-Z77 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v|
+Z76 nforwarding@unit@test
+Z77 !s108 1500228291.617000
+Z78 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/forwardingUnitTest.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vhazardDetection
-Z78 !s100 U6QIILHeT77oI2V@nAKNF1
-Z79 I>gGVA6>7GB@E:57Ib0;N12
-Z80 VafJ6:m;MlYS8_?[9Hl[O]0
+Z79 !s100 U6QIILHeT77oI2V@nAKNF1
+Z80 I>gGVA6>7GB@E:57Ib0;N12
+Z81 VafJ6:m;MlYS8_?[9Hl[O]0
 R4
-Z81 w1500170402
-Z82 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v
-Z83 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v
+Z82 w1500170402
+Z83 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v
+Z84 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v
 L0 10
 R8
 r1
 31
-Z84 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v|
+Z85 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v|
 R10
-Z85 nhazard@detection
-Z86 !s108 1500221938.986000
-Z87 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v|
+Z86 nhazard@detection
+Z87 !s108 1500230996.549000
+Z88 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/hazardDetection.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vhazardDetectionTest
-Z88 !s100 3^L:4<>8ZHA0=WTjCBX1e0
-Z89 IOHNCo50jbV6nG7@31XoR03
-Z90 VUaBZi=Zg_OAcnH8DUoZFC0
+Z89 !s100 3^L:4<>8ZHA0=WTjCBX1e0
+Z90 IOHNCo50jbV6nG7@31XoR03
+Z91 VUaBZi=Zg_OAcnH8DUoZFC0
 R4
 R5
-Z91 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v
-Z92 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v
+Z92 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v
+Z93 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v
 L0 3
 R8
 r1
 31
-Z93 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v|
+Z94 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v|
 R10
-Z94 nhazard@detection@test
+Z95 nhazard@detection@test
+Z96 !s108 1500228292.495000
+Z97 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v|
 !i10b 1
 !s85 0
-Z95 !s108 1500221946.018000
-Z96 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/hazardDetectionTest.v|
 !s101 -O0
 vID_EX
-Z97 !s100 `M=b:L8IIAzXf`Hi[9:Mg2
-Z98 IAPn4Ym0UfS5e<Yb00<g6E0
-Z99 VTccRZM=Ck4W6GoIX[FP:O0
+Z98 !s100 SXQ=HHzl8zi;oJVeac5AF0
+Z99 IJBHnlFXz_TQk^EJ0JL7:b3
+Z100 VTccRZM=Ck4W6GoIX[FP:O0
 R4
-Z100 w1500218678
-Z101 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v
-Z102 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v
+Z101 w1500227698
+Z102 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v
+Z103 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v
 L0 9
 R8
 r1
 31
-Z103 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v|
+Z104 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v|
 R10
-Z104 n@i@d_@e@x
-Z105 !s108 1500221940.987000
-Z106 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v|
+Z105 n@i@d_@e@x
+Z106 !s108 1500230998.664000
+Z107 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ID_EX.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vIF_ID
-Z107 !s100 5^E`nH8;W9c7NH=I3FSX52
-Z108 I;]X4d`o1?3O?][JP7KANe3
-Z109 V3YIHY2879b20Wka0Hji_;3
+Z108 !s100 5^E`nH8;W9c7NH=I3FSX52
+Z109 I;]X4d`o1?3O?][JP7KANe3
+Z110 V3YIHY2879b20Wka0Hji_;3
 R4
-Z110 w1500170466
-Z111 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v
-Z112 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v
+Z111 w1500170466
+Z112 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v
+Z113 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v
 L0 6
 R8
 r1
 31
-Z113 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v|
+Z114 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v|
 R10
-Z114 n@i@f_@i@d
-Z115 !s108 1500221940.187000
-Z116 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v|
+Z115 n@i@f_@i@d
+Z116 !s108 1500230998.119000
+Z117 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vinstructionMem
-Z117 !s100 ]^lcII49oF2=IkLaFZ3KZ2
-Z118 I1FlAfcLAjU=Lh0P58XkgV1
-Z119 V=mG3VDIIVW4_7gC2I3<j[2
+Z118 !s100 ]^lcII49oF2=IkLaFZ3KZ2
+Z119 I1FlAfcLAjU=Lh0P58XkgV1
+Z120 V=mG3VDIIVW4_7gC2I3<j[2
 R4
-Z120 w1500171176
-Z121 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v
-Z122 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v
+Z121 w1500171176
+Z122 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v
+Z123 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v
 L0 39
 R8
 r1
 31
-Z123 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v|
+Z124 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v|
 R10
-Z124 ninstruction@mem
-Z125 !s108 1500221934.801000
-Z126 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v|
+Z125 ninstruction@mem
+Z126 !s108 1500230994.794000
+Z127 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/instructionMem.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vMEM_WB
-Z127 !s100 IOoac_:eTaKd1ohKh^NPf1
-Z128 IKaYR6`N@VkGL[nMzbMWMJ1
-Z129 VC<LJ<Z>Ea[aBDciQ4Aei91
+Z128 !s100 IOoac_:eTaKd1ohKh^NPf1
+Z129 IKaYR6`N@VkGL[nMzbMWMJ1
+Z130 VC<LJ<Z>Ea[aBDciQ4Aei91
 R4
-Z130 w1500218688
-Z131 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v
-Z132 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v
+Z131 w1500218688
+Z132 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v
+Z133 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v
 L0 6
 R8
 r1
 31
-Z133 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v|
+Z134 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v|
 R10
-Z134 n@m@e@m_@w@b
-Z135 !s108 1500221941.972000
-Z136 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v|
+Z135 n@m@e@m_@w@b
+Z136 !s108 1500231000.407000
+Z137 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vmips32TOP
-Z137 !s100 JN4?d`9Fz`PN4kF97cPSa2
-Z138 I;ZWQbzSJDO@JW@jn=mGQN3
-Z139 VHFZico58X:eN`YXV:L96I2
+Z138 !s100 JN4?d`9Fz`PN4kF97cPSa2
+Z139 I;ZWQbzSJDO@JW@jn=mGQN3
+Z140 VHFZico58X:eN`YXV:L96I2
 R4
-Z140 w1500050693
-Z141 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v
-Z142 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v
+Z141 w1500050693
+Z142 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v
+Z143 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v
 L0 8
 R8
 r1
 31
-Z143 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v|
+Z144 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v|
 R10
-Z144 nmips32@t@o@p
-Z145 !s108 1500075818.651000
-Z146 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v|
+Z145 nmips32@t@o@p
+Z146 !s108 1500075818.651000
+Z147 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vmips32TOP2
-Z147 ID9;zKG>PDTRFOY8IeMo3A1
-Z148 VjjRJ>PKMRDez?A>cnSadX1
+Z148 !s100 dVzDloLHg;XnXU?NNf2<>3
+Z149 IoF=oWbdjmC9^FSPLgmGE`1
+Z150 V8PbQC0Idiz1O1UWTMRXd>3
 R4
-Z149 w1500221906
-Z150 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v
-Z151 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v
+Z151 w1500228761
+Z152 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v
+Z153 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v
 L0 8
 R8
 r1
 31
-Z152 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v|
+Z154 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v|
 R10
-Z153 nmips32@t@o@p2
-Z154 !s100 hDLQKS>XFEXH@4d@TUdCb2
-Z155 !s108 1500221942.788000
-Z156 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v|
+Z155 nmips32@t@o@p2
 !i10b 1
 !s85 0
+Z156 !s108 1500231001.152000
+Z157 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v|
 !s101 -O0
 vmips32TOPTest
-Z157 !s100 7]EOC1oKbRY[=Ylc>67jj0
-Z158 IGmTifT=a>[9zk4>f0_F6S3
-Z159 V_^O8m9aMX<U5P<ClkhIG?2
+Z158 !s100 7]EOC1oKbRY[=Ylc>67jj0
+Z159 IGmTifT=a>[9zk4>f0_F6S3
+Z160 V_^O8m9aMX<U5P<ClkhIG?2
 R4
-Z160 w1500051123
-Z161 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v
-Z162 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v
+Z161 w1500051123
+Z162 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v
+Z163 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v
 L0 3
 R8
 r1
 31
-Z163 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v|
+Z164 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v|
 R10
-Z164 nmips32@t@o@p@test
-Z165 !s108 1500075824.691000
-Z166 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v|
+Z165 nmips32@t@o@p@test
+Z166 !s108 1500075824.691000
+Z167 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vmips32TOPTest2
 !i10b 1
-Z167 !s100 28e_DgaoQzhHILMGEX3gi0
-Z168 I^46nIzK@>2h5=5?o69iZU0
-Z169 V^8ToC:]LZUnLZ5mhgN]iI2
+Z168 !s100 lL:69WF_h?dMIXneFP4gH0
+Z169 IA]5Li9WnAO@e5GjlEFSX:0
+Z170 V^8ToC:]LZUnLZ5mhgN]iI2
 R4
-Z170 w1500221768
-Z171 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v
-Z172 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v
+Z171 w1500222064
+Z172 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v
+Z173 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v
 L0 3
 R8
 r1
 !s85 0
 31
-!s108 1500221947.003000
+!s108 1500231001.569000
 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v|
-Z173 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v|
+Z174 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/mips32TOPTest2.v|
 !s101 -O0
 R10
-Z174 nmips32@t@o@p@test2
+Z175 nmips32@t@o@p@test2
 vmux2
-Z175 !s100 10RLPNR04KTO4@h9Ef1T]2
-Z176 I7ZdiZaI?l8lBP:U0j:f<M3
-Z177 VaTEQZc_mS<EU9A4gceWkG1
+Z176 !s100 10RLPNR04KTO4@h9Ef1T]2
+Z177 I7ZdiZaI?l8lBP:U0j:f<M3
+Z178 VaTEQZc_mS<EU9A4gceWkG1
 R4
 R5
-Z178 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v
-Z179 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v
+Z179 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v
+Z180 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v
 L0 5
 R8
 r1
 31
-Z180 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v|
+Z181 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v|
 R10
-Z181 !s108 1500221926.528000
-Z182 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v|
+Z182 !s108 1500230987.595000
+Z183 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux2.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vmux3
-Z183 !s100 X;VZ83_7=@<0YSN5Ih:CH1
-Z184 I[QEUb16Ka>]0dRE?]BTOQ1
-Z185 VW`MW2?HkkXiRAHQ?2T74E3
+Z184 !s100 X;VZ83_7=@<0YSN5Ih:CH1
+Z185 I[QEUb16Ka>]0dRE?]BTOQ1
+Z186 VW`MW2?HkkXiRAHQ?2T74E3
 R4
 R5
-Z186 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v
-Z187 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v
+Z187 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v
+Z188 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v
 L0 5
 R8
 r1
 31
-Z188 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v|
+Z189 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v|
 R10
-Z189 !s108 1500221927.382000
-Z190 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v|
+Z190 !s108 1500230988.411000
+Z191 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mux3.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vPC
-Z191 !s100 FGhm4^]ijlIU`A_5hKDfI3
-Z192 I9IKRkaHmdXcH@=2Co6Vif3
-Z193 V?h0eoJ^nLYY=D]g79@VoJ1
+Z192 !s100 FGhm4^]ijlIU`A_5hKDfI3
+Z193 I9IKRkaHmdXcH@=2Co6Vif3
+Z194 V?h0eoJ^nLYY=D]g79@VoJ1
 R4
 R5
-Z194 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v
-Z195 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v
+Z195 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v
+Z196 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v
 L0 7
 R8
 r1
 31
-Z196 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v|
+Z197 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v|
 R10
 n@p@c
-Z197 !s108 1500221928.597000
-Z198 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v|
+Z198 !s108 1500228275.269000
+Z199 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vpc2
-Z199 !s100 U^M5z;?9bizBK<oC]zaBo2
-Z200 Ifa4JHR[B_Y5J[k]H_o]^_3
-Z201 VfhiXkz@``ZR2bT]7Mk=DK3
+Z200 !s100 U^M5z;?9bizBK<oC]zaBo2
+Z201 Ifa4JHR[B_Y5J[k]H_o]^_3
+Z202 VfhiXkz@``ZR2bT]7Mk=DK3
 R4
-Z202 w1500070586
-Z203 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v
-Z204 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v
+Z203 w1500070586
+Z204 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v
+Z205 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v
 L0 7
 R8
 r1
 31
-Z205 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v|
+Z206 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v|
 R10
-Z206 !s108 1500221928.012000
-Z207 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v|
+Z207 !s108 1500230989.031000
+Z208 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/pc2.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vRAM
-Z208 !s100 ciJ9]a?dnAM`R1:GX4zEO1
-Z209 IjP`QE>?_hU;2VSZYEe1]C2
-Z210 VR`UR7GJMXEb2SXh8FiFXb1
+Z209 !s100 ciJ9]a?dnAM`R1:GX4zEO1
+Z210 IjP`QE>?_hU;2VSZYEe1]C2
+Z211 VR`UR7GJMXEb2SXh8FiFXb1
 R4
 R5
-Z211 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v
-Z212 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v
+Z212 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v
+Z213 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v
 L0 8
 R8
 r1
 31
-Z213 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v|
+Z214 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v|
 R10
-Z214 n@r@a@m
-Z215 !s108 1500221936.232000
-Z216 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v|
+Z215 n@r@a@m
+Z216 !s108 1500228282.143000
+Z217 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/RAM.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vregisterFile
-Z217 !s100 c^95`eE__lg;66ELC;0F81
-Z218 IfKf89Kni6oJJUOQ06@mC=1
-Z219 Vf[@fd>[3f2eEMTJ]2oM@J0
+Z218 !s100 iXaZInb:OVgfD_l:6HkTT3
+Z219 ISi_Ui<De_8L_@;Lnel@T80
+Z220 Vf[@fd>[3f2eEMTJ]2oM@J0
 R4
-R5
-Z220 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v
-Z221 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v
+Z221 w1500228831
+Z222 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v
+Z223 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v
 L0 8
 R8
 r1
 31
-Z222 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v|
+Z224 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v|
 R10
-Z223 nregister@file
-Z224 !s108 1500221929.282000
-Z225 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v|
+Z225 nregister@file
+Z226 !s108 1500230989.660000
+Z227 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vROM
-Z226 !s100 ZjG]L8LEl]O7TcmUz1FF?3
-Z227 IBeK@Q]6Le9X49Idz7SZHh2
-Z228 VD83S@A=;2SULDEHY;TWXK1
+Z228 !s100 ZjG]L8LEl]O7TcmUz1FF?3
+Z229 IBeK@Q]6Le9X49Idz7SZHh2
+Z230 VD83S@A=;2SULDEHY;TWXK1
 R4
-Z229 w1500054778
-Z230 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v
-Z231 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v
+Z231 w1500054778
+Z232 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v
+Z233 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v
 L0 8
 R8
 r1
 31
-Z232 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v|
+Z234 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v|
 R10
-Z233 n@r@o@m
-Z234 !s108 1500221936.985000
-Z235 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v|
+Z235 n@r@o@m
+Z236 !s108 1500228283.074000
+Z237 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROM.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vROMTest
-Z236 !s100 e;4T]liHaAQcY3f=>d[2d3
-Z237 I4W8OdC9nWkh4502R>oWZj2
-Z238 V7J6Ta[6I??1WenO=ZSN[J0
+Z238 !s100 e;4T]liHaAQcY3f=>d[2d3
+Z239 I4W8OdC9nWkh4502R>oWZj2
+Z240 V7J6Ta[6I??1WenO=ZSN[J0
 R4
 R5
-Z239 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v
-Z240 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v
+Z241 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v
+Z242 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v
 L0 3
 R8
 r1
 31
-Z241 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v|
+Z243 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v|
 R10
-Z242 n@r@o@m@test
-Z243 !s108 1500221943.334000
-Z244 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v|
+Z244 n@r@o@m@test
+Z245 !s108 1500228289.178000
+Z246 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/ROMTest.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vshiftLeft
-Z245 !s100 =iECBfOfmiaX1jGzQOk0a3
-Z246 IZk67lQg91>TGIc2C]QV>12
-Z247 V7zKNe`2k<9Maa7lK@4Zab3
+Z247 !s100 =iECBfOfmiaX1jGzQOk0a3
+Z248 IZk67lQg91>TGIc2C]QV>12
+Z249 V7zKNe`2k<9Maa7lK@4Zab3
 R4
 R5
-Z248 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v
-Z249 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v
+Z250 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v
+Z251 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v
 L0 6
 R8
 r1
 31
-Z250 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v|
+Z252 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v|
 R10
-Z251 nshift@left
-Z252 !s108 1500221929.767000
-Z253 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v|
+Z253 nshift@left
+Z254 !s108 1500230990.113000
+Z255 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/shiftLeft.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vsignEx16
-Z254 !s100 dh:_ZlRVBT<G:<nR?=R^O1
-Z255 I:bUCJ?U42X0mjOe>:VHO>3
-Z256 VWC]EJ7Pc1AB[g_05<KOaa1
+Z256 !s100 dh:_ZlRVBT<G:<nR?=R^O1
+Z257 I:bUCJ?U42X0mjOe>:VHO>3
+Z258 VWC]EJ7Pc1AB[g_05<KOaa1
 R4
-Z257 w1500221163
-Z258 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v
-Z259 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v
+Z259 w1500221163
+Z260 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v
+Z261 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v
 L0 7
 R8
 r1
 31
-Z260 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v|
+Z262 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v|
 R10
-Z261 nsign@ex16
-Z262 !s108 1500221930.645000
-Z263 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v|
+Z263 nsign@ex16
+Z264 !s108 1500230990.899000
+Z265 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx16.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vsignEx26
-Z264 !s100 834^QX0c2Jd@fk3IZj1:A2
-Z265 Ig1JFf3HN_UN:ccnDGEQF73
-Z266 VF^;T5375TUOc_6EK[9W?82
+Z266 !s100 834^QX0c2Jd@fk3IZj1:A2
+Z267 Ig1JFf3HN_UN:ccnDGEQF73
+Z268 VF^;T5375TUOc_6EK[9W?82
 R4
 R5
-Z267 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v
-Z268 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v
+Z269 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v
+Z270 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v
 L0 7
 R8
 r1
 31
-Z269 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v|
+Z271 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v|
 R10
-Z270 nsign@ex26
-Z271 !s108 1500220712.322000
-Z272 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v|
+Z272 nsign@ex26
+Z273 !s108 1500220712.322000
+Z274 !s107 C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/signEx26.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vulaTest
-Z273 !s100 ?a`cf7^_OGIMoEn=4jGKW1
-Z274 I[18gX`;5?0TAb;n49`I]B3
-Z275 V;Km=]T:@;8neTl`WSBnIa0
+Z275 !s100 ?a`cf7^_OGIMoEn=4jGKW1
+Z276 I[18gX`;5?0TAb;n49`I]B3
+Z277 V;Km=]T:@;8neTl`WSBnIa0
 R4
 R5
-Z276 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v
-Z277 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v
+Z278 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v
+Z279 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v
 L0 15
 R8
 r1
 31
-Z278 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v|
+Z280 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v|
 R10
-Z279 nula@test
-Z280 !s108 1500221944.019000
-Z281 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v|
+Z281 nula@test
+Z282 !s108 1500228290.095000
+Z283 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/aluTest.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vunitControl
-Z282 I=^iMVOLMLoO;a<Xz2:Rb01
-Z283 VWf65knTDHcSM:7[9UCeE80
+Z284 !s100 SnHYa@R;[an3h^nBIdO=b1
+Z285 I6CKh30f;2HUgdcm3B_C=32
+Z286 VWf65knTDHcSM:7[9UCeE80
 R4
-Z284 w1500221920
-Z285 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v
-Z286 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v
+Z287 w1500222008
+Z288 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v
+Z289 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v
 L0 10
 R8
 r1
 31
-Z287 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v|
+Z290 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v|
 R10
-Z288 nunit@control
-Z289 !s100 iZ^;mPbQd^]TIIYY^6nJl3
-Z290 !s108 1500221939.718000
-Z291 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v|
+Z291 nunit@control
+Z292 !s108 1500230997.488000
+Z293 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/unitControl.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vunitControlTest
-Z292 !s100 _2f9IWX266nkC^;RWB7QZ2
-Z293 IBDUl4m>eLd?P90h^>`D>S3
-Z294 Vb7h4M88PKDC1gcIhdY;R93
+Z294 !s100 _2f9IWX266nkC^;RWB7QZ2
+Z295 IBDUl4m>eLd?P90h^>`D>S3
+Z296 Vb7h4M88PKDC1gcIhdY;R93
 R4
 R5
-Z295 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v
-Z296 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v
+Z297 8C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v
+Z298 FC:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v
 L0 3
 R8
 r1
 31
-Z297 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v|
+Z299 !s90 -reportprogress|300|-work|work|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v|
 R10
-Z298 nunit@control@test
-Z299 !s108 1500221944.588000
-Z300 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v|
+Z300 nunit@control@test
+Z301 !s108 1500228290.633000
+Z302 !s107 parameters.v|C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/sim/codes tests/unitControltest.v|
 !i10b 1
 !s85 0
 !s101 -O0

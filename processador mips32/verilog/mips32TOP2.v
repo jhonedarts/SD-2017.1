@@ -57,7 +57,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 
 	pc2 pc2(
 		.enable (pcWrite),
-		.nextpc (32'h00000000),
+		.nextpc (32'h00000000),//bypass
 		.out (currentpc)
 	);
 
@@ -79,7 +79,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 
 	adder adderIF (
 		.a (currentpc),
-		.b (32'h00000007),
+		.b (32'h00000001),
 		.out (pc4IF)
 	);
 
@@ -314,7 +314,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	);
 	//regSrc
 	mux3 #(.width (32)) mux3WB(
-		.a (32'h00000006),//(aluResultWB),
+		.a (aluResultWB),
 		.b (memoryDataWB),
 		.c (pc4MEM),
 		.sel (controlWB[0:1]),

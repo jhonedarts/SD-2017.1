@@ -11,7 +11,6 @@ entity mips32TOP2 is
         brAddr          : out    vl_logic_vector(4 downto 0);
         instructionIFOut: out    vl_logic_vector(31 downto 0);
         nextpcOut       : out    vl_logic_vector(31 downto 0);
-        instructionIDOut: out    vl_logic_vector(31 downto 0);
-        issbranch       : out    vl_logic
+        instructionIDOut: out    vl_logic_vector(31 downto 0)
     );
 end mips32TOP2;
