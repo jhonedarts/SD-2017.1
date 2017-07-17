@@ -50,14 +50,14 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	assign memAddr = aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0];
 	assign brDataIn = destRegValueWB;
 	assign brAddr = destRegWB;
-	assign nextpcOut = currentpc;
+	assign nextpcOut = nextpc;
 	assign instructionIFOut = instructionIF;
 	assign instructionIDOut = instructionID;
 
 
 	pc2 pc2(
 		.enable (pcWrite),
-		.nextpc (32'h00000000),//bypass
+		.nextpc (nextpc),
 		.out (currentpc)
 	);
 
@@ -84,8 +84,8 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	);
 
 	mux2 #(.width (32)) mux2IF1(
-		.a (branchAddress),
-		.b (pc4IF),
+		.a (pc4ID),
+		.b (branchAddress),
 		.sel (isBranch),
 		.out (nextpc)
 	);

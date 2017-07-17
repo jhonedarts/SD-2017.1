@@ -14,12 +14,13 @@ module registerFile (clk, rst, rs, rt, rWriteValue, rWriteAddress, regWrite, rsD
 	reg [31:0] registers [31:1];
 
 	integer i;
+	/*
 	initial begin
 	    for (i=1; i<32; i=i+1) begin
-	        registers[i] <= 0;
+	        registers[i] <= 3;
 	    end
 	end
-
+	*/
 	always @ (posedge clk or posedge rst) begin
 		if(rst) begin
 			 

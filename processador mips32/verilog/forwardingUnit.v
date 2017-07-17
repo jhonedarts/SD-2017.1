@@ -8,51 +8,58 @@ module forwardingUnit(rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB, regW
 		forwardRS, forwardRT, forwardRSID, forwardRTID);
 	input[4:0] rs, rt, rsID, rtID, destRegEX, destRegMEM, destRegWB;
 	input regWriteEX, regWriteMEM, regWriteWB;
-	output reg [1:0] forwardRSID, forwardRTID, forwardRS, forwardRT;
+	output [1:0] forwardRSID, forwardRTID, forwardRS, forwardRT;
+
+	reg [1:0] forwardRSIDReg, forwardRTIDReg, forwardRSReg, forwardRTReg;
 
 	always @(*) begin
 		//rs
 		if ((rs==destRegMEM)&(regWriteMEM==1'b1)) begin
-			forwardRS = 1;
+			forwardRSReg = 1;
 		end
 		else if ((rs==destRegWB)&(regWriteWB==1'b1)) begin
-			forwardRS = 2;
+			forwardRSReg = 2;
 		end
 		else begin
-			forwardRS = 0;	
+			forwardRSReg = 0;	
 		end
 
 		//rt
 		if ((rt==destRegMEM)&(regWriteMEM==1'b1)) begin
-			forwardRT = 1;
+			forwardRTReg = 1;
 		end
 		else if ((rt==destRegWB)&(regWriteWB==1'b1)) begin
-			forwardRT = 2;
+			forwardRTReg = 2;
 		end
 		else begin
-			forwardRT = 0;	
+			forwardRTReg = 0;	
 		end
 
 		//rsID
 		if ((rsID==destRegEX)&(regWriteEX==1'b1)) begin
-			forwardRSID = 1;
+			forwardRSIDReg = 1;
 		end
 		else if ((rsID==destRegMEM)&(regWriteMEM==1'b1)) begin
-			forwardRSID = 2;
+			forwardRSIDReg = 2;
 		end
 		else begin
-			forwardRSID = 0;	
+			forwardRSIDReg = 0;	
 		end
 
 		//rtID
 		if ((rtID==destRegEX)&(regWriteEX==1'b1)) begin
-			forwardRTID = 1;
+			forwardRTIDReg = 1;
 		end
 		else if ((rtID==destRegMEM)&(regWriteMEM==1'b1)) begin
-			forwardRTID = 2;
+			forwardRTIDReg = 2;
 		end
 		else begin
-			forwardRTID = 0;	
+			forwardRTIDReg = 0;	
 		end
 	end
+
+	assign forwardRSID = forwardRSIDReg;
+	assign forwardRTID = forwardRTIDReg;
+	assign forwardRS = forwardRSReg;
+	assign forwardRT = forwardRTReg;
 endmodule

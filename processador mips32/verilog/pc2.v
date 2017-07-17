@@ -10,21 +10,30 @@ module pc2(enable, nextpc, out);
 	input[31:0] nextpc;	
 	output[31:0] out;
 
-	reg[31:0] PC;
-	reg[31:0] prevPC;
-	assign out = PC;
+	reg[31:0] pc;
+	reg[31:0] prevPc;
 
-	always @(*) begin		
-		if (enable) begin
-			if(nextpc==32'bxx) begin
-				PC = 0;
-			end else begin
-				prevPC = PC;
-				PC = nextpc;
-			end
-		end else begin
-			PC = prevPC;
-		end		
+	initial begin
+		pc = 0;
 	end
+	
+	always @(*) begin	
+	 $display("PC enable: %b, nextpc: %d", enable, nextpc);	
+		case(enable)
+			1'b0: begin
+				pc = prevPc;
+			end	
+			1'bx: begin
+				prevPc = 0;
+				pc = 0;
+			end			
+			default: begin
+				prevPc = pc;
+				pc = nextpc;
+			end
+		endcase
+	end
+
+	assign out = pc;
 	
 endmodule

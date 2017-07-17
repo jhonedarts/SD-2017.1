@@ -64,6 +64,13 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	pc2
 
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/registerFile.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module registerFile
+
+Top level modules:
+	registerFile
+
 } {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/MEM_WB.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module MEM_WB
@@ -113,12 +120,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	alu
 
-} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v}
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/mips32TOP2.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module EX_MEM
+-- Compiling module mips32TOP2
 
 Top level modules:
-	EX_MEM
+	mips32TOP2
 
 } {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/IF_ID.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -126,5 +133,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 
 Top level modules:
 	IF_ID
+
+} {} {}} {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v} {1 {vlog -work work {C:/Users/jhone/Documents/GitHub/SD-2017.1/processador mips32/verilog/EX_MEM.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module EX_MEM
+
+Top level modules:
+	EX_MEM
 
 } {} {}}

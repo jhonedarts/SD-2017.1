@@ -8,39 +8,42 @@
 
 module aluControl (opcode, funct, aluOp);
 	input [5:0] opcode, funct;
-  	output reg [3:0] aluOp;
+  	output [3:0] aluOp;
+
+  	reg [3:0] aluOpReg;
 
     always@(*) begin     	
     	case(opcode) 
 
     		`R_TYPE: begin    			
     			case(funct) 
-    				`SLL:     	aluOp = `ALU_SLLV;
-					`SRL:     	aluOp = `ALU_SRLV;
-					`SRA:		aluOp = `ALU_SRAV;
-					`SLLV:		aluOp = `ALU_SLLV;
-					`SRLV:    	aluOp = `ALU_SRLV;
-					`SRAV:    	aluOp = `ALU_SRAV;
-					`ADDU:    	aluOp = `ALU_ADDU;
-					`SUBU:    	aluOp = `ALU_SUBU;
-					`AND:     	aluOp = `ALU_AND;
-					`OR:     	aluOp = `ALU_OR;
-					`XOR:     	aluOp = `ALU_XOR;
-					`NOR:     	aluOp = `ALU_NOR;
-					`SLT:     	aluOp = `ALU_SLT;
-					`SLTU:  	aluOp = `ALU_SLTU;
-					default: 	aluOp = `ALU_XXX;					
+    				`SLL:     	aluOpReg = `ALU_SLLV;
+					`SRL:     	aluOpReg = `ALU_SRLV;
+					`SRA:		aluOpReg = `ALU_SRAV;
+					`SLLV:		aluOpReg = `ALU_SLLV;
+					`SRLV:    	aluOpReg = `ALU_SRLV;
+					`SRAV:    	aluOpReg = `ALU_SRAV;
+					`ADDU, `ADD:aluOpReg = `ALU_ADDU;
+					`SUBU:    	aluOpReg = `ALU_SUBU;
+					`AND:     	aluOpReg = `ALU_AND;
+					`OR:     	aluOpReg = `ALU_OR;
+					`XOR:     	aluOpReg = `ALU_XOR;
+					`NOR:     	aluOpReg = `ALU_NOR;
+					`SLT:     	aluOpReg = `ALU_SLT;
+					`SLTU:  	aluOpReg = `ALU_SLTU;
+					default: 	aluOpReg = `ALU_XXX;					
     			endcase
     		end
-    		`LB,`LH,`LW,`LBU,`LHU,`SB,`SH,`SW: aluOp = `ALU_ADDU;
-    		`ADDIU: aluOp = `ALU_ADDU;
-    		`SLTI: aluOp = `ALU_SLT;
-			`SLTIU: aluOp = `ALU_SLTU;
-			`ANDI: aluOp = `ALU_AND;
-			`ORI: aluOp = `ALU_OR;
-			`XORI: aluOp = `ALU_XOR;
-			`LUI: aluOp = `ALU_LUI;
-			default: aluOp = `ALU_XXX;    		
+    		`LB,`LH,`LW,`LBU,`LHU,`SB,`SH,`SW: aluOpReg = `ALU_ADDU;
+    		`ADDIU, `ADDI: aluOpReg = `ALU_ADDU;
+    		`SLTI: aluOpReg = `ALU_SLT;
+			`SLTIU: aluOpReg = `ALU_SLTU;
+			`ANDI: aluOpReg = `ALU_AND;
+			`ORI: aluOpReg = `ALU_OR;
+			`XORI: aluOpReg = `ALU_XOR;
+			`LUI: aluOpReg = `ALU_LUI;
+			default: aluOpReg = `ALU_XXX;    		
     	endcase 
     end//always
+    assign aluOp = aluOpReg;
 endmodule
