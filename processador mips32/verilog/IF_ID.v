@@ -14,7 +14,7 @@ module IF_ID(rst, clk, pcIn, instIn, pcOut, instOut);
 	$display("-------- IF-ID ------------------ pc: %d, inst: %h", pcIn, instIn);
 		if (rst) begin
 			pc <= 0;	
-			inst <= 5;		
+			inst <= 0;		
 		end else begin
 			pc <= pcIn;
 			inst <= instIn;

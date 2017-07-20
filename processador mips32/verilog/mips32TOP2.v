@@ -5,7 +5,7 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, instructionIFOut, nextpcOut, instructionIDOut);
+module mips32TOP2(clk, rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, instructionIFOut, nextpcOut, instructionIDOut);
 	input clk, rst;
 	output [11:0] controlCode;
 	output [`DATA_MEM_ADDR_SIZE-1:0] memAddr;  
