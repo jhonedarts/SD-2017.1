@@ -1,0 +1,178 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/altera/16.0
+vEXMEM
+Z0 !s110 1472487499
+!i10b 1
+!s100 Z7=_4;zEO]a[`aJ@7hCAA0
+I_:f28]KdLWC;eTYc114l60
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Beatriz Brito/Desktop/MEtas/PBL
+w1472472691
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM.v
+L0 1
+Z3 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z4 !s108 1472487499.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM.v|
+!i113 1
+Z5 o-work work
+n@e@x@m@e@m
+vEXMEM_tb
+R0
+!i10b 1
+!s100 I65=9TW=k_<@zSfPHkGBe2
+ICPP=zPPzJ8Mlf2_=[GA<12
+R1
+R2
+w1472486210
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM_tb.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM_tb.v|
+!i113 1
+R5
+n@e@x@m@e@m_tb
+vIDEX
+!s110 1472487500
+!i10b 1
+!s100 SIeV5RnJbU@O]WjckIiDf2
+I^o^bHcK0zHAkj_RMSE@Wm2
+R1
+R2
+w1472470396
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1472487500.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX.v|
+!i113 1
+R5
+n@i@d@e@x
+vIDEX_tb
+!s110 1472487501
+!i10b 1
+!s100 F5T]jg:k`Lo:[_o;ENTF:0
+IC>Qno:>i2?[=[Am6VCU0o3
+R1
+R2
+w1472486771
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX_tb.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1472487501.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX_tb.v|
+!i113 1
+R5
+n@i@d@e@x_tb
+vIFID
+!s110 1472490279
+!i10b 1
+!s100 V8WP0f0T?P4;WOC;;;lGV2
+Ii4?eXb_d9@cSjj`P3D>R03
+R1
+R2
+w1472490267
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1472490279.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID.v|
+!i113 1
+R5
+n@i@f@i@d
+vIFID_tb
+!s110 1472490772
+!i10b 1
+!s100 MSXa7Ah;e_BiA>5DfHoH^1
+I86WfokA_ai8z]J01j8YQ;2
+R1
+R2
+w1472490762
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID_tb.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1472490772.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID_tb.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IFID_tb.v|
+!i113 1
+R5
+n@i@f@i@d_tb
+vMEMWB
+!s110 1472487503
+!i10b 1
+!s100 2oVba6061SfE^5ZKnSo<E2
+I1g0T1iWSD:El@kkobijoc0
+R1
+R2
+w1472472692
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1472487503.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB.v|
+!i113 1
+R5
+n@m@e@m@w@b
+vMEMWB_tb
+!s110 1472487504
+!i10b 1
+!s100 A0Y6cG<Q_REl^2EeBWzk92
+IFTK<W5dEO2I==?@0nFXT=3
+R1
+R2
+w1472487253
+8C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB_tb.v
+FC:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1472487504.000000
+!s107 C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB_tb.v|
+!i113 1
+R5
+n@m@e@m@w@b_tb

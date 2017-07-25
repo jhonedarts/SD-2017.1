@@ -1,0 +1,20 @@
+module loopback_tb;
+	reg[31:0] data_in = 785496;
+	reg reset, clk, rx;
+	wire tx;
+
+	Loopback lb(reset,clk,rx,tx);
+
+	initial begin
+		reset = 0;
+		clk = 0;
+		rx = 0;
+	end
+
+	always begin
+		#100 clk = !clk;
+		if($time >= 200)
+			reset = 1;
+	end
+	
+endmodule
