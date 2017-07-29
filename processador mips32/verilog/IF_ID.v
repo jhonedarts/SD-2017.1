@@ -11,7 +11,7 @@ module IF_ID(rst, clk, pcIn, instIn, pcOut, instOut);
 	reg[31:0] pc, inst;	
 	
 	always @(posedge clk or posedge rst) begin
-	$display("-------- IF-ID ------------------ pc: %d, inst: %h", pcIn, instIn);
+	$display("[IF_ID] Pc: %d Inst: %h", pcIn, instIn);
 		if (rst) begin
 			pc <= 0;	
 			inst <= 0;		
