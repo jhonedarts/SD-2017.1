@@ -5,12 +5,8 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, instructionIFOut, nextpcOut, instructionIDOut);
-	input clk, rst;
-	output [11:0] controlCode;
-	output [`DATA_MEM_ADDR_SIZE-1:0] memAddr;  
-	output [31:0] memDataIn, brDataIn, instructionIFOut, nextpcOut, instructionIDOut;
-	output [4:0] brAddr;	
+module mips32TOP2(clk, clkMem, rst);
+	input clk, clkMem, rst;
 
 	wire flushIFID, rstIDIF;
 	//um and com rst da placa e os comandos de flush pro ifid;
@@ -45,17 +41,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	wire[4:0] destRegWB;
 	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
 
-	assign controlCode = {controlID, branchSrc, compareCode};
-	assign memDataIn = writeData;
-	assign memAddr = aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0];
-	assign brDataIn = destRegValueWB;
-	assign brAddr = destRegWB;
-	assign nextpcOut = nextpc;
-	assign instructionIFOut = instructionIF;
-	assign instructionIDOut = instructionID;
-
-
-	pc2 pc2(
+	pc2 pc(
 		.enable (pcWrite),
 		.nextpc (nextpc),
 		.out (currentpc)
@@ -63,7 +49,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 
 	instructionMem instructionMem(		
 		.address (currentpc[`INST_MEM_ADDR_SIZE-1:0]),
-		.clock (clk),
+		.clock (clkMem),
 		.q (instructionIF)
 	);
 	/* Usando outra memoria de instruções para testes
@@ -278,7 +264,7 @@ module mips32TOP2(clk,rst, controlCode, memAddr, memDataIn, brDataIn, brAddr, in
 	);
 
 	dataMem dataMem (
-		.clock (clk), 
+		.clock (clkMem), 
 		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
 		.data (writeData), 
 		.wren (controlMEM[3]), 

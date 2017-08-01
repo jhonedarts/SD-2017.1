@@ -1,0 +1,43 @@
+{C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM.v} {1 {vlog -work work -stats=none {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module EXMEM
+
+Top level modules:
+	EXMEM
+
+} {} {}} {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB.v} {1 {vlog -work work -stats=none {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module MEMWB
+
+Top level modules:
+	MEMWB
+
+} {} {}} {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB_tb.v} {1 {vlog -work work -stats=none {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/MEMWB_tb.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module MEMWB_tb
+
+Top level modules:
+	MEMWB_tb
+
+} {} {}} {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM_tb.v} {1 {vlog -work work -stats=none {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/EXMEM_tb.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module EXMEM_tb
+
+Top level modules:
+	EXMEM_tb
+
+} {} {}} {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX.v} {1 {vlog -work work -stats=none {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module IDEX
+
+Top level modules:
+	IDEX
+
+} {} {}} {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX_tb.v} {1 {vlog -work work -stats=none {C:/Users/Beatriz Brito/Desktop/MEtas/PBL/IDEX_tb.v}
+Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+-- Compiling module IDEX_tb
+
+Top level modules:
+	IDEX_tb
+
+} {} {}}

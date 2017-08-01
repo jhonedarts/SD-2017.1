@@ -34,7 +34,6 @@ module unitControl (opcode, func, controlOut, branchSrc, compareCode);
 
 
 	always @(opcode or func) begin
-		$display("Opcode: %b",opcode);
 		case(opcode)			
 			`R_TYPE: begin
 				if(func == `JR) begin

@@ -1,0 +1,27 @@
+Warning (10268): Verilog HDL information at Transmitter.v(17): always construct contains both blocking and non-blocking assignments File: C:/Users/Beatriz Brito/Desktop/SoC/Transmitter.v Line: 17
+Warning (10268): Verilog HDL information at Receiver.v(16): always construct contains both blocking and non-blocking assignments File: C:/Users/Beatriz Brito/Desktop/SoC/Receiver.v Line: 16
+Warning (10268): Verilog HDL information at InterfaceSerial.v(36): always construct contains both blocking and non-blocking assignments File: C:/Users/Beatriz Brito/Desktop/SoC/InterfaceSerial.v Line: 36
+Warning (10273): Verilog HDL warning at IOmodule.v(42): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 42
+Warning (10273): Verilog HDL warning at IOmodule.v(43): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 43
+Warning (10273): Verilog HDL warning at IOmodule.v(44): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 44
+Warning (10273): Verilog HDL warning at IOmodule.v(57): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 57
+Warning (10273): Verilog HDL warning at IOmodule.v(58): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 58
+Warning (10273): Verilog HDL warning at IOmodule.v(59): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 59
+Warning (10273): Verilog HDL warning at IOmodule.v(63): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 63
+Warning (10273): Verilog HDL warning at IOmodule.v(64): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 64
+Warning (10273): Verilog HDL warning at IOmodule.v(65): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 65
+Warning (10273): Verilog HDL warning at IOmodule.v(66): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 66
+Warning (10273): Verilog HDL warning at IOmodule.v(67): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 67
+Warning (10273): Verilog HDL warning at IOmodule.v(68): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 68
+Warning (10273): Verilog HDL warning at IOmodule.v(69): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IOmodule.v Line: 69
+Warning (10273): Verilog HDL warning at UC.v(26): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/UC.v Line: 26
+Warning (10273): Verilog HDL warning at SoC.v(155): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/SoC.v Line: 155
+Warning (10273): Verilog HDL warning at SoC.v(305): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/SoC.v Line: 305
+Warning (10273): Verilog HDL warning at SoC.v(315): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/SoC.v Line: 315
+Warning (10273): Verilog HDL warning at PC.v(19): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/PC.v Line: 19
+Warning (10273): Verilog HDL warning at IFID.v(27): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IFID.v Line: 27
+Warning (10273): Verilog HDL warning at IFID.v(28): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/IFID.v Line: 28
+Warning (10273): Verilog HDL warning at demux1_2.v(12): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/demux1_2.v Line: 12
+Warning (10273): Verilog HDL warning at demux1_2.v(16): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/demux1_2.v Line: 16
+Warning (10273): Verilog HDL warning at ALU.v(41): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/ALU.v Line: 41
+Warning (10273): Verilog HDL warning at ALU.v(52): extended using "x" or "z" File: C:/Users/Beatriz Brito/Desktop/SoC/ALU.v Line: 52

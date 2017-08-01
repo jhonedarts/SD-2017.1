@@ -17,8 +17,6 @@ module alu(a,b, sel, result);
 	wire unsigned_comp;
 
   always@(*) begin 
-  		
-  		$display("--------------ULA--------------\n A: %d, B: %d, aluOp", a, b, sel);
   		case(sel)
 
   			`ALU_ADDU: resultReg = a + b;

@@ -1,0 +1,26 @@
+
+State Machine - |INTERFACE_Loopback|InterfaceSerial:UART|Receiver:receiver|state
+Name state.1001 state.1000 state.0111 state.0110 state.0101 state.0100 state.0011 state.0010 state.0001 state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.0001 0 0 0 0 0 0 0 0 1 1 
+state.0010 0 0 0 0 0 0 0 1 0 1 
+state.0011 0 0 0 0 0 0 1 0 0 1 
+state.0100 0 0 0 0 0 1 0 0 0 1 
+state.0101 0 0 0 0 1 0 0 0 0 1 
+state.0110 0 0 0 1 0 0 0 0 0 1 
+state.0111 0 0 1 0 0 0 0 0 0 1 
+state.1000 0 1 0 0 0 0 0 0 0 1 
+state.1001 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |INTERFACE_Loopback|InterfaceSerial:UART|Transmitter:transmitter|state
+Name state.01001 state.01000 state.00111 state.00110 state.00101 state.00100 state.00011 state.00010 state.00001 state.00000 
+state.00000 0 0 0 0 0 0 0 0 0 0 
+state.00001 0 0 0 0 0 0 0 0 1 1 
+state.00010 0 0 0 0 0 0 0 1 0 1 
+state.00011 0 0 0 0 0 0 1 0 0 1 
+state.00100 0 0 0 0 0 1 0 0 0 1 
+state.00101 0 0 0 0 1 0 0 0 0 1 
+state.00110 0 0 0 1 0 0 0 0 0 1 
+state.00111 0 0 1 0 0 0 0 0 0 1 
+state.01000 0 1 0 0 0 0 0 0 0 1 
+state.01001 1 0 0 0 0 0 0 0 0 1 
