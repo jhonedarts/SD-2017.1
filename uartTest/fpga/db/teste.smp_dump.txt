@@ -1,0 +1,13 @@
+
+State Machine - |teste|uart:ut|rx:recebe|estado
+Name estado.11 estado.01 estado.10 
+estado.01 0 0 0 
+estado.10 0 1 1 
+estado.11 1 1 0 
+
+State Machine - |teste|uart:ut|tx:transmissao|estado
+Name estado.11 estado.10 estado.01 estado.00 
+estado.00 0 0 0 0 
+estado.01 0 0 1 1 
+estado.10 0 1 0 1 
+estado.11 1 0 0 1 
