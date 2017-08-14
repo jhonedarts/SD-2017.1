@@ -1,4 +1,4 @@
-module teste(
+module uartTeste(
     input clock_50MHz,
     input UART_Rx,
     output UART_Tx,

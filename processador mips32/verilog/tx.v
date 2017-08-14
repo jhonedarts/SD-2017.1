@@ -1,4 +1,4 @@
-`include "estados_uart.v"
+`include "parameters.v"
 
 module tx(
   input wire [7:0] dados_transmissao,// dados que transmissão
