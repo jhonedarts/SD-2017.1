@@ -1,38 +1,38 @@
 module uart(
-	input wire [7:0] din,
 	input wire clock_50MHZ,
-	input wire enable,
-	input wire rx,
-	input wire rdy_clr,
-	output wire tx,
-	output wire tx_busy,	
-	output wire rdy,
-	output wire [7:0] dout
+	input wire [7:0] txData, 	//dado pra ser transmitido no tx	
+	input wire txEnable, 		//ativa o tx pra iniciar a transmicao
+	input wire rx,				//da placa
+	input wire rxClear,			//reinicia o rx
+	output wire tx,				//para a placa
+	output wire tx_busy,		//tx ocupado	
+	output wire rxReady,		//flag de dado recebido, pronto pra passar para memoria
+	output wire[7:0] rxDataOut 	//dado recebido
 );
 
-	wire rxclk_en, txclk_en;
+	wire rxclk, txclk;
 
 	baudRate baudrate(
 		.clk_50m(clock_50MHZ),
-		.rxclk_en(rxclk_en),
-		.txclk_en(txclk_en)
+		.rxclk_en(rxclk),
+		.txclk_en(txclk)
 	);
 
-	tx transmissao(				
-		.dados_transmissao(din),
-        .wr_en(enable),
+	tx transmiter(				
+		.dados_transmissao(txData),
+        .wr_en(txEnable),
         .clock_50(clock_50MHZ),
-        .tick(txclk_en),
+        .tick(txclk),
         .tx(tx),
-        .tx_busy(tx_busy)
+        .txBusy(txBusy)
 	);
 
-	rx recebe(	  
+	rx receiver(	  
 		.rx(rx),
-		.reinicia(rdy_clr),
+		.clear(rxClear),
 		.clock(clock_50MHZ),
-		.tick(rxclk_en),
-		.rdy(rdy),
-		.saida_rx(dout)		
+		.tick(rxclk),
+		.rdy(rxReady),
+		.out_rx(rxDataOut)		
 	);
 endmodule

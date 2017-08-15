@@ -5,45 +5,19 @@
 ************************************************************/
 `include "parameters.v"
  
-module arbiter(address, memReadCPU, memWriteCPU, readyRx0, readyRx1, memReadOut, memWriteOut, enableTX0, enableTX1);
-	input[31:0] address //low bit representa qual uart, e o high se houve um sw na faixa e endereco
-	input readyRx0, readyRx1;
+module arbiter(address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTX0, busyTx1, memWriteOut, enableTx0, enableTx1, clearRx0, clearRx1);
+	input[`DATA_MEM_ADDR_SIZE-1:0] address 
+	input readyRx0, readyRx1, busyTx0, busyTx1;
 	input memReadCPU, memWriteCPU;
-	output memReadOut, memWriteOut;
-	output enableTX0, enableTX1;
-	output[7:0] memData;
-	output[31:0] memAddress;
+	output memWriteOut;
+	output enableTx0, enableTx1, clearRx0, clearRx1;
 
-	reg enableTX0reg, enableTX1reg;
-
-	assign enableTX0 = enableTX0reg;
-	assign enableTX1 = enableTX1reg;
-
-	always @(*) begin
-		if(memWriteCPU) begin //escrita para i/o
-			case (address) //faixa de endereco
-				`UART0: begin
-					//verificar se esta ocupada (txbusy)
-					enableTX0reg = 1;
-				end
-				`UART1: begin
-					//verificar se esta ocupada (txbusy)
-					enableTX1reg = 1;
-				end
-				default: begin
-					enableTX0reg = 0;
-					enableTX1reg = 0;
-				end
-			endcase
-		end
-		if (~(memWrite|memRead)) begin//se o barramento ta livre
-			if (readyRx0) begin //dado ta pronto (recebido) da uart 0
-				//habilitar o acesso ao barramento pra uart0 para gravar o dado na memoria
-			end
-			else if (readyRx1) begin //dado ta pronto (recebido) da uart 1
-				//habilitar o acesso ao barramento pra uart1 para gravar o dado na memoria
-			end
-		end
-	end
-
+	assign enableTx0 = (!busyTx0 & memWriteCPU & (address == `UART0))? 1:0;//tx uart0 desocupado & store na faixa de endereço uart0
+	assign enableTx1 = (!busyTx1 & memWriteCPU & (address == `UART1))? 1:0;
+	assign rx0toMem = (!(memWriteCPU|memReadCPU) & readyRx0)? 1 : 0;			//barramento livre & tem dado no rx uart0
+	assign rx1toMem = (!(memWriteCPU|memReadCPU) & !readyRx0 & readyRx1)? 1:0;//barramento livre & nada no rx uart0 & dado no rx uart1
+	//assign memReadOut = ;
+	assign memWriteOut = (rx0toMem|rx1toMem)? 1:0;
+	assign clearRx0 = (rx0toMem)? 1:0;
+	assign clearRx1 = (rx1toMem)? 1:0;
 endmodule

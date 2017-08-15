@@ -1,11 +1,11 @@
 `include "parameters.v"
 module rx(
 	input wire rx,
-	input wire reinicia,
+	input wire clear,
 	input wire clock,
 	input wire tick,
 	output reg rdy,
-	output reg [7:0] saida_rx
+	output reg [7:0] out_rx
 );
 
 	reg [1:0] estado = `ESTADO_START; //PRIMEIRO ESTADO 
@@ -15,7 +15,7 @@ module rx(
 
 	always @ ( posedge clock ) begin
 
-		if(reinicia) rdy <= 0;//REINICIA A MAQUINA
+		if(clear) rdy <= 0;//REINICIA A MAQUINA
 
 		if(tick) begin// INFORMAR SE O ESTADO ESTÁ ATIVO
 			case (estado)
@@ -40,7 +40,7 @@ module rx(
 				`ESTADO_STOP: begin
 					if (amostra_dado == 15 || (amostra_dado >= 8 && ~rx)) begin
 						estado <= `ESTADO_START;
-						saida_rx <= data;
+						out_rx <= data;
 						rdy <= 1'b1;
 						amostra_dado <= 4'd0;
 					end

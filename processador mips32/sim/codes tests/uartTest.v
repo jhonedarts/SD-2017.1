@@ -1,4 +1,4 @@
-module uartTeste(
+module uartTest(
     input clock_50MHz,
     input UART_Rx,
     output UART_Tx,
@@ -19,16 +19,16 @@ assign LEDM_C[4:1] = 4'b1111; // disable cols 1~5
 
 assign LEDM_R_inv = Rx_Data;
 
-uart ut (
-	.din(Rx_Data),
-  	.enable(rdy),
+uart uart(
 	.clock_50MHZ(clock_50MHz),
-	.tx(UART_Tx),
-	.tx_busy(tx_busy),
-	.rdy(rdy),
-	.rx(UART_Rx),
-	.rdy_clr(rdy),
-	.dout(Rx_Data)
+	.txData(Rx_Data), 		//dado pra ser transmitido no tx	
+	.txEnable(rdy), 		//ativa o tx pra iniciar a transmicao
+	.rx(UART_Rx),			//da placa
+	.rxClear(rdy),			//reinicia o rx
+	.tx(UART_Tx), 			//para a placa
+	.tx_busy(tx_busy),		//tx ocupado	
+	.rxReady(rdy),			//flag de dado recebido, pronto pra passar para memoria
+	.rxDataOut(Rx_Data) 	//dado recebido
 );
 
 endmodule
