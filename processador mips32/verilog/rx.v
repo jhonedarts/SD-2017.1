@@ -2,7 +2,7 @@
 module rx(
 	input wire rx,
 	input wire clear,
-	input wire clock,
+	input wire clock50,
 	input wire tick,
 	output reg rdy,
 	output reg [7:0] out_rx
@@ -13,7 +13,7 @@ module rx(
 	reg [3:0] contador = 0;
 	reg [7:0] data = 8'b0;
 
-	always @ ( posedge clock ) begin
+	always @ ( posedge clock50 ) begin
 
 		if(clear) rdy <= 0;//REINICIA A MAQUINA
 

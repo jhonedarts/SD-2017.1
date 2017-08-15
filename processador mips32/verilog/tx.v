@@ -3,7 +3,7 @@
 module tx(
   input wire [7:0] dados_transmissao,// dados que transmissão
   input wire wr_en,//habilitador 
-  input wire clock_50,//clock da fpga
+  input wire clock50,//clock da fpga
   input wire tick, // clock ou um sinal que controla se o tx está ativado 
   output reg tx, // RESPONSAVEL POR ENVIAR OS BITS 
   output wire tx_busy // informar que ainda está sendo usado o tx 
@@ -13,7 +13,7 @@ reg [7:0] dados = 8'h00;
 reg [2:0] contador = 3'h0;
 reg [1:0] estado = `ESTADO_INTERFACE; // ele inicia no idle .. ou seja interface pois kkk os dados são enviados por la
 
-always @(posedge clock_50) begin
+always @(posedge clock50) begin
 	case (estado)
 	/*
 		verifica se está sendo enviado ... algo da interface 

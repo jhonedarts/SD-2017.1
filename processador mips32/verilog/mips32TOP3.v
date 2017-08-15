@@ -320,11 +320,19 @@ module mips32TOP2(clk, clkMem, rst);
 		.sel ({enableTx1,enableTx0}),
 		.out (writeDataMem)
 	);
+	wire[`DATA_MEM_ADDR_SIZE-1:0] writeDataMemAddress;
+	mux3 #(.width (`DATA_MEM_ADDR_SIZE)) mux3MEM(
+		.a (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]),
+		.b (`DATA_MEM_ADDR_SIZE'h860),
+		.c (`DATA_MEM_ADDR_SIZE'h876),
+		.sel ({enableTx1,enableTx0}),
+		.out (writeDataMemAddress)
+	);
 	// ------------------------------------
 
 	dataMem dataMem (
 		.clock (clkMem), 
-		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
+		.address (writeDataMemAddress), 
 		.data (writeDataMem), 
 		.wren (wrenMemData), 
 		.rden (controlMEM[4]), 
