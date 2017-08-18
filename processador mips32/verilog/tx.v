@@ -14,7 +14,7 @@ reg [2:0] contador = 3'h0;
 reg [1:0] estado = `STAGE_INTERFACE; // ele inicia no idle .. ou seja interface pois kkk os dados são enviados por la
 
 always @(posedge clk) begin
-	$display("estado: %d  tx0Enable: ", estado, wr_en);
+	//$display("estado: %d  tx0Enable: ", estado, wr_en);
 	case (estado)
 	/*
 		verifica se está sendo enviado ... algo da interface 
@@ -27,8 +27,8 @@ always @(posedge clk) begin
 		end
     	else tx <= 1'b1;
 	end
-	`STAGE_START: begin
-		$display("start");
+	`STAGE_START: begin	
+		//$display("start");
 		if (tick) begin//INICIA O START BIT INFORMANDO PARA O ENVIO DE DADOS
 			tx <= 1'b0; // RESETA  O TX ... PARA RECEBER A INFORMAÇÃO
 			//$display("tx: %d",tx);
@@ -36,7 +36,7 @@ always @(posedge clk) begin
 		end
 	end
 	`STAGE_WORK: begin
-		$display("work");
+		//$display("work");
 		if (tick) begin
 			if (contador == 3'h7)
 				estado <= `STAGE_STOP;
@@ -49,7 +49,7 @@ always @(posedge clk) begin
 		if (tick) begin
 			tx <= 1'b1;//ULTIMO SINAL DE BIT INFORMAR QUE TERMINOU ... DE ENVIAR E VAI PARA INFERFACE ESPERANDO A UART ATIVAR 
 			estado <= `STAGE_INTERFACE;
-			$display("stop - enviou");
+			$display("[TX] enviou!!");
 		end
 	end
 	default: begin

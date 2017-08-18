@@ -27,10 +27,10 @@ module mips32TOPTest ();
         clockMem = 0;
         reset = 0;
         count_stop = 0;       
-        while(count_stop <= 10) begin
+        while(count_stop <= 15) begin
             #(cycle*2);
             count_stop = count_stop + 1;
-            //$display("clock: %d\n", count_stop);
+            $display(" ");
         end  
         $finish();  
     end

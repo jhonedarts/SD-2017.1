@@ -14,7 +14,7 @@ module pc(enable, nextpc, out);
 	reg[31:0] prevPc = 0;
 	
 	always @(*) begin	
-	 //$display("[PC] enable: %b, nextpc: %d", enable, nextpc);	
+	$display("[PC] enable: %b, nextpc: %d", enable, nextpc);	
 		if (enable) begin
 			if (nextpc === 32'bx) begin				
 				prevPc = 0;
