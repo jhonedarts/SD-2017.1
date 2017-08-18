@@ -18,7 +18,7 @@
 #
 # Quartus II 64-Bit
 # Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-# Date created = 12:55:21  July 10, 2017
+# Date created = 16:19:10  August 17, 2017
 #
 # -------------------------------------------------------------------------- #
 #
@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE30F23C7
 set_global_assignment -name TOP_LEVEL_ENTITY mips32TOP
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:55:21  JULY 10, 2017"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:19:10  AUGUST 17, 2017"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
 
 # Pin constraints
@@ -590,24 +590,31 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_RXF_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_TXE_N
 set_global_assignment -name SOURCE_FILE ../verilog/hazardDetection.v
 set_global_assignment -name SOURCE_FILE ../verilog/instructionMem.v
+set_global_assignment -name SOURCE_FILE ../verilog/signEx8.v
 set_global_assignment -name SOURCE_FILE ../verilog/parameters.v
+set_global_assignment -name SOURCE_FILE ../verilog/frequencyDivider.v
 set_global_assignment -name SOURCE_FILE ../verilog/shiftLeft.v
 set_global_assignment -name SOURCE_FILE ../verilog/ID_EX.v
 set_global_assignment -name SOURCE_FILE ../verilog/pc.v
 set_global_assignment -name SOURCE_FILE ../verilog/mux2.v
 set_global_assignment -name SOURCE_FILE ../verilog/signEx16.v
+set_global_assignment -name SOURCE_FILE ../verilog/tx.v
 set_global_assignment -name SOURCE_FILE ../verilog/EX_MEM.v
 set_global_assignment -name SOURCE_FILE ../verilog/adder.v
+set_global_assignment -name SOURCE_FILE ../verilog/uart.v
 set_global_assignment -name SOURCE_FILE ../verilog/unitControl.v
 set_global_assignment -name SOURCE_FILE ../verilog/forwardingUnit.v
 set_global_assignment -name SOURCE_FILE ../verilog/alu.v
 set_global_assignment -name SOURCE_FILE ../verilog/MEM_WB.v
 set_global_assignment -name SOURCE_FILE ../verilog/mips32TOP.v
 set_global_assignment -name SOURCE_FILE ../verilog/registerFile.v
+set_global_assignment -name SOURCE_FILE ../verilog/arbiter.v
 set_global_assignment -name SOURCE_FILE ../verilog/dataMem.v
+set_global_assignment -name SOURCE_FILE ../verilog/baudRate.v
 set_global_assignment -name SOURCE_FILE ../verilog/IF_ID.v
 set_global_assignment -name SOURCE_FILE ../verilog/compare.v
 set_global_assignment -name SOURCE_FILE ../verilog/aluControl.v
+set_global_assignment -name SOURCE_FILE ../verilog/rx.v
 set_global_assignment -name SOURCE_FILE ../verilog/mux3.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top

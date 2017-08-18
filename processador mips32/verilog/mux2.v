@@ -3,9 +3,9 @@
  * Projeto: mips32
  ***************************************************/
 module mux2#(parameter width)(a, b, sel, out);
-	input[31:0] a, b;
+	input[width-1:0] a, b;
 	input sel;
-	output[31:0] out;
+	output[width-1:0] out;
 	
 	assign out = (sel) ? b : a;
 endmodule

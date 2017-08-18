@@ -5,82 +5,88 @@
  ************************************************************/
 `include "parameters.v"
 
-module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWrite);
-	input clk, rst;
-	output memWr, memRd, brWrite;
-	output [13:0] memAddr;  
-	output [31:0] memDataIn, brDataIn;
-	output [4:0] brAddr;	
+module mips32TOP(
+		input clock_50MHz, 
+		input PIN_Y17
+    );
 
-	wire rstIFID, flushIFID;
-	or(rstIFID, rst, flushIFID);//um and com rst da placa e os comandos de flush pro ifid;
+	wire flushIFID, rstIDIF;
+	//um and com rst da placa e os comandos de flush pro ifid;
 	//wires... wires everwhere
 
 	//interStages
 	wire isBranch;
-	//IF
-	wire[31:0] nextpc, currentpc, instructionIF, pc4IF; 
 	
+	//IF
+	wire[31:0] nextpc, currentpc, instructionIF, pc4IF; 	
 	wire pcWrite;
+
 	//ID
-	wire[`CONTROL_SIZE-1:0] controlID;	
+	wire[0:`CONTROL_SIZE-1] controlID;	
 	wire[1:0] forwardRSID, forwardRTID, branchSrc, compareCode;
 	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet;
 	wire[31:0] branchAddress;
+
 	//EX
 	wire[4:0] rsEX, rtEX, rdEX, destRegEX;
-	wire[`CONTROL_SIZE-1:0] controlEX;
+	wire[0:`CONTROL_SIZE-1] controlEX;
 	wire[31:0] rsValueEX, rtValueEX, rtValueEX1, offset16EX;
 	wire[31:0] operating1, operating2, aluResultEX, pc4EX;
 	wire[5:0]  opcodeEX;
 	wire[3:0] aluControlOut;
 	wire[1:0] forwardRS, forwardRT;
+
 	//MEM
 	wire[4:0] destRegMEM;
-	wire[3:0] controlMEM;
+	wire[0:4] controlMEM;
 	wire[31:0] aluResultMEM, writeData, memoryDataMEM, pc4MEM;
+
+	// I/O
+	wire readyRx0, readyRx1, busyTx0, busyTx1, enableTx0, enableTx1, clearRx0, clearRx1, memWriteUART, rx0toMem, rx1toMem;
+	wire[7:0] writeDataUART0, writeDataUART1, rx0Data, rx1Data;
+	wire wrenMemData, rx0DataSel, rx1DataSel;
+	wire [`DATA_MEM_ADDR_SIZE-1:0] rx0address, rx1address;
+	wire [31:0]  writeDataMem, writeDataUART0s, writeDataUART1s;
 	
 	//WB
-	wire[2:0] controlWB;
+	wire[0:2] controlWB;
 	wire[4:0] destRegWB;
 	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
+	//leds
+	/*
+	wire [7:0] LEDM_R_inv;
+	assign LEDM_R = ~LEDM_R_inv;
+	assign LEDM_C[0] = 1'b0; // enable col 0
+	assign LEDM_C[4:1] = 4'b1111; // disable cols 1~5
+	assign LEDM_R_inv = 8'b00000001;
+	*/
 
-	assign memWr = controlMEM[3];
-	assign memRd = controlMEM[2];
-	assign memDataIn = writeData;
-	assign memAddr = aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0];
-	assign brDataIn = destRegValueWB;
-	assign brAddr = destRegWB;
-	assign controlWB[2] = brWrite;	
+	//adicional
+	wire clkMem, clk, rst;
+	assign clkMem = clock_50MHz;
+	assign rst = PIN_Y17;
+	frequencyDivider divider(clock_50MHz,clk);
 
-
-<<<<<<< HEAD
-	PC pc(
-		.clk(clk),
-		.rst(rst),
-=======
-	PC pc(		
-		.clk (clk),
-		.rst (rst),
->>>>>>> 027e0ed0c6c81d809477ba759e2c854659cbea48
+	pc pc(
 		.enable (pcWrite),
 		.nextpc (nextpc),
 		.out (currentpc)
 	);
 
-	/*instructionMem instructionMem(		
+	instructionMem instructionMem(		
 		.address (currentpc[`INST_MEM_ADDR_SIZE-1:0]),
-		.clock (clk),
+		.clk (clkMem),
 		.q (instructionIF)
-	);*/
+	);
 	/* Usando outra memoria de instruções para testes
 	*/
-
+	/*
 	ROM rom (
         .Clock(clk),
         .Address(currentpc[`INST_MEM_ADDR_SIZE-1:0]),        
 		.ReadData(instructionIF)        
     );
+    */
 	
 
 	adder adderIF (
@@ -90,14 +96,16 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	);
 
 	mux2 #(.width (32)) mux2IF1(
-		.a (branchAddress),
-		.b (pc4IF),
+		.a (pc4ID),
+		.b (branchAddress),
 		.sel (isBranch),
 		.out (nextpc)
 	);
 
+	assign rstIDIF =  ((flushIFID != 1'bx) & (rst==1'b1) & (flushIFID == 1'b1))? 1'b1 : 1'b0;
+
 	IF_ID ifid(
-		.rst (rstIFID), 
+		.rst (1'b0), //(rstIDIF),
 		.clk (clk), 
 		.pcIn (pc4IF), 
 		.instIn (instructionIF), 
@@ -128,7 +136,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.b (offset16ID2),
 		.out (branchOffSet)
 	);
-
+	//branchSrc
 	mux3 #(.width (32)) mux3ID3(
 		.a (branchOffSet),//branch
 		.b ({pc4ID[31:26],instructionID[25:0]}),//jump
@@ -148,7 +156,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.rsData (rsValueID1), 
 		.rtData (rtValueID1)
 	);
-
+	//fowardRS ID
 	mux3 #(.width (32)) mux3ID1(
 		.a (rsValueID1),
 		.b (aluResultEX),
@@ -156,7 +164,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.sel (forwardRSID),
 		.out (rsValueID2)
 	);
-
+	//fowardRT ID
 	mux3 #(.width (32)) mux3ID2(
 		.a (rtValueID1),
 		.b (aluResultEX),
@@ -207,16 +215,16 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	//rsForward no EX
 	mux3 #(.width (32)) mux3EX1(
 		.a (rsValueEX),
-		.b (destRegValueWB),
-		.c (aluResultMEM),
+		.b (aluResultMEM),
+		.c (destRegValueWB),
 		.sel (forwardRS),
 		.out (operating1)
 	);
 	//rtForward no EX
 	mux3 #(.width (32)) mux3EX2(
 		.a (rtValueEX),
-		.b (destRegValueWB),
-		.c (aluResultMEM),
+		.b (aluResultMEM),
+		.c (destRegValueWB),
 		.sel (forwardRT),
 		.out (rtValueEX1)
 	);
@@ -225,13 +233,13 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.a (rdEX),
 		.b (rtEX),
 		.c (5'b11111),//ra
-		.sel (controlEX[6:5]),
+		.sel (controlEX[5:6]),
 		.out (destRegEX)
 	);
-
+	//aluSrc
 	mux2 #(.width (32)) mux2EX1 (
-		.a (rtValueEX1),
-		.b (offset16EX),
+		.a (offset16EX),
+		.b (rtValueEX1),
 		.sel (controlEX[7]),
 		.out (operating2)
 	);
@@ -269,7 +277,7 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 	EX_MEM exmem (
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlEX[3:0]), 
+		.controlIn (controlEX[0:4]), 
 		.pcIn (pc4EX),
 		.aluResultIn (aluResultEX), 
 		.rtValueIn (rtValueEX1), 
@@ -280,31 +288,108 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.rtValueOut (writeData),
 		.destRegOut (destRegMEM)
 	);
+	// ---------------  I/O  --------------
 
-	/*dataMem dataMem (
-		.clock (clk), 
+	arbiter arbiter(
+		.clk (clk),
 		.address (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]), 
-		.data (writeData), 
-		.wren (controlMEM[3]), 
-		.rden (controlMEM[2]), 
+		.memReadCPU (controlMEM[4]), 
+		.memWriteCPU (controlMEM[3]), 
+		.readyRx0 (readyRx0), 
+		.readyRx1 (readyRx1), 
+		.rx0toMem (rx0toMem),
+		.rx1toMem (rx1toMem),
+		.busyTx0 (busyTx0), 
+		.busyTx1 (busyTx1),
+		.memWriteOut (memWriteUART), 
+		.enableTx0 (enableTx0), 
+		.enableTx1 (enableTx1),
+		.rx0address (rx0address),
+		.rx1address (rx1address),
+		.rx0DataSel (rxDataOut), 
+		.rx1DataSel (rx1DataSel)
+	);
+
+	uart uart0(
+		.clk (clk),
+		.txData (writeData[7:0]), 	//dado pra ser transmitido no tx	
+		.txEnable (enableTx0), 		//ativa o tx pra iniciar a transmicao
+		.rx (UART_Rx),				//da placa
+		.rxClear (rx0toMem),			//reinicia o rx
+		.tx (UART_Tx),				//para a placa
+		.tx_busy (busyTx0),		//tx ocupado	
+		.rxReady (readyRx0),		//flag de dado recebido, pronto pra passar para memoria
+		.rxDataOut (rx0Data) 	//dado recebido
+	);
+
+	uart uart1(
+		.clk (clk),
+		.txData (writeData[7:0]), 	//dado pra ser transmitido no tx	
+		.txEnable (enableTx1), 		//ativa o tx pra iniciar a transmicao
+		.rx (UART_Rx),				//da placa
+		.rxClear (rx1toMem),			//reinicia o rx
+		.tx (UART_Tx),				//para a placa
+		.tx_busy (busyTx1),		//tx ocupado	
+		.rxReady (readyRx1),		//flag de dado recebido, pronto pra passar para memoria
+		.rxDataOut (rx1Data) 	//dado recebido
+	);
+	
+	assign wrenMemData = (memWriteUART | controlMEM[3])? 1:0;
+
+	mux2 #(.width (8)) mux2MEM1 (
+		.a (rx0Data),
+		.b (8'h0c),
+		.sel (rx0DataSel),
+		.out (writeDataUART0)
+	);
+
+	signEx8 signExMEM1(
+		.in (writeDataUART0),
+		.out (writeDataUART0s)
+	);
+
+	mux2 #(.width (8)) mux2MEM2 (
+		.a (rx1Data),
+		.b (8'h0c),
+		.sel (rx1DataSel),
+		.out (writeDataUART1)
+	);
+
+	signEx8 signExMEM2(
+		.in (writeDataUART1),
+		.out (writeDataUART1s)
+	);
+
+	mux3 #(.width (32)) mux3MEM1(
+		.a (writeData),
+		.b (writeDataUART0s),
+		.c (writeDataUART1s),
+		.sel ({rx1toMem, rx0toMem}),
+		.out (writeDataMem)
+	);
+	wire[`DATA_MEM_ADDR_SIZE-1:0] writeDataMemAddress;
+	mux3 #(.width (`DATA_MEM_ADDR_SIZE)) mux3MEM2(
+		.a (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]),
+		.b (rx0address),//rx
+		.c (rx1address),
+		.sel ({rx1toMem, rx0toMem}),
+		.out (writeDataMemAddress)
+	);
+	// ------------------------------------
+
+	dataMem dataMem (
+		.clk (clkMem), 
+		.address (writeDataMemAddress), 
+		.data (writeDataMem), 
+		.wren (wrenMemData), 
+		.rden (controlMEM[4]), 
 		.q (memoryDataMEM)
-	);*/
-	/*
-	Usando outra memória para fazer teste
-	*/
-	RAM ram (
-        .Clock(clk),
-        .Address(aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]),
-        .MemWrite(controlMEM[3]),
-        .MemRead(controlMEM[2]),
-        .WriteData(writeData),
-		.ReadData(memoryDataMEM)        
-    );
+	);
 
 	MEM_WB memwb(
 		.rst (rst), 
 		.clk (clk), 
-		.controlIn (controlMEM[1:0]), 
+		.controlIn (controlMEM[0:2]), 
 		.pcIn (pc4MEM),
 		.memDataIn (memoryDataMEM), 
 		.aluResultIn (aluResultMEM), 
@@ -315,14 +400,13 @@ module mips32TOP(clk,rst,memWr, memRd,memAddr, memDataIn, brDataIn, brAddr, brWr
 		.aluResultOut (aluResultWB),
 		.destRegOut (destRegWB)
 	);
-
+	//regSrc
 	mux3 #(.width (32)) mux3WB(
-		.a (memoryDataWB),
-		.b (aluResultWB),
+		.a (aluResultWB),
+		.b (memoryDataWB),
 		.c (pc4MEM),
-		.sel (controlWB[1:0]),
+		.sel (controlWB[0:1]),
 		.out (destRegValueWB)
 	);
-
 
 endmodule

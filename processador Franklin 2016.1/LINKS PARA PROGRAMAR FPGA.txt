@@ -1,5 +1,0 @@
-http://wiki.sj.ifsc.edu.br/wiki/index.php/Preparando_para_gravar_o_circuito_l%C3%B3gico_no_FPGA
-
-http://wiki.sj.ifsc.edu.br/wiki/index.php/Programando_o_FPGA_atrav%C3%A9s_da_USB-Blaster
-
-http://wiki.sj.ifsc.edu.br/wiki/index.php/Pinagem_dos_dispositivos_de_entrada_e_sa%C3%ADda_do_kit_MERCURIO_IV

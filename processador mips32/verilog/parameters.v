@@ -8,16 +8,21 @@
 `define DATA_MEM_ADDR_SIZE		14 // Tamanho da memoria de dados
 `define INST_MEM_ADDR_SIZE      10 // Tamanho da memoria de instrucao
 `define CONTROL_SIZE 			8 // Tamanho do microcodigo gerado pela UCd
+`define WIDTH16_EXT1			16'b1111111111111111
+`define WIDTH16_EXT0			16'b0000000000000000
+`define WIDTH8_EXT1				8'b11111111
+`define WIDTH8_EXT0				8'b00000000
 
 /***************** Interface Serial ****************/
+`define CLK_PROCESSOR       25000000 //clock da placa dividido por 2
 `define UART0				32'h00000860
-`define UART1				32'h00000876
-`define BAUDRATE			9600
+`define UART1				32'h00000880
+`define BAUDRATE			115200
 //Estados da uart
-`define ESTADO_INTERFACE	2'b00
-`define ESTADO_START 		2'b01
-`define ESTADO_TRAB 		2'b10
-`define ESTADO_STOP 		2'b11
+`define STAGE_INTERFACE	2'b00
+`define STAGE_START 	2'b01
+`define STAGE_WORK 		2'b10
+`define STAGE_STOP 		2'b11
 
 
 /******************** opcode ***********************/

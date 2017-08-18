@@ -36,10 +36,10 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module dataMem (address, clock,	data, rden,	wren, q);
+module dataMem (address, clk,	data, rden,	wren, q);
 
 	input	[13:0]  address; 
-	input	  clock;
+	input	  clk;
 	input	[31:0]  data;
 	input	  rden;
 	input	  wren;
@@ -47,7 +47,7 @@ module dataMem (address, clock,	data, rden,	wren, q);
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
-	tri1	  clock;
+	tri1	  clk;
 	tri1	  rden;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
@@ -58,7 +58,7 @@ module dataMem (address, clock,	data, rden,	wren, q);
 
 	altsyncram	altsyncram_component (
 				.address_a (address),
-				.clock0 (clock),
+				.clock0 (clk),
 				.data_a (data),
 				.wren_a (wren),
 				.rden_a (rden),

@@ -36,15 +36,15 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module instructionMem (address,	clock, q);
+module instructionMem (address,	clk, q);
 
 	input	[9:0]  address;
-	input	  clock;
+	input	  clk;
 	output	[31:0]  q;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
-	tri1	  clock;
+	tri1	  clk;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
 `endif
@@ -54,7 +54,7 @@ module instructionMem (address,	clock, q);
 
 	altsyncram	altsyncram_component (
 				.address_a (address),
-				.clock0 (clock),
+				.clock0 (clk),
 				.q_a (sub_wire0),
 				.aclr0 (1'b0),
 				.aclr1 (1'b0),

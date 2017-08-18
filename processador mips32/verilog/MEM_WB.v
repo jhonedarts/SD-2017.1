@@ -6,7 +6,7 @@
 module MEM_WB(rst, clk, controlIn, pcIn, memDataIn, aluResultIn, destRegIn, controlOut, pcOut, memDataOut, aluResultOut, destRegOut);
 	input rst, clk;
 	input[0:2] controlIn;
-	input[4:0]destRegIn;
+	input[4:0] destRegIn;
 	input[31:0] pcIn, memDataIn, aluResultIn;
 	output[0:2] controlOut;
 	output[4:0] destRegOut;
@@ -24,7 +24,7 @@ module MEM_WB(rst, clk, controlIn, pcIn, memDataIn, aluResultIn, destRegIn, cont
 	assign aluResultOut = aluResult;
 
 	always @(posedge clk or posedge rst) begin
-	$display("[MEM_WB] control: %b pc: %h memData: %d aluResult: %d destReg: %d", controlIn, pcIn, memDataIn, aluResultIn, destRegIn);
+	//$display("[MEM_WB] control: %b pc: %h memData: %d aluResult: %d destReg: %d", controlIn, pcIn, memDataIn, aluResultIn, destRegIn);
 		if (rst) begin
 			control <= 0;
 			pc <= 0;

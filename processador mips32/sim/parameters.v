@@ -4,15 +4,29 @@
  * Description: parametros de opcode e controle
  ***************************************************/
 
-`define WORD_SIZE   		32 // Tamanho da instrucao
-`define DATA_MEM_ADDR_SIZE     14 // Tamanho da memoria de dados
+`define WORD_SIZE   			32 // Tamanho da instrucao
+`define DATA_MEM_ADDR_SIZE		14 // Tamanho da memoria de dados
 `define INST_MEM_ADDR_SIZE      10 // Tamanho da memoria de instrucao
-`define CONTROL_SIZE 		8 // Tamanho do microcodigo gerado pela UCd
-/***************** Instrucao NOP *******************/
-`define NOP 32'h20000000 // addi r0,r0,0
+`define CONTROL_SIZE 			8 // Tamanho do microcodigo gerado pela UCd
+`define WIDTH16_EXT1			16'b1111111111111111
+`define WIDTH16_EXT0			16'b0000000000000000
+`define WIDTH8_EXT1				8'b11111111
+`define WIDTH8_EXT0				8'b00000000
+
+/***************** Interface Serial ****************/
+`define CLK_PROCESSOR       25000000 //clock da placa dividido por 2
+`define UART0				32'h00000860
+`define UART1				32'h00000880
+`define BAUDRATE			115200
+//Estados da uart
+`define STAGE_INTERFACE	2'b00
+`define STAGE_START 	2'b01
+`define STAGE_WORK 		2'b10
+`define STAGE_STOP 		2'b11
+
 
 /******************** opcode ***********************/
-/* imcompleto... */
+`define NOP 32'h20000000 // addi r0,r0,0 (NOP)
 `define R_TYPE  6'h00
 `define J 		6'h02
 `define JAL     6'h03

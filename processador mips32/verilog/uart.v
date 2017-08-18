@@ -1,5 +1,5 @@
 module uart(
-	input clock_50MHz,
+	input clk,
 	input [7:0] txData, 	//dado pra ser transmitido no tx	
 	input txEnable, 		//ativa o tx pra iniciar a transmicao
 	input rx,				//da placa
@@ -13,7 +13,7 @@ module uart(
 	wire rxclk, txclk;
 
 	baudRate baudrate(
-		.clock50(clock_50MHz),
+		.clk (clk),
 		.rxclk_en(rxclk),
 		.txclk_en(txclk)
 	);
@@ -21,7 +21,7 @@ module uart(
 	tx transmiter(				
 		.dados_transmissao(txData),
         .wr_en(txEnable),
-        .clock50(clock_50MHz),
+        .clk (clk),
         .tick(txclk),
         .tx(tx),
         .txBusy(txBusy)
@@ -30,7 +30,7 @@ module uart(
 	rx receiver(	  
 		.rx(rx),
 		.clear(rxClear),
-		.clock50(clock_50MHz),
+		.clk (clk),
 		.tick(rxclk),
 		.rdy(rxReady),
 		.out_rx(rxDataOut)		
