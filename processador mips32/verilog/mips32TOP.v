@@ -7,7 +7,14 @@
 
 module mips32TOP(
 		input clock_50MHz, 
-		input PIN_Y17
+		input PIN_Y17,
+	    input UART_Rx,
+	    input PIN_E11,
+	    input [3:0] Switch,
+	    output PIN_F11,
+	    output UART_Tx,
+	    output [7:0] LEDM_R,
+	    output [4:0] LEDM_C
     );
 
 	wire flushIFID, rstIDIF;
@@ -46,25 +53,26 @@ module mips32TOP(
 	wire[7:0] writeDataUART0, writeDataUART1, rx0Data, rx1Data;
 	wire wrenMemData, rx0DataSel, rx1DataSel;
 	wire [`DATA_MEM_ADDR_SIZE-1:0] rx0address, rx1address;
-	wire [31:0]  writeDataMem, writeDataUART0s, writeDataUART1s;
+	wire [31:0]  writeDataMem, writeDataUART0s, writeDataUART1s;	
+	wire[`DATA_MEM_ADDR_SIZE-1:0] writeDataMemAddress;
 	
 	//WB
 	wire[0:2] controlWB;
 	wire[4:0] destRegWB;
 	wire[31:0] destRegValueWB, memoryDataWB, aluResultWB, pc4WB;
-	//leds
-	/*
-	wire [7:0] LEDM_R_inv;
-	assign LEDM_R = ~LEDM_R_inv;
-	assign LEDM_C[0] = 1'b0; // enable col 0
-	assign LEDM_C[4:1] = 4'b1111; // disable cols 1~5
-	assign LEDM_R_inv = 8'b00000001;
-	*/
 
 	//adicional
 	wire clkMem, clk, rst;
 	assign clkMem = clock_50MHz;
 	assign rst = PIN_Y17;
+
+	//leds
+	wire [7:0] LEDM_R_inv;
+	assign LEDM_R = ~LEDM_R_inv;
+	assign LEDM_C[0] = 1'b0; // enable col 0
+	assign LEDM_C[4:1] = 4'b1111; // disable cols 1~5
+	assign LEDM_R_inv = rx0Data;
+
 	frequencyDivider divider(clock_50MHz,clk);
 
 	pc pc(
@@ -78,16 +86,6 @@ module mips32TOP(
 		.clk (clkMem),
 		.q (instructionIF)
 	);
-	/* Usando outra memoria de instruções para testes
-	*/
-	/*
-	ROM rom (
-        .Clock(clk),
-        .Address(currentpc[`INST_MEM_ADDR_SIZE-1:0]),        
-		.ReadData(instructionIF)        
-    );
-    */
-	
 
 	adder adderIF (
 		.a (currentpc),
@@ -105,7 +103,7 @@ module mips32TOP(
 	assign rstIDIF =  ((flushIFID != 1'bx) & (rst==1'b1) & (flushIFID == 1'b1))? 1'b1 : 1'b0;
 
 	IF_ID ifid(
-		.rst (1'b0), //(rstIDIF),
+		.rst (rstIDIF),
 		.clk (clk), 
 		.pcIn (pc4IF), 
 		.instIn (instructionIF), 
@@ -306,7 +304,7 @@ module mips32TOP(
 		.enableTx1 (enableTx1),
 		.rx0address (rx0address),
 		.rx1address (rx1address),
-		.rx0DataSel (rxDataOut), 
+		.rx0DataSel (rx0DataSel), 
 		.rx1DataSel (rx1DataSel)
 	);
 
@@ -326,9 +324,9 @@ module mips32TOP(
 		.clk (clk),
 		.txData (writeData[7:0]), 	//dado pra ser transmitido no tx	
 		.txEnable (enableTx1), 		//ativa o tx pra iniciar a transmicao
-		.rx (UART_Rx),				//da placa
+		.rx (PIN_E11),				//da placa
 		.rxClear (rx1toMem),			//reinicia o rx
-		.tx (UART_Tx),				//para a placa
+		.tx (PIN_F11),				//para a placa
 		.tx_busy (busyTx1),		//tx ocupado	
 		.rxReady (readyRx1),		//flag de dado recebido, pronto pra passar para memoria
 		.rxDataOut (rx1Data) 	//dado recebido
@@ -367,7 +365,7 @@ module mips32TOP(
 		.sel ({rx1toMem, rx0toMem}),
 		.out (writeDataMem)
 	);
-	wire[`DATA_MEM_ADDR_SIZE-1:0] writeDataMemAddress;
+
 	mux3 #(.width (`DATA_MEM_ADDR_SIZE)) mux3MEM2(
 		.a (aluResultMEM[`DATA_MEM_ADDR_SIZE-1:0]),
 		.b (rx0address),//rx

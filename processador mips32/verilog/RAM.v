@@ -5,7 +5,7 @@
     Endereço de 14 bits e saída de 32 bits
 */
 
-module RAM #(parameter SIZE = 16384, FILE_IN = "/caminho/")(
+module RAM #(parameter SIZE)(
     input Clock,
     input [13:0] Address,
     input MemWrite,
@@ -19,16 +19,6 @@ module RAM #(parameter SIZE = 16384, FILE_IN = "/caminho/")(
 
     reg [13:0] addr_reg = 0;
 
-    integer i;
-    initial begin
-        
-        for (i = 0; i < SIZE; i=i+1) begin
-            memory[i] = 0;
-        end
-        
-             
-        //$readmemb(FILE_IN, memory);
-    end
 
     // Escrita sequencial na subida do clock
     always @(posedge Clock) begin
