@@ -49,7 +49,7 @@ always @(posedge clk) begin
 		if (tick) begin
 			tx <= 1'b1;//ULTIMO SINAL DE BIT INFORMAR QUE TERMINOU ... DE ENVIAR E VAI PARA INFERFACE ESPERANDO A UART ATIVAR 
 			estado <= `STAGE_INTERFACE;
-			$display("[TX] enviou!!");
+			//$display("[TX] enviou!!");
 		end
 	end
 	default: begin
