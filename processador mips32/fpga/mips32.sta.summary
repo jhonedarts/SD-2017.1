@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'frequencyDivider:divider|clkReg'
+Slack : -20.173
+TNS   : -8499.599
+
+Type  : Slow 1200mV 85C Model Setup 'clock_50MHz'
+Slack : -18.515
+TNS   : -1573.383
+
+Type  : Slow 1200mV 85C Model Setup 'ID_EX:idex|control[1]'
+Slack : -17.540
+TNS   : -548.761
+
+Type  : Slow 1200mV 85C Model Hold 'frequencyDivider:divider|clkReg'
+Slack : -1.908
+TNS   : -31.266
+
+Type  : Slow 1200mV 85C Model Hold 'clock_50MHz'
+Slack : -1.514
+TNS   : -5.880
+
+Type  : Slow 1200mV 85C Model Hold 'ID_EX:idex|control[1]'
+Slack : 0.737
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_50MHz'
+Slack : -3.000
+TNS   : -537.253
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'frequencyDivider:divider|clkReg'
+Slack : -1.285
+TNS   : -1886.380
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ID_EX:idex|control[1]'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'frequencyDivider:divider|clkReg'
+Slack : -18.376
+TNS   : -7749.241
+
+Type  : Slow 1200mV 0C Model Setup 'clock_50MHz'
+Slack : -17.063
+TNS   : -1425.254
+
+Type  : Slow 1200mV 0C Model Setup 'ID_EX:idex|control[1]'
+Slack : -16.138
+TNS   : -504.573
+
+Type  : Slow 1200mV 0C Model Hold 'frequencyDivider:divider|clkReg'
+Slack : -1.770
+TNS   : -28.808
+
+Type  : Slow 1200mV 0C Model Hold 'clock_50MHz'
+Slack : -1.369
+TNS   : -5.320
+
+Type  : Slow 1200mV 0C Model Hold 'ID_EX:idex|control[1]'
+Slack : 0.679
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_50MHz'
+Slack : -3.000
+TNS   : -528.629
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'frequencyDivider:divider|clkReg'
+Slack : -1.285
+TNS   : -1886.380
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ID_EX:idex|control[1]'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'frequencyDivider:divider|clkReg'
+Slack : -9.706
+TNS   : -3776.544
+
+Type  : Fast 1200mV 0C Model Setup 'clock_50MHz'
+Slack : -8.941
+TNS   : -729.188
+
+Type  : Fast 1200mV 0C Model Setup 'ID_EX:idex|control[1]'
+Slack : -8.387
+TNS   : -261.681
+
+Type  : Fast 1200mV 0C Model Hold 'frequencyDivider:divider|clkReg'
+Slack : -1.063
+TNS   : -20.038
+
+Type  : Fast 1200mV 0C Model Hold 'clock_50MHz'
+Slack : -0.815
+TNS   : -3.151
+
+Type  : Fast 1200mV 0C Model Hold 'ID_EX:idex|control[1]'
+Slack : 0.338
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_50MHz'
+Slack : -3.000
+TNS   : -265.071
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'frequencyDivider:divider|clkReg'
+Slack : -1.000
+TNS   : -1468.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ID_EX:idex|control[1]'
+Slack : 0.347
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,18 +1,22 @@
 .module calculo_potencia
 	
-	.text
-		addi $s0, $zero, 51 
-		addi $s2, $zero, 0x860		#UART 0
-		sw $s0, 0($s2)
-		superLoop:
-		beq $s5, 51, end
+	.text	
+		addi $s7, $zero, 0x860
+		addi $t6, $zero, 12
 		loop:
-		beq $s1, 0x0c, rx
-		lw $s1, 8($s2)
+		norx:
+			lw $t5, 8($s7)
+			beq $t5, $t6, endnorx
+			j norx
+		endnorx:
+		sw $zero, 8($s7)
+		lw $s0, 4($s7)
+		sw $s0, 0($s7)
+		notx:
+			lw $t5, 12($s7)
+			beq $t5, $t6, endnotx
+			j notx
+		endnotx:
 		j loop
-		rx:
-		lw $s4, 4($s2)
-		sw $s4, 0($s2)
-		j superLoop
-		end:				
+			
 .end

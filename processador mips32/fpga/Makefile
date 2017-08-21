@@ -5,7 +5,7 @@
 # Settings File (.qsf)
 ###################################################################
 
-PROJECT = mips32
+PROJECT = mip32
 TOP = mips32TOP
 ASSIGNMENT_FILES = $(PROJECT).qpf $(PROJECT).qsf
 

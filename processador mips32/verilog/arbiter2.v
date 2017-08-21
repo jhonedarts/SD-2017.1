@@ -5,7 +5,7 @@
 ************************************************************/
 `include "parameters.v"
  
-module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx0, busyTx1, memWriteOut, 
+module arbiter2(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx0, busyTx1, memWriteOut, 
 		rx0toMem, rx1toMem, enableTx0, enableTx1, rx0address, rx1address, rx0DataSel, rx1DataSel);
 	input clk;
 	input[`DATA_MEM_ADDR_SIZE-1:0] address;

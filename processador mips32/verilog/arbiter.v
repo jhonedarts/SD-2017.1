@@ -6,12 +6,12 @@
 `include "parameters.v"
  
 module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx0, busyTx1, memWriteOut, 
-		uart0toMem, uart1toMem, tx0enable, tx1enable, addressUart0, addressUart1, uart0DataSel, uart1DataSel);
+		uart0toMem, uart1toMem, tx0enable, tx1enable, uart0address, uart1address, uart0DataSel, uart1DataSel);
 	input clk;
 	input[`DATA_MEM_ADDR_SIZE-1:0] address;
 	input readyRx0, readyRx1, busyTx0, busyTx1;
 	input memReadCPU, memWriteCPU;
-	output [`DATA_MEM_ADDR_SIZE-1:0] addressUart0, addressUart1;
+	output [`DATA_MEM_ADDR_SIZE-1:0] uart0address, uart1address;
 	output memWriteOut, uart0toMem, uart1toMem;
 	output tx0enable, tx1enable, uart0DataSel, uart1DataSel;
 //novo
@@ -35,8 +35,8 @@ module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx
 	assign rx1address = (!readyRx1 & readyRx1b)? `UART1+8 : `UART1+4;
 	assign tx0address = (tx0flag)? `UART0+12 : `UART0;
 	assign tx1address = (tx1flag)? `UART1+12 : `UART1;
-	assign addressUart0 = (tx0flag)? tx0address: rx0address;
-	assign addressUart1 = (tx1flag)? tx1address: rx1address;
+	assign uart0address = (tx0flag)? tx0address: rx0address;
+	assign uart1address = (tx1flag)? tx1address: rx1address;
 
 	assign uart0DataSel = ((!readyRx0 & readyRx0b)|tx0flag)? 1:0;
 	assign uart1DataSel = ((!readyRx1 & readyRx1b)|tx1flag)? 1:0;

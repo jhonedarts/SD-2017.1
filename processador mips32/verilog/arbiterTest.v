@@ -16,13 +16,14 @@ wire[7:0] writeDataUART0, writeDataUART1, wrData, rx0Data, rx1Data;
 reg[7:0] writeData;
 //reg wrenMemData;
 //cpu
-wire [`DATA_MEM_ADDR_SIZE-1:0] address, uart0address, uart1address;
+wire [`DATA_MEM_ADDR_SIZE-1:0] uart0address, uart1address;
+reg [`DATA_MEM_ADDR_SIZE-1:0] address;
 wire [7:0] writeDataCPU;
 wire memReadCPU, memWriteCPU;
-
+reg[1:0] stage=0;
 frequencyDivider divider(clock_50MHz,clk);
 
-assign address = (Switch[0])? `UART0 : `DATA_MEM_ADDR_SIZE'h800;
+//assign address = (Switch[0])? `UART0 : `DATA_MEM_ADDR_SIZE'h800;
 assign writeDataCPU = (Switch[0])? writeData : 8'd00;
 assign memReadCPU = 0;
 assign memWriteCPU = (Switch[0])? 1:0;
@@ -34,6 +35,23 @@ always @(posedge clk) begin
 	end
 end
 
+always @(posedge clk) begin
+	case (stage)
+		2'b00: begin
+			if (Switch[0]) begin
+				address <= 8'd00;
+				stage <= 2'b01;
+			end
+		end
+		2'b01: begin
+			if (!Switch[0]) begin
+				address <= `UART0;
+				stage <= 2'b00;
+			end
+		end
+		default: stage<=2'b00;
+	endcase
+end
 wire [7:0] LEDM_R_inv;
 assign LEDM_R = ~LEDM_R_inv;
 
