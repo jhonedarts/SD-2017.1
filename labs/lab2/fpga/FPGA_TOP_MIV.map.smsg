@@ -1,1 +1,2 @@
 Warning (10268): Verilog HDL information at Lab2Lock.v(110): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at LevelToPulse.v(47): object "Pulse" differs only in case from object "pulse" in the same scope

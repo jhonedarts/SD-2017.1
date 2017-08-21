@@ -1,6 +1,6 @@
 Analysis & Synthesis report for FPGA_TOP_MIV
-Mon May  8 12:24:23 2017
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Thu Aug 17 09:19:51 2017
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
 ---------------------
@@ -44,24 +44,24 @@ applicable agreement for further details.
 
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                         ;
-+------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May  8 12:24:22 2017           ;
-; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
-; Revision Name                      ; FPGA_TOP_MIV                                    ;
-; Top-level Entity Name              ; FPGA_TOP_MIV                                    ;
-; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 11                                              ;
-;     Total combinational functions  ; 10                                              ;
-;     Dedicated logic registers      ; 6                                               ;
-; Total registers                    ; 6                                               ;
-; Total pins                         ; 32                                              ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
-; Embedded Multiplier 9-bit elements ; 0                                               ;
-; Total PLLs                         ; 0                                               ;
-+------------------------------------+-------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Aug 17 09:19:51 2017      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; FPGA_TOP_MIV                               ;
+; Top-level Entity Name              ; FPGA_TOP_MIV                               ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 11                                         ;
+;     Total combinational functions  ; 10                                         ;
+;     Dedicated logic registers      ; 6                                          ;
+; Total registers                    ; 6                                          ;
+; Total pins                         ; 32                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -156,20 +156,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 2      ;
+; Number detected on machine ; 4      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                            ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                              ; Library ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------+---------+
-; ../verilog/FPGA_TOP_MIV.v        ; yes             ; User Verilog HDL File  ; /home/aluno/Área de trabalho/lab2/verilog/FPGA_TOP_MIV.v ;         ;
-; ../verilog/Lab2Lock.v            ; yes             ; User Verilog HDL File  ; /home/aluno/Área de trabalho/lab2/verilog/Lab2Lock.v     ;         ;
-; ../verilog/LevelToPulse.v        ; yes             ; User Verilog HDL File  ; /home/aluno/Área de trabalho/lab2/verilog/LevelToPulse.v ;         ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; ../verilog/FPGA_TOP_MIV.v        ; yes             ; User Verilog HDL File  ; E:/UEFS/SD-2017.1/labs/lab2/verilog/FPGA_TOP_MIV.v ;         ;
+; ../verilog/Lab2Lock.v            ; yes             ; User Verilog HDL File  ; E:/UEFS/SD-2017.1/labs/lab2/verilog/Lab2Lock.v     ;         ;
+; ../verilog/LevelToPulse.v        ; yes             ; User Verilog HDL File  ; E:/UEFS/SD-2017.1/labs/lab2/verilog/LevelToPulse.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -300,29 +300,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Copyright (C) 1991-2013 Altera Corporation. All rights reserved.
-    Info: Your use of Altera Corporation's design tools, logic functions 
-    Info: and other software and tools, and its AMPP partner logic 
-    Info: functions, and any output files from any of the foregoing 
-    Info: (including device programming or simulation files), and any 
-    Info: associated documentation or information are expressly subject 
-    Info: to the terms and conditions of the Altera Program License 
-    Info: Subscription Agreement, Altera MegaCore Function License 
-    Info: Agreement, or other applicable license agreement, including, 
-    Info: without limitation, that your use is for the sole purpose of 
-    Info: programming logic devices manufactured by Altera and sold by 
-    Info: Altera or its authorized distributors.  Please refer to the 
-    Info: applicable agreement for further details.
-    Info: Processing started: Mon May  8 12:24:20 2017
-Info: Command: quartus_map --read_settings_files=on --source=../verilog/FPGA_TOP_MIV.v --source=../verilog/Lab2Lock.v --source=../verilog/LevelToPulse.v FPGA_TOP_MIV
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Thu Aug 17 09:19:48 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_TOP_MIV -c FPGA_TOP_MIV
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 1 entities, in source file /home/aluno/Área de trabalho/lab2/verilog/FPGA_TOP_MIV.v
+Info (12021): Found 1 design units, including 1 entities, in source file /uefs/sd-2017.1/labs/lab2/verilog/fpga_top_miv.v
     Info (12023): Found entity 1: FPGA_TOP_MIV
-Info (12021): Found 1 design units, including 1 entities, in source file /home/aluno/Área de trabalho/lab2/verilog/Lab2Lock.v
+Info (12021): Found 1 design units, including 1 entities, in source file /uefs/sd-2017.1/labs/lab2/verilog/lab2lock.v
     Info (12023): Found entity 1: Lab2Lock
-Info (12021): Found 1 design units, including 1 entities, in source file /home/aluno/Área de trabalho/lab2/verilog/LevelToPulse.v
+Info (12021): Found 1 design units, including 1 entities, in source file /uefs/sd-2017.1/labs/lab2/verilog/leveltopulse.v
     Info (12023): Found entity 1: LevelToPulse
 Info (12127): Elaborating entity "FPGA_TOP_MIV" for the top level hierarchy
 Info (12128): Elaborating entity "LevelToPulse" for hierarchy "LevelToPulse:LockEnterPulse"
@@ -340,7 +327,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDM_R[7]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file /home/aluno/Área de trabalho/lab2/fpga/FPGA_TOP_MIV.map.smsg
+Info (144001): Generated suppressed messages file E:/UEFS/SD-2017.1/labs/lab2/fpga/FPGA_TOP_MIV.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 10 input pin(s) that do not drive logic
@@ -358,9 +345,9 @@ Info (21057): Implemented 43 device resources after synthesis - the final resour
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 15 output pins
     Info (21061): Implemented 11 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 341 megabytes
-    Info: Processing ended: Mon May  8 12:24:23 2017
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 506 megabytes
+    Info: Processing ended: Thu Aug 17 09:19:51 2017
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
@@ -368,6 +355,6 @@ Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 23 warnin
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /home/aluno/Área de trabalho/lab2/fpga/FPGA_TOP_MIV.map.smsg.
+The suppressed messages can be found in E:/UEFS/SD-2017.1/labs/lab2/fpga/FPGA_TOP_MIV.map.smsg.
 
 

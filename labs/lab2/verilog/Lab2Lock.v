@@ -58,15 +58,15 @@ module	Lab2Lock(
 	//	Outputs
 	//--------------------------------------------------------------------------
 	output		[2:0]		State;
-	output	reg				Open;
-	output	reg				Fail;
+	output					Open;
+	output				Fail;
 	//--------------------------------------------------------------------------
 
 	//--------------------------------------------------------------------------
 	//	State Encoding
 	//--------------------------------------------------------------------------
 	
-	// place state encoding here
+	reg op, fa;
 	
 	//--------------------------------------------------------------------------
 	 reg[2:0] state_on = Locked;
@@ -77,30 +77,30 @@ module	Lab2Lock(
 
 	 Locked: begin  //Locked
 
-	 		Open = 1'b0;
-			Fail = 1'b0;
+	 		op = 1'b0;
+			fa = 1'b0;
 
 	 end
 
 	 OK1: begin //OK1
-			Fail = 1'b0;
-			Open = 1'b0;
+			fa = 1'b0;
+			op = 1'b0;
 	 end
 
 	 Bad1: begin //BAD1
-			Fail = 1'b1;
-			Open = 1'b0;
+			fa = 1'b1;
+			op = 1'b0;
 
 	 end
 
 	 Bad2: begin
-			Fail = 1'b1;
-			Open = 1'b0;
+			fa = 1'b1;
+			op = 1'b0;
 	 end
 
 	Open1: begin
-			Open = 1'b1;
-			Fail = 1'b0;
+			op = 1'b1;
+			fa = 1'b0;
 	end	
 
 	endcase
@@ -165,7 +165,8 @@ end
 	//	Wire Declarations
 	//--------------------------------------------------------------------------
 	
-	
+	assign Open = op;
+	assign Fail = fa;
 	
 	//--------------------------------------------------------------------------
 	
