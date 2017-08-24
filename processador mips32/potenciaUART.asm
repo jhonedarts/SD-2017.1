@@ -3,10 +3,13 @@
 		resultado:
 		.word 0
 		msg:
+		.word 42
 		.asciiz "Digite um numero inteiro positivo (Base): "
 		msg1:
+		.word 46
 		.asciiz "Digite um numero inteiro positivo (Expoente): "
 		msg2:
+		.word 25
 		.asciiz "Resultado (hexadecimal): "
 	.text
 

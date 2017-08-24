@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="mip32">
+		<CBX_INST_ENTRY INSTANCE_NAME="|mips32TOP|dataMem:dataMem|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_3ql1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mips32TOP|instructionMem:instructionMem|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_job1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

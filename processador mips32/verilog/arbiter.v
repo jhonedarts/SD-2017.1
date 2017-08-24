@@ -48,7 +48,7 @@ module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx
 	assign flag1 = (readyRx1|readyRx1b|tx1flag)?1:0;
 	
 	always @(posedge clk) begin
-		//$display("[ARBITER] address: %h tx0enable: %b", address, busyTx0, tx0enable);
+		$display("[ARBITER] address: %h tx0enable: %b", address, busyTx0, tx0enable);
 		case (stage)
 			`STAGE_START: begin 
 				if ((uart0toMem|uart1toMem) & !(tx0flag|tx1flag)) begin //rxdata, dando prioridade a ao txflag

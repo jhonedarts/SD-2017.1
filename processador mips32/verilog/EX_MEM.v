@@ -25,7 +25,7 @@ module EX_MEM(rst, clk, controlIn, pcIn, aluResultIn, rtValueIn, destRegIn, cont
 	assign destRegOut = destReg;
 
 	always @(posedge clk or posedge rst) begin
-	//$display("[EX_MEM] Control: %b Pc: %h aluResult: %h rtValue: %d destReg: %d", controlIn, pcIn, aluResultIn, rtValueIn, destRegIn);
+	$display("[EX_MEM] Control: %b Pc: %h aluResult: %h rtValue: %d destReg: %d", controlIn, pcIn, aluResultIn, rtValueIn, destRegIn);
 		if (rst) begin
 			control <= 0;
 			pc <= 0;

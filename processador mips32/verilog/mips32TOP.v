@@ -7,14 +7,14 @@
 
 module mips32TOP(
 		input clock_50MHz, 
-		input PIN_Y17,
-	    input UART_Rx,
-	    input PIN_E11,
-	    input [3:0] Switch,
-	    output PIN_F11,
-	    output UART_Tx,
-	    output [7:0] LEDM_R,
-	    output [4:0] LEDM_C
+		input PIN_Y17
+	    //input UART_Rx,
+	    //input PIN_E11,
+	    //input [3:0] Switch,
+	    //output PIN_F11,
+	    //output UART_Tx,
+	    //output [7:0] LEDM_R,
+	    //output [4:0] LEDM_C
     );
 
 	wire flushIFID, rstIDIF;
@@ -65,13 +65,14 @@ module mips32TOP(
 	wire clkMem, clk, rst;
 	assign clkMem = clock_50MHz;
 	assign rst = PIN_Y17;
-
+	/*
 	//leds
 	wire [7:0] LEDM_R_inv;
 	assign LEDM_R = ~LEDM_R_inv;
 	assign LEDM_C[0] = 1'b0; // enable col 0
 	assign LEDM_C[4:1] = 4'b1111; // disable cols 1~5
 	assign LEDM_R_inv = rx0Data;
+	*/
 
 	frequencyDivider divider(clock_50MHz,clk);
 
@@ -297,8 +298,8 @@ module mips32TOP(
 		.readyRx1 (readyRx1), 
 		.uart0toMem (uart0toMem),
 		.uart1toMem (uart1toMem),
-		.busyTx0 (busyTx0), 
-		.busyTx1 (busyTx1),
+		.busyTx0 (1'b0),//(busyTx0), 
+		.busyTx1 (1'b0),//(busyTx1),
 		.memWriteOut (memWriteUART), 
 		.tx0enable (tx0enable), 
 		.tx1enable (tx1enable),
