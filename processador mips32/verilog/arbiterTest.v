@@ -13,28 +13,30 @@ module arbiterTest(
 
 wire readyRx0, readyRx1, busyTx0, busyTx1, tx0enable, tx1enable, uart0toMem, uart1toMem;
 wire[7:0] writeDataUART0, writeDataUART1, wrData, rx0Data, rx1Data;
-reg[7:0] writeData;
+reg[7:0] writeData = 0;
 //reg wrenMemData;
-//cpu
-wire [`DATA_MEM_ADDR_SIZE-1:0] uart0address, uart1address;
-reg [`DATA_MEM_ADDR_SIZE-1:0] address;
+wire [`DATA_MEM_ADDR_SIZE-1:0] uart0address, uart1address, writeDataMemAddress;
+wire [`DATA_MEM_ADDR_SIZE-1:0] address;
 wire [7:0] writeDataCPU;
 wire memReadCPU, memWriteCPU;
-reg[1:0] stage=0;
+//reg[1:0] stage=0;
 frequencyDivider divider(clock_50MHz,clk);
 
-//assign address = (Switch[0])? `UART0 : `DATA_MEM_ADDR_SIZE'h800;
+assign address = (Switch[0])? `UART0 : `DATA_MEM_ADDR_SIZE'h800;
 assign writeDataCPU = (Switch[0])? writeData : 8'd00;
 assign memReadCPU = 0;
 assign memWriteCPU = (Switch[0])? 1:0;
 
 
 always @(posedge clk) begin
-	if(wrData!=0 & wrData!= 8'h0c)begin
+	/*if(wrData!=0 & wrData!= 8'h0c)begin
 		writeData = wrData;
+	end*/
+	if((wrData== 8'h0c) & (writeDataMemAddress==`UART0+12))begin
+		writeData = wrData+40;
 	end
 end
-
+/*
 always @(posedge clk) begin
 	case (stage)
 		2'b00: begin
@@ -51,7 +53,7 @@ always @(posedge clk) begin
 		end
 		default: stage<=2'b00;
 	endcase
-end
+end*/
 wire [7:0] LEDM_R_inv;
 assign LEDM_R = ~LEDM_R_inv;
 
@@ -127,7 +129,6 @@ mux3 #(.width (8)) mux3MEM1(
 	.out (wrData)
 );
 
-wire[`DATA_MEM_ADDR_SIZE-1:0] writeDataMemAddress;
 mux3 #(.width (`DATA_MEM_ADDR_SIZE)) mux3MEM2(
 	.a (address),
 	.b (uart0address),

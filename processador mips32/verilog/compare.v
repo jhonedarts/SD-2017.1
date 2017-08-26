@@ -8,7 +8,7 @@ module compare (rs, rt, code, isBranch);
 	input[31:0] rs, rt;
 	input[1:0] code;
 	output isBranch;
-
+						//J, JAL, JR       //BNE 						//BEQ
 	assign isBranch = ((code==2'b11) | (code==2'b10 & rs != rt) | (code==2'b01 & rs == rt)) ? 1 : 0;
 	/*
 	always @(*) begin

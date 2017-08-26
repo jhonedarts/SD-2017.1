@@ -24,7 +24,7 @@ module uart(
         .clk (clk),
         .tick(txclk),
         .tx(tx),
-        .txBusy(txBusy)
+        .txBusy(tx_busy)
 	);
 
 	rx receiver(	  

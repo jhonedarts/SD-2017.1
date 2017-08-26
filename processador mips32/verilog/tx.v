@@ -1,12 +1,12 @@
 `include "parameters.v"
 
 module tx(
-  input wire [7:0] dados_transmissao,// dados que transmissão
-  input wire wr_en,//habilitador 
-  input wire clk,//clock da fpga
-  input wire tick, // clock ou um sinal que controla se o tx está ativado 
+  input [7:0] dados_transmissao,// dados que transmissão
+  input wr_en,//habilitador 
+  input clk,//clock da fpga
+  input tick, // clock ou um sinal que controla se o tx está ativado 
   output reg tx, // RESPONSAVEL POR ENVIAR OS BITS 
-  output wire txBusy // informar que ainda está sendo usado o tx 
+  output txBusy // informar que ainda está sendo usado o tx 
 );
 
 reg [7:0] dados = 8'h00;
@@ -14,7 +14,7 @@ reg [2:0] contador = 3'h0;
 reg [1:0] estado = `STAGE_INTERFACE; // ele inicia no idle .. ou seja interface pois kkk os dados são enviados por la
 
 always @(posedge clk) begin
-	//$display("estado: %d  tx0Enable: ", estado, wr_en);
+	//$display("estado: %d  txBusy: ", estado, txBusy);
 	case (estado)
 	/*
 		verifica se está sendo enviado ... algo da interface 

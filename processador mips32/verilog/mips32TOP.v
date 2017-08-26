@@ -7,14 +7,14 @@
 
 module mips32TOP(
 		input clock_50MHz, 
-		input PIN_Y17
-	    //input UART_Rx,
-	    //input PIN_E11,
-	    //input [3:0] Switch,
-	    //output PIN_F11,
-	    //output UART_Tx,
-	    //output [7:0] LEDM_R,
-	    //output [4:0] LEDM_C
+		input PIN_Y17,
+	    input UART_Rx,
+	    input PIN_E11,
+	    input [3:0] Switch,
+	    output PIN_F11,
+	    output UART_Tx,
+	    output [7:0] LEDM_R,
+	    output [4:0] LEDM_C
     );
 
 	wire flushIFID, rstIDIF;
@@ -31,8 +31,8 @@ module mips32TOP(
 	//ID
 	wire[0:`CONTROL_SIZE-1] controlID;	
 	wire[1:0] forwardRSID, forwardRTID, branchSrc, compareCode;
-	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, offset16ID2, pc4ID, branchOffSet;
-	wire[31:0] branchAddress;
+	wire[31:0] instructionID, rsValueID1, rtValueID1, rsValueID2, rtValueID2, offset16ID1, /*offset16ID2,*/ pc4ID, branchOffSet;
+	wire[31:0] branchAddress, pc2Out;
 
 	//EX
 	wire[4:0] rsEX, rtEX, rdEX, destRegEX;
@@ -65,14 +65,14 @@ module mips32TOP(
 	wire clkMem, clk, rst;
 	assign clkMem = clock_50MHz;
 	assign rst = PIN_Y17;
-	/*
+	
 	//leds
 	wire [7:0] LEDM_R_inv;
 	assign LEDM_R = ~LEDM_R_inv;
 	assign LEDM_C[0] = 1'b0; // enable col 0
 	assign LEDM_C[4:1] = 4'b1111; // disable cols 1~5
 	assign LEDM_R_inv = rx0Data;
-	*/
+	
 
 	frequencyDivider divider(clock_50MHz,clk);
 
@@ -95,20 +95,21 @@ module mips32TOP(
 	);
 
 	mux2 #(.width (32)) mux2IF1(
-		.a (pc4ID),
+		.a (pc2Out),
 		.b (branchAddress),
 		.sel (isBranch),
 		.out (nextpc)
 	);
 
-	assign rstIDIF =  ((flushIFID != 1'bx) & (rst==1'b1) & (flushIFID == 1'b1))? 1'b1 : 1'b0;
+	assign rstIDIF =  ((flushIFID != 1'bx) & (rst | flushIFID))? 1:0;
 
 	IF_ID ifid(
-		.rst (rstIDIF),
+		.rst (flushIFID),
 		.clk (clk), 
 		.pcIn (pc4IF), 
 		.instIn (instructionIF), 
-		.pcOut (pc4ID), 
+		.pcOut (pc4ID),
+		.pc2Out (pc2Out), 
 		.instOut (instructionID)
 	);
 
@@ -132,13 +133,13 @@ module mips32TOP(
 
 	adder adderID (
 		.a (pc4ID),
-		.b (offset16ID2),
+		.b (offset16ID1),//(offset16ID2),
 		.out (branchOffSet)
 	);
 	//branchSrc
 	mux3 #(.width (32)) mux3ID3(
 		.a (branchOffSet),//branch
-		.b ({pc4ID[31:26],instructionID[25:0]}),//jump
+		.b ({pc4ID[31:26],instructionID[25:0]-26'd1048576}),//jump
 		.c (rsValueID2),//jump r
 		.sel (branchSrc),
 		.out (branchAddress)
@@ -183,11 +184,12 @@ module mips32TOP(
 		.in (instructionID[15:0]),
 		.out (offset16ID1)
 	);
-
+	/*
 	shiftLeft shiftLeft(
 		.in (offset16ID1),
 		.out (offset16ID2)
 	);
+	*/
 
 	ID_EX idex(
 		.rst (rst), 
@@ -295,10 +297,10 @@ module mips32TOP(
 		.memReadCPU (controlMEM[4]), 
 		.memWriteCPU (controlMEM[3]), 
 		.readyRx0 (readyRx0), 
-		.readyRx1 (readyRx1), 
+		.readyRx1 (1'b0),//(readyRx1), 
 		.uart0toMem (uart0toMem),
 		.uart1toMem (uart1toMem),
-		.busyTx0 (1'b0),//(busyTx0), 
+		.busyTx0 (busyTx0), 
 		.busyTx1 (1'b0),//(busyTx1),
 		.memWriteOut (memWriteUART), 
 		.tx0enable (tx0enable), 

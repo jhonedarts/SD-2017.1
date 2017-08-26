@@ -1,0 +1,90 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x2014000a  addi $20,$0,0x0000000a16   		addi $s4, $zero, 10 				# 10 = codigo do enter
+0x00400004  0x20170860  addi $23,$0,0x0000086017   		addi $s7, $zero, 0x860
+0x00400008  0x3c011001  lui $1,0x00001001     19   		la $a0, msg		
+0x0040000c  0x34240004  ori $4,$1,0x00000004       
+0x00400010  0x20050860  addi $5,$0,0x00000860 20   		addi $a1, $zero, 0x860	
+0x00400014  0x0c100036  jal 0x004000d8        21   		jal nr_uart_txstring
+0x00400018  0x0c100027  jal 0x0040009c        22   		jal scanf
+0x0040001c  0x00158020  add $16,$0,$21        23   		add $s0, $zero, $s5
+0x00400020  0x3c011001  lui $1,0x00001001     25   		la $a0, msg1		
+0x00400024  0x34240010  ori $4,$1,0x00000010       
+0x00400028  0x20050860  addi $5,$0,0x00000860 26   		addi $a1, $zero, 0x860		# printf
+0x0040002c  0x0c100036  jal 0x004000d8        27   		jal nr_uart_txstring			
+0x00400030  0x0000a820  add $21,$0,$0         28   		add $s5, $zero, $zero
+0x00400034  0x0c100027  jal 0x0040009c        29   		jal scanf		
+0x00400038  0x00158820  add $17,$0,$21        30   		add $s1, $zero, $s5
+0x0040003c  0x20120001  addi $18,$0,0x0000000132   		addi $s2, $zero, 1 		  	#CONTADOR DO LOOP
+0x00400040  0x00104020  add $8,$0,$16         33   		add $t0, $zero, $s0		   	#atribui a primeira iteracao, colocando a base em $t0
+0x00400044  0x3c011001  lui $1,0x00001001     35   		la $t1, resultado
+0x00400048  0x34290000  ori $9,$1,0x00000000       
+0x0040004c  0xad320000  sw $18,0x00000000($9) 36   		sw $s2, 0($t1)
+0x00400050  0x12200005  beq $17,$0,0x00000005 37   		beq $s1, $zero, Endfor
+0x00400054  0x12510004  beq $18,$17,0x0000000440   		beq $s2, $s1, Endfor	   	#verifica se o contador do loop e igual a potencia, ou seja, fim de calculo
+0x00400058  0x00085020  add $10,$0,$8         41   		add $t2, $zero, $t0
+0x0040005c  0x71104002  mul $8,$8,$16         42   		mul $t0, $t0, $s0		   	#multiplica a base por ela mesmo e armazena em $t0
+0x00400060  0x22520001  addi $18,$18,0x000000043   		addi $s2, $s2, 1	   		#incrementa contador
+0x00400064  0x08100015  j 0x00400054          44   		j Loop			   			#volta para o loop, caso contador != potencia
+0x00400068  0x16200002  bne $17,$0,0x00000002 47   		bne $s1, $zero, contp
+0x0040006c  0x20080001  addi $8,$0,0x00000001 48   		addi $t0, $zero, 1
+0x00400070  0x200a0001  addi $10,$0,0x0000000149   		addi $t2, $zero, 1
+0x00400074  0x3c011001  lui $1,0x00001001     51   		la $t1, resultado
+0x00400078  0x34290000  ori $9,$1,0x00000000       
+0x0040007c  0xad280000  sw $8,0x00000000($9)  52   		sw $t0, 0($t1)		   		#guarda o resultado na memoria
+0x00400080  0x3c011001  lui $1,0x00001001     53   		la $a0, msg2
+0x00400084  0x34240020  ori $4,$1,0x00000020       
+0x00400088  0x20050860  addi $5,$0,0x00000860 54   		addi $a1, $zero, 0x860		# printf
+0x0040008c  0x0c100036  jal 0x004000d8        55   		jal nr_uart_txstring
+0x00400090  0x00082020  add $4,$0,$8          56   		add $a0, $zero, $t0	
+0x00400094  0x0c100047  jal 0x0040011c        57   		jal nr_uart_txchar
+0x00400098  0x08100058  j 0x00400160          58   		j exit
+0x0040009c  0x001fb020  add $22,$0,$31        60   	scanf:	add $s6, $zero, $ra
+0x004000a0  0x20040860  addi $4,$0,0x00000860 61   	sloop:	addi $a0, $zero, 0x860		
+0x004000a4  0x0c10004e  jal 0x00400138        62   		jal nr_uart_rxchar
+0x004000a8  0x0040082a  slt $1,$2,$0          63   		blt $v0, $zero, sloop
+0x004000ac  0x1420fffc  bne $1,$0,0xfffffffc       
+0x004000b0  0x00022020  add $4,$0,$2          64   		add $a0, $zero, $v0
+0x004000b4  0x20050860  addi $5,$0,0x00000860 65   		addi $a1, $zero, 0x860
+0x004000b8  0x0c100047  jal 0x0040011c        66   		jal nr_uart_txchar		
+0x004000bc  0x14940001  bne $4,$20,0x00000001 67   		bne $a0, $s4, cont			#apertou enter sai do scanf
+0x004000c0  0x02c00008  jr $22                68   		jr $s6
+0x004000c4  0x72b4a802  mul $21,$21,$20       69   	cont:	mul $s5, $s5, $s4
+0x004000c8  0x20010030  addi $1,$0,0x00000030 70   		subi $v0, $v0, 0x30
+0x004000cc  0x00411022  sub $2,$2,$1               
+0x004000d0  0x02a2a820  add $21,$21,$2        71   		add $s5, $s5, $v0
+0x004000d4  0x08100028  j 0x004000a0          72   		j sloop
+0x004000d8  0x8c8d0000  lw $13,0x00000000($4) 75   		lw $t5, 0($a0)
+0x004000dc  0x20840001  addi $4,$4,0x00000001 76   		addi $a0, $a0, 1
+0x004000e0  0x200e0001  addi $14,$0,0x0000000177   		addi $t6, $zero, 1
+0x004000e4  0x8c8f0000  lw $15,0x00000000($4) 79   			lw $t7, 0($a0)			
+0x004000e8  0x00000020  add $0,$0,$0          80   			add $zero, $zero, $zero
+0x004000ec  0x00000020  add $0,$0,$0          81   			add $zero, $zero, $zero
+0x004000f0  0xaeef0000  sw $15,0x00000000($23)82   			sw $t7, 0($s7)
+0x004000f4  0x8eef000c  lw $15,0x0000000c($23)84   				lw $t7, 12($s7)
+0x004000f8  0x00000020  add $0,$0,$0          85   				add $zero, $zero, $zero
+0x004000fc  0x2018000c  addi $24,$0,0x0000000c86   				addi $t8, $zero, 12
+0x00400100  0x15f8fffc  bne $15,$24,0xfffffffc87   				bne $t7, $t8, notx
+0x00400104  0xaee0000c  sw $0,0x0000000c($23) 88   			sw $zero, 12($s7)
+0x00400108  0x11cd0003  beq $14,$13,0x0000000389   			beq $t6, $t5, endprintLoop
+0x0040010c  0x20840001  addi $4,$4,0x00000001 90   			addi $a0, $a0, 1
+0x00400110  0x21ce0001  addi $14,$14,0x000000091   			addi $t6, $t6, 1
+0x00400114  0x08100039  j 0x004000e4          92   			j printLoop
+0x00400118  0x03e00008  jr $31                94   		jr $ra
+0x0040011c  0xaee40000  sw $4,0x00000000($23) 97   		sw $a0, 0($s7)
+0x00400120  0x8eef000c  lw $15,0x0000000c($23)99   			lw $t7, 12($s7)
+0x00400124  0x2018000c  addi $24,$0,0x0000000c100  			addi $t8, $zero, 12
+0x00400128  0x00000020  add $0,$0,$0          101  			add $zero, $zero, $zero
+0x0040012c  0x15f8fffc  bne $15,$24,0xfffffffc102  			bne $t7, $t8, notx1
+0x00400130  0xaee0000c  sw $0,0x0000000c($23) 103  		sw $zero, 12($s7)
+0x00400134  0x03e00008  jr $31                104  		jr $ra
+0x00400138  0x200e000c  addi $14,$0,0x0000000c107  		addi $t6, $zero, 12
+0x0040013c  0x8eed0008  lw $13,0x00000008($23)109  			lw $t5, 8($s7)
+0x00400140  0x00000020  add $0,$0,$0          110  			add $zero, $zero, $zero
+0x00400144  0x00000020  add $0,$0,$0          111  			add $zero, $zero, $zero
+0x00400148  0x11ae0001  beq $13,$14,0x00000001112  			beq $t5, $t6, endnorx
+0x0040014c  0x0810004f  j 0x0040013c          113  			j norx
+0x00400150  0x8ee20004  lw $2,0x00000004($23) 115  		lw $v0, 4($s7)
+0x00400154  0xaee00008  sw $0,0x00000008($23) 116  		sw $zero, 8($s7)
+0x00400158  0x00000020  add $0,$0,$0          117  		add $zero, $zero, $zero
+0x0040015c  0x03e00008  jr $31                118  		jr $ra

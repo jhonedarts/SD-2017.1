@@ -12,15 +12,16 @@ module registerFile (clk, rst, rs, rt, rWriteValue, rWriteAddress, regWrite, rsD
 	output [31:0] rsData, rtData;
 
 	reg [31:0] registers [31:1];
+	wire [31:0] rsDatareg, rtDatareg;
 
 	integer i;
-	/*
+	
 	initial begin
 	    for (i=1; i<32; i=i+1) begin
-	        registers[i] <= 3;
+	        registers[i] <= 0;
 	    end
 	end
-	*/
+	
 	always @ (posedge clk or posedge rst) begin
 		if(rst) begin
 			 
@@ -34,7 +35,9 @@ module registerFile (clk, rst, rs, rt, rWriteValue, rWriteAddress, regWrite, rsD
 		end
 	end
 	//leitura
-	assign rsData = (rs == 0) ? 32'h00000000 : registers[rs];
-	assign rtData = (rt == 0) ? 32'h00000000 : registers[rt];
+	assign rsDatareg = (rs==rWriteAddress)? rWriteValue:registers[rs];
+	assign rtDatareg = (rt==rWriteAddress)? rWriteValue:registers[rt];
+	assign rsData = (rs == 0) ? 32'h00000000 : rsDatareg;
+	assign rtData = (rt == 0) ? 32'h00000000 : rtDatareg;
 
 endmodule

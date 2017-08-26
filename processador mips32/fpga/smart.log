@@ -14,13 +14,13 @@ Info: Running Quartus II 64-Bit Shell
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Wed Aug 23 09:13:22 2017
-Info: Command: quartus_sh --determine_smart_action mip32
-Info: Quartus(args): mip32
+    Info: Processing started: Fri Aug 25 16:02:01 2017
+Info: Command: quartus_sh --determine_smart_action mips32
+Info: Quartus(args): mips32
 Info: SMART_ACTION = SOURCE
 Info (23030): Evaluation of Tcl script /opt/altera/13.1/quartus/common/tcl/internal/qsh_smart.tcl was successful
 Info: Quartus II 64-Bit Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 236 megabytes
-    Info: Processing ended: Wed Aug 23 09:13:22 2017
-    Info: Elapsed time: 00:00:00
+    Info: Processing ended: Fri Aug 25 16:02:02 2017
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00

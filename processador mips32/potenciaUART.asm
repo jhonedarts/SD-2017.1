@@ -3,26 +3,26 @@
 		resultado:
 		.word 0
 		msg:
-		.word 42
-		.asciiz "Digite um numero inteiro positivo (Base): "
+		.word 7
+		.asciiz " Base: "		
 		msg1:
-		.word 46
-		.asciiz "Digite um numero inteiro positivo (Expoente): "
+		.word 11
+		.asciiz " Expoente: "
 		msg2:
-		.word 25
-		.asciiz "Resultado (hexadecimal): "
+		.word 12
+		.asciiz " Resultado: "
 	.text
 
 		addi $s4, $zero, 10 				# 10 = codigo do enter
 		addi $s7, $zero, 0x860
 		
-		la $a0, msg		
+		addi $a0, $zero 0x01		
 		addi $a1, $zero, 0x860	
 		jal nr_uart_txstring
 		jal scanf
 		add $s0, $zero, $s5
 		
-		la $a0, msg1		
+		addi $a0, $zero 0x0a		
 		addi $a1, $zero, 0x860		# printf
 		jal nr_uart_txstring			
 		add $s5, $zero, $zero
@@ -32,7 +32,7 @@
 		addi $s2, $zero, 1 		  	#CONTADOR DO LOOP
 		add $t0, $zero, $s0		   	#atribui a primeira iteracao, colocando a base em $t0
 		
-		la $t1, resultado
+		addi $t1, $zero 0x00
 		sw $s2, 0($t1)
 		beq $s1, $zero, Endfor
 		
@@ -48,9 +48,9 @@
 		addi $t0, $zero, 1
 		addi $t2, $zero, 1
 	contp:	
-		la $t1, resultado
+		addi $t1, $zero 0x00
 		sw $t0, 0($t1)		   		#guarda o resultado na memoria
-		la $a0, msg2
+		addi $a0, $zero 0x17
 		addi $a1, $zero, 0x860		# printf
 		jal nr_uart_txstring
 		add $a0, $zero, $t0	
@@ -73,17 +73,21 @@
 
 	nr_uart_txstring: 		
 		lw $t5, 0($a0)
+		addi $a0, $a0, 1
 		addi $t6, $zero, 1
-		printLoop:
-			add $a0, $a0, $t6			
-			lw $t7, 0($a0)
+		printLoop:			
+			lw $t7, 0($a0)			
+			add $zero, $zero, $zero
+			add $zero, $zero, $zero
 			sw $t7, 0($s7)
 			notx:
 				lw $t7, 12($s7)
+				add $zero, $zero, $zero
 				addi $t8, $zero, 12
 				bne $t7, $t8, notx
 			sw $zero, 12($s7)
 			beq $t6, $t5, endprintLoop
+			addi $a0, $a0, 1
 			addi $t6, $t6, 1
 			j printLoop
 		endprintLoop:
@@ -94,6 +98,7 @@
 		notx1:
 			lw $t7, 12($s7)
 			addi $t8, $zero, 12
+			add $zero, $zero, $zero
 			bne $t7, $t8, notx1
 		sw $zero, 12($s7)
 		jr $ra
@@ -102,10 +107,14 @@
 		addi $t6, $zero, 12
 		norx:
 			lw $t5, 8($s7)
+			add $zero, $zero, $zero
+			add $zero, $zero, $zero
 			beq $t5, $t6, endnorx
 			j norx
 		endnorx:
 		lw $v0, 4($s7)
+		sw $zero, 8($s7)
+		add $zero, $zero, $zero
 		jr $ra
 
 		exit:

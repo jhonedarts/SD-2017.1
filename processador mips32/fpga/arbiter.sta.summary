@@ -3,11 +3,11 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'frequencyDivider:divider|clkReg'
-Slack : -2.762
-TNS   : -191.368
+Slack : -2.444
+TNS   : -110.001
 
 Type  : Slow 1200mV 85C Model Setup 'clock_50MHz'
-Slack : 0.136
+Slack : 0.135
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'frequencyDivider:divider|clkReg'
@@ -15,7 +15,7 @@ Slack : 0.392
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clock_50MHz'
-Slack : 0.415
+Slack : 0.416
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_50MHz'
@@ -24,14 +24,14 @@ TNS   : -5.570
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'frequencyDivider:divider|clkReg'
 Slack : -1.285
-TNS   : -122.075
+TNS   : -88.665
 
 Type  : Slow 1200mV 0C Model Setup 'frequencyDivider:divider|clkReg'
-Slack : -2.443
-TNS   : -167.299
+Slack : -2.148
+TNS   : -93.386
 
 Type  : Slow 1200mV 0C Model Setup 'clock_50MHz'
-Slack : 0.223
+Slack : 0.222
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'frequencyDivider:divider|clkReg'
@@ -39,7 +39,7 @@ Slack : 0.343
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clock_50MHz'
-Slack : 0.371
+Slack : 0.372
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_50MHz'
@@ -48,18 +48,18 @@ TNS   : -5.570
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'frequencyDivider:divider|clkReg'
 Slack : -1.285
-TNS   : -122.075
+TNS   : -88.665
 
 Type  : Fast 1200mV 0C Model Setup 'frequencyDivider:divider|clkReg'
-Slack : -0.777
-TNS   : -45.463
+Slack : -0.696
+TNS   : -21.082
 
 Type  : Fast 1200mV 0C Model Setup 'clock_50MHz'
 Slack : 0.575
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'frequencyDivider:divider|clkReg'
-Slack : 0.177
+Slack : 0.176
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clock_50MHz'
@@ -72,6 +72,6 @@ TNS   : -5.674
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'frequencyDivider:divider|clkReg'
 Slack : -1.000
-TNS   : -95.000
+TNS   : -69.000
 
 ------------------------------------------------------------

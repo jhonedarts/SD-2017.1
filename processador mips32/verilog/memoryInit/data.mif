@@ -7,7 +7,7 @@ BEGIN
  
              
 -- memory address : data
-00:00;
+00 : 00000000;
 
  
 END;

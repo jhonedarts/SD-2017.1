@@ -22,7 +22,7 @@ module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx
 	reg readyRx1b = 0;
 	reg busyTx0reg = 0;
 	reg busyTx1reg = 0;
-	reg [1:0] stage = `STAGE_START;	
+	reg [1:0] stage = `STAGE_INTERFACE;	
 	reg [1:0] stage0 = `STAGE_INTERFACE;
 
 	assign tx0enable = (!busyTx0 & !busyTx0reg & memWriteCPU & (address == `UART0))? 1:0;//tx uart0 desocupado & store na faixa de endereço uart0
@@ -48,45 +48,58 @@ module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx
 	assign flag1 = (readyRx1|readyRx1b|tx1flag)?1:0;
 	
 	always @(posedge clk) begin
-		$display("[ARBITER] address: %h tx0enable: %b", address, busyTx0, tx0enable);
+		//$display("[ARBITER] address: %h tx0busy: %b tx0enable: %b", address, busyTx0, tx0enable);
 		case (stage)
-			`STAGE_START: begin 
+			`STAGE_INTERFACE: begin
+				//$display("interface rx");
+				readyRx0b <= readyRx0;
+				readyRx1b <= readyRx1;
+				if (readyRx0 | readyRx1) begin//data
+					if ((uart0toMem|uart1toMem) & !(tx0flag|tx1flag)) begin //rxdata, dando prioridade a ao txflag
+						stage <= `STAGE_WORK;
+					end else begin
+						stage <= `STAGE_START;
+					end
+				end
+			end
+			`STAGE_START: begin //data
+				//$display("start rx");
 				if ((uart0toMem|uart1toMem) & !(tx0flag|tx1flag)) begin //rxdata, dando prioridade a ao txflag
-					stage <= `STAGE_WORK;				
-					readyRx0b <= readyRx0;
-					readyRx1b <= readyRx1;
+					stage <= `STAGE_WORK;
 				end
 			end
-			`STAGE_WORK: begin
+			`STAGE_WORK: begin//flag
+				//$display("work rx");
 				if ((uart0toMem|uart1toMem) & !(tx0flag|tx1flag)) begin //rxdata sinalizador na memoria
-					stage <= `STAGE_START;				
-					readyRx0b <= readyRx0;
-					readyRx1b <= readyRx1;
+					stage <= `STAGE_INTERFACE;
 				end
 			end
-			default: stage <= `STAGE_START;
+			default: stage <= `STAGE_INTERFACE;
 		endcase
 	end
 
+	
 	always @(posedge clk) begin
 		case (stage0)
 			`STAGE_INTERFACE: begin //os dois desocupados
+				//$display("interface tx");
 				busyTx0reg <= busyTx0;
 				busyTx1reg <= busyTx1;
 				if (busyTx0 & !busyTx1) begin //0 inicia a transmissão
 					stage0 <= `STAGE_START;										
 				end else if (busyTx1 & !busyTx0) begin //1 inicia a transmissão
 					stage0 <= `STAGE_WORK;										
+				end else if (busyTx1 & busyTx0) begin //1 inicia a transmissão
+					stage0 <= `STAGE_STOP;										
 				end
 			end
 			`STAGE_START: begin //1 desocupado e 0 querendo escrever 
+				//$display("start tx");
 				busyTx1reg <= busyTx1;
-				if (tx0flag) begin //terminou de transmitir o tx0Data e agora que escrever a flag na mem
+				if (!busyTx0) begin //terminou de transmitir o tx0Data e agora que escrever a flag na mem
 					if (uart0toMem & !busyTx1) begin //escreveu 0, e 1 ta desocupado
-						busyTx0reg <= busyTx0;
 						stage0 <= `STAGE_INTERFACE;										
 					end	else if (uart0toMem & busyTx1) begin //escreveu 0, e 1 ta ocupado (caso raro)
-						busyTx0reg <= busyTx0;
 						stage0 <= `STAGE_WORK;
 					end	else if (!uart0toMem & busyTx1) begin //nao escreveu 0 ainda e aparece o 1 pra escrever tb
 						stage0 <= `STAGE_STOP;
@@ -98,13 +111,12 @@ module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx
 				end
 			end
 			`STAGE_WORK: begin //0 desocupado e 1 querendo escrever 
+				//$display("work tx");
 				busyTx0reg <= busyTx0;
-				if (tx1flag) begin //terminou de transmitir o tx1Data e agora que escrever a flag na mem
+				if (!busyTx1) begin //terminou de transmitir o tx1Data e agora que escrever a flag na mem
 					if (uart1toMem & !busyTx0) begin 
-						busyTx1reg <= busyTx1;
 						stage0 <= `STAGE_INTERFACE;										
 					end	else if (uart1toMem & busyTx0) begin
-						busyTx1reg <= busyTx1;
 						stage0 <= `STAGE_START;
 					end	else if (!uart1toMem & busyTx0) begin //nao escreveu 0 ainda e aparece o 1 pra escrever tb
 						stage0 <= `STAGE_STOP;
@@ -117,15 +129,14 @@ module arbiter(clk, address, memReadCPU, memWriteCPU, readyRx0, readyRx1, busyTx
 				
 			end
 			`STAGE_STOP: begin//dois querendo
-				if (tx0flag) begin//terminou de transmitir tx0Data
+				//$display("stop tx");
+				if (!busyTx0) begin//terminou de transmitir tx0Data
 					if (uart0toMem) begin //autorizou o 0
-						busyTx0reg <= busyTx0;
 						stage0 <= `STAGE_WORK;
 					end 
 				end else begin
-					if (tx1flag) begin//terminou de transmitir tx1Data
+					if (!busyTx1) begin//terminou de transmitir tx1Data
 						if (uart1toMem) begin //autorizou o 1
-							busyTx1reg <= busyTx1;
 							stage0 <= `STAGE_START;
 						end		
 					end		
